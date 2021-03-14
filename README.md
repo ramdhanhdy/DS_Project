@@ -20,7 +20,7 @@ Repository containing portfolio of data science projects completed by me for aca
   - __R__ 
 
 
-- ### Micro Projects: 
+- ### Mini Projects for fun: 
   - __Python__
 
 
