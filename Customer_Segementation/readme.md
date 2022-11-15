@@ -1,3 +1,7 @@
 # About this directory
 
-This directory contains notebooks related to Customer Segmentation tasks.
+Notebooks:
+
+1. marketing_eda.ipynb: 
+- Content: Exploratory Data Analysis and Data Preprocessing on a marketing campaign dataset.
+- Tech stack used: Python, R, and Tableau
