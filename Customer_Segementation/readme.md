@@ -1,4 +1,4 @@
-# About this directory
+# Customer Personality Analysis (Marketing Campaign Dataset)
 
 Notebooks:
 
