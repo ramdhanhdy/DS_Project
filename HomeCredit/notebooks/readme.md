@@ -1,4 +1,4 @@
-# Home Credit Default Risk - Modeling
+## About this repo
 
 This repository houses the `HomeCredit_Modeling` notebook, which forms the heart of the predictive modeling phase of the Home Credit Default Risk project.
 
