@@ -1,18 +1,14 @@
-# Home Credit Default Risk
+# Home Credit Default Risk Analysis
 
 #### -- Project Status: [Active]
 
-## Project Intro/Objective
-The purpose of this project is to develop a machine learning model for predicting whether a client will have payment difficulties or not based on the dataset from Home Credit, a service dedicated to provided lines of credit (loans) to the unbanked population. 
+## Objective
+The objective of this project is to predict potential credit repayment difficulties among clients using a robust machine learning model. The project is based on the dataset provided by Home Credit, a service dedicated to offering lines of credit (loans) to unbanked individuals.
 
-### Methods Used
-* Data Preprocessing
-* Feature Selection
-* Machine Learning
-* Hyperparameter Tuning
-* Model Evaluation
+## Overview
+This study begins with the acquisition and merging of relevant datasets. Following a rigorous feature engineering process, a comprehensive dataset is created for model development. Several feature selection strategies, including Recursive Feature Elimination with XGBoost, Linear Discriminant Analysis, and Mutual Information Coefficient, are implemented. The machine learning models utilized include XGBoost and CatBoost, optimized using Hyperopt for hyperparameter tuning. The project concludes with a comprehensive evaluation of model performance, emphasizing precision, recall, and ROC-AUC metrics.
 
-### Technologies
+## Technologies & Methods
 * Python
 * Jupyter Notebook
 * Scikit-Learn
@@ -20,26 +16,27 @@ The purpose of this project is to develop a machine learning model for predictin
 * CatBoost
 * Pandas
 * Hyperopt
+* Data Preprocessing
+* Feature Selection
+* Machine Learning
+* Hyperparameter Tuning
+* Model Evaluation
 
-## Project Description
-In this project, a predictive model was built using the Home Credit dataset to identify clients that may face difficulties repaying their loan. Various feature selection techniques were explored, including Recursive Feature Elimination with XGBoost and Linear Discriminant Analysis, and Mutual Information Coefficient. Multiple machine learning models were developed and evaluated, with particular focus on XGBoost and CatBoost. Additionally, Hyperopt was used for hyperparameter tuning to further optimize the models.
+## Project Requirements
+* Data exploration
+* Descriptive statistics
+* Data preprocessing
+* Data cleaning
+* Feature selection and engineering
+* Predictive modeling
+* Hyperparameter tuning
+* Evaluation metric interpretation
 
-## Needs of this project
+## Resources
+1. Obtain the raw data [here](https://www.kaggle.com/c/home-credit-default-risk/data), courtesy of Kaggle's Home Credit Default Risk competition.
+2. For data processing and transformation scripts, refer to the Jupyter notebooks within this repository.
 
-- Data exploration and descriptive statistics
-- Data preprocessing and cleaning
-- Feature selection and engineering
-- Predictive modeling and model comparison
-- Hyperparameter tuning
-- Evaluation metric interpretation
-
-## Getting Started
-
-1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
-2. Raw Data is kept [here](https://www.kaggle.com/c/home-credit-default-risk/data) from Kaggle's Home Credit Default Risk competition.
-3. Data processing/transformation scripts are being kept in the Jupyter notebooks within this repository.
-
-## Featured Notebooks/Analysis/Deliverables
-* [Feature Selection and XGBoost Model Notebook](link)
-* [Hyperparameter Tuning and CatBoost Model Notebook](link)
-* [Blog Post on Model Interpretation and Business Impact](link)
+## Key Deliverables
+* [Notebook on Exploratory Data Analysis](link)
+* [Notebook on Feature Selection and Classification Model](link)
+* [Blog Post Discussing the Exploratory Data Analysis](link)
