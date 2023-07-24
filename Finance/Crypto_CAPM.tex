@@ -1,0 +1,1998 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, enhanced, boxrule=0pt, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# IMPORTS}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ math}
+\ImportTok{import}\NormalTok{ os.path}
+\ImportTok{import}\NormalTok{ yaml}
+\ImportTok{import}\NormalTok{ time}
+\CommentTok{\# from bitmex import bitmex}
+\CommentTok{\# from binance import Client}
+\ImportTok{from}\NormalTok{ binance.client }\ImportTok{import}\NormalTok{ Client}
+\ImportTok{from}\NormalTok{ datetime }\ImportTok{import}\NormalTok{ timedelta, datetime}
+\ImportTok{from}\NormalTok{ dateutil }\ImportTok{import}\NormalTok{ parser}
+\ImportTok{from}\NormalTok{ tqdm }\ImportTok{import}\NormalTok{ tqdm\_notebook }\CommentTok{\#(progress{-}bars)}
+\ImportTok{from}\NormalTok{ time }\ImportTok{import}\NormalTok{ sleep}
+\ImportTok{import}\NormalTok{ statsmodels.api }\ImportTok{as}\NormalTok{ sm}
+\ImportTok{from}\NormalTok{ statsmodels }\ImportTok{import}\NormalTok{ regression}
+\ImportTok{from}\NormalTok{ sklearn }\ImportTok{import}\NormalTok{ linear\_model}
+\ImportTok{from}\NormalTok{ plotly.subplots }\ImportTok{import}\NormalTok{ make\_subplots}
+
+\CommentTok{\# Set the API Key from a yaml file}
+\NormalTok{yaml\_file }\OperatorTok{=} \BuiltInTok{open}\NormalTok{(}\StringTok{\textquotesingle{}api\_config\_binance.yml\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}r\textquotesingle{}}\NormalTok{)}
+\NormalTok{binance\_file }\OperatorTok{=}\NormalTok{ yaml.load(yaml\_file, Loader}\OperatorTok{=}\NormalTok{yaml.FullLoader)}
+\NormalTok{binance\_client }\OperatorTok{=}\NormalTok{ Client(api\_key}\OperatorTok{=}\NormalTok{binance\_file[}\StringTok{\textquotesingle{}api\_key\textquotesingle{}}\NormalTok{], api\_secret}\OperatorTok{=}\NormalTok{binance\_file[}\StringTok{\textquotesingle{}api\_secret\textquotesingle{}}\NormalTok{])}
+
+
+\CommentTok{\#\#\# CONSTANTS}
+\NormalTok{binsizes }\OperatorTok{=}\NormalTok{ \{}\StringTok{"1m"}\NormalTok{: }\DecValTok{1}\NormalTok{, }\StringTok{"5m"}\NormalTok{: }\DecValTok{5}\NormalTok{, }\StringTok{"15m"}\NormalTok{:}\DecValTok{15}\NormalTok{, }\StringTok{"30m"}\NormalTok{:}\DecValTok{30}\NormalTok{, }\StringTok{"1h"}\NormalTok{: }\DecValTok{60}\NormalTok{, }\StringTok{"1d"}\NormalTok{: }\DecValTok{1440}\NormalTok{\}}
+\NormalTok{batch\_size }\OperatorTok{=} \DecValTok{750}
+\NormalTok{futures\_exchange\_info }\OperatorTok{=}\NormalTok{ binance\_client.futures\_exchange\_info()  }\CommentTok{\# request info on all futures symbols}
+\NormalTok{to\_remove }\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}ETHUSDT\_230331\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BTCUSDT\_230331\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BTCUSDT\_221230\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}ETHUSDT\_221230\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}1000SHIBUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BTCDOMUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BTCSTUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}1000XECUSDT\textquotesingle{}}\NormalTok{,  }\StringTok{\textquotesingle{}1000FLOKIUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}1000PEPEUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BLURUSDT\textquotesingle{}}\NormalTok{,}
+            \StringTok{\textquotesingle{}ETHUSDT\_230630\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BTCUSDT\_230630\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}1000LUNCUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}FOOTBALLUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}LUNA2USDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}FTTUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}USDCUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}DEFIUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BLUEBIRDUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}HNTUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}CVCUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}SRMUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RDNTUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}COCOSUSDT\textquotesingle{}}\NormalTok{]}
+            
+\NormalTok{futures\_pairs }\OperatorTok{=}\NormalTok{ [info[}\StringTok{\textquotesingle{}symbol\textquotesingle{}}\NormalTok{] }\ControlFlowTok{for}\NormalTok{ info }\KeywordTok{in}\NormalTok{ futures\_exchange\_info[}\StringTok{\textquotesingle{}symbols\textquotesingle{}}\NormalTok{] }\ControlFlowTok{if} \StringTok{\textquotesingle{}USDT\textquotesingle{}} \KeywordTok{in}\NormalTok{ info[}\StringTok{\textquotesingle{}symbol\textquotesingle{}}\NormalTok{]]}
+\NormalTok{futures\_pairs }\OperatorTok{=}\NormalTok{ [x }\ControlFlowTok{for}\NormalTok{ x }\KeywordTok{in}\NormalTok{ futures\_pairs }\ControlFlowTok{if}\NormalTok{ x }\KeywordTok{not} \KeywordTok{in}\NormalTok{ to\_remove]}
+\NormalTok{futures\_pairs.sort()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ get\_all\_binance(symbol, kline\_size, start\_date}\OperatorTok{=}\VariableTok{None}\NormalTok{, save\_csv}\OperatorTok{=}\VariableTok{False}\NormalTok{):}
+\NormalTok{    filename }\OperatorTok{=} \SpecialStringTok{f\textquotesingle{}}\SpecialCharTok{\{}\NormalTok{symbol}\SpecialCharTok{\}}\SpecialStringTok{{-}}\SpecialCharTok{\{}\NormalTok{kline\_size}\SpecialCharTok{\}}\SpecialStringTok{{-}data.csv\textquotesingle{}}
+    \ControlFlowTok{if}\NormalTok{ os.path.isfile(filename):}
+\NormalTok{        data\_df }\OperatorTok{=}\NormalTok{ pd.read\_csv(filename, index\_col}\OperatorTok{=}\StringTok{\textquotesingle{}timestamp\textquotesingle{}}\NormalTok{, parse\_dates}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}timestamp\textquotesingle{}}\NormalTok{])}
+    \ControlFlowTok{else}\NormalTok{:}
+\NormalTok{        data\_df }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+
+    \ControlFlowTok{if}\NormalTok{ start\_date }\KeywordTok{is} \VariableTok{None}\NormalTok{:}
+\NormalTok{        oldest\_point }\OperatorTok{=}\NormalTok{ data\_df.index[}\OperatorTok{{-}}\DecValTok{1}\NormalTok{] }\ControlFlowTok{if} \KeywordTok{not}\NormalTok{ data\_df.empty }\ControlFlowTok{else}\NormalTok{ datetime.strptime(}\StringTok{\textquotesingle{}7 Mar 2023\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}}\SpecialCharTok{\%d}\StringTok{ \%b \%Y\textquotesingle{}}\NormalTok{)}
+    \ControlFlowTok{else}\NormalTok{:}
+\NormalTok{        oldest\_point }\OperatorTok{=}\NormalTok{ pd.to\_datetime(start\_date)}
+
+\NormalTok{    newest\_point }\OperatorTok{=}\NormalTok{ pd.to\_datetime(binance\_client.get\_klines(symbol}\OperatorTok{=}\NormalTok{symbol, interval}\OperatorTok{=}\NormalTok{kline\_size)[}\OperatorTok{{-}}\DecValTok{1}\NormalTok{][}\DecValTok{0}\NormalTok{], unit}\OperatorTok{=}\StringTok{\textquotesingle{}ms\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{    delta\_min }\OperatorTok{=}\NormalTok{ (newest\_point }\OperatorTok{{-}}\NormalTok{ oldest\_point).total\_seconds() }\OperatorTok{/} \DecValTok{60}
+\NormalTok{    available\_data }\OperatorTok{=}\NormalTok{ math.ceil(delta\_min }\OperatorTok{/}\NormalTok{ binsizes[kline\_size])}
+
+    \ControlFlowTok{if}\NormalTok{ oldest\_point }\OperatorTok{==}\NormalTok{ datetime.strptime(}\StringTok{\textquotesingle{}1 Jan 2017\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}}\SpecialCharTok{\%d}\StringTok{ \%b \%Y\textquotesingle{}}\NormalTok{):}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f\textquotesingle{}Downloading all available }\SpecialCharTok{\{}\NormalTok{kline\_size}\SpecialCharTok{\}}\SpecialStringTok{ data for }\SpecialCharTok{\{}\NormalTok{symbol}\SpecialCharTok{\}}\SpecialStringTok{. Please be patient..!\textquotesingle{}}\NormalTok{)}
+    \ControlFlowTok{else}\NormalTok{:}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f\textquotesingle{}Downloading }\SpecialCharTok{\{}\NormalTok{delta\_min}\SpecialCharTok{\}}\SpecialStringTok{ minutes of new data available for }\SpecialCharTok{\{}\NormalTok{symbol}\SpecialCharTok{\}}\SpecialStringTok{, i.e., }\SpecialCharTok{\{}\NormalTok{available\_data}\SpecialCharTok{\}}\SpecialStringTok{ instances of }\SpecialCharTok{\{}\NormalTok{kline\_size}\SpecialCharTok{\}}\SpecialStringTok{ data.\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{    klines }\OperatorTok{=}\NormalTok{ binance\_client.get\_historical\_klines(symbol, kline\_size, oldest\_point.strftime(}\StringTok{"}\SpecialCharTok{\%d}\StringTok{ \%b \%Y \%H:\%M:\%S"}\NormalTok{), newest\_point.strftime(}\StringTok{"}\SpecialCharTok{\%d}\StringTok{ \%b \%Y \%H:\%M:\%S"}\NormalTok{))}
+\NormalTok{    data }\OperatorTok{=}\NormalTok{ pd.DataFrame(klines, columns}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}timestamp\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}open\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}high\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}low\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}close\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}volume\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}close\_time\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}quote\_av\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}trades\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tb\_base\_av\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tb\_quote\_av\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ignore\textquotesingle{}}\NormalTok{])}
+\NormalTok{    data[}\StringTok{\textquotesingle{}timestamp\textquotesingle{}}\NormalTok{] }\OperatorTok{=}\NormalTok{ pd.to\_datetime(data[}\StringTok{\textquotesingle{}timestamp\textquotesingle{}}\NormalTok{], unit}\OperatorTok{=}\StringTok{\textquotesingle{}ms\textquotesingle{}}\NormalTok{)}
+    
+    \ControlFlowTok{if} \KeywordTok{not}\NormalTok{ data\_df.empty:}
+\NormalTok{        data\_df }\OperatorTok{=}\NormalTok{ pd.concat([data\_df, data])}
+    \ControlFlowTok{else}\NormalTok{:}
+\NormalTok{        data\_df }\OperatorTok{=}\NormalTok{ data}
+\NormalTok{    data\_df.set\_index(}\StringTok{\textquotesingle{}timestamp\textquotesingle{}}\NormalTok{, inplace}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
+    \ControlFlowTok{if}\NormalTok{ save\_csv:}
+\NormalTok{        data\_df.to\_csv(filename)}
+
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}All caught up..!\textquotesingle{}}\NormalTok{)}
+    \ControlFlowTok{return}\NormalTok{ data\_df}
+
+
+\KeywordTok{def}\NormalTok{ get\_all\_binance\_futures\_data(kline\_size, start\_date}\OperatorTok{=}\VariableTok{None}\NormalTok{, save\_csv}\OperatorTok{=}\VariableTok{False}\NormalTok{):}
+\NormalTok{    df\_close }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+\NormalTok{    df\_vol }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+\NormalTok{    df\_returns }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+\NormalTok{    df\_trades }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+\NormalTok{    symbols\_with\_no\_data }\OperatorTok{=}\NormalTok{ []  }\CommentTok{\# List to store symbols with no available data}
+
+    \ControlFlowTok{for}\NormalTok{ symbol }\KeywordTok{in}\NormalTok{ futures\_pairs:}
+        \ControlFlowTok{try}\NormalTok{:}
+\NormalTok{            temp\_data }\OperatorTok{=}\NormalTok{ get\_all\_binance(symbol, kline\_size, start\_date}\OperatorTok{=}\NormalTok{start\_date, save\_csv}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+        \ControlFlowTok{except} \PreprocessorTok{Exception} \ImportTok{as}\NormalTok{ e:}
+\NormalTok{            symbols\_with\_no\_data.append(symbol)  }\CommentTok{\# Add symbol to the list if there is no data}
+            \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Skipping symbol \textquotesingle{}}\SpecialCharTok{\{}\NormalTok{symbol}\SpecialCharTok{\}}\SpecialStringTok{\textquotesingle{} due to API error:"}\NormalTok{, e)}
+            \ControlFlowTok{continue}  \CommentTok{\# Skip to the next symbol}
+
+        \ControlFlowTok{if}\NormalTok{ temp\_data.empty:}
+\NormalTok{            symbols\_with\_no\_data.append(symbol)  }\CommentTok{\# Add symbol to the list if there is no data}
+            \ControlFlowTok{continue}  \CommentTok{\# Skip to the next symbol}
+
+\NormalTok{        temp\_close }\OperatorTok{=}\NormalTok{ temp\_data[[}\StringTok{\textquotesingle{}close\textquotesingle{}}\NormalTok{]].rename(columns}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}close\textquotesingle{}}\NormalTok{: symbol\})}
+\NormalTok{        temp\_vol }\OperatorTok{=}\NormalTok{ temp\_data[[}\StringTok{\textquotesingle{}volume\textquotesingle{}}\NormalTok{]].rename(columns}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}volume\textquotesingle{}}\NormalTok{: symbol\})}
+\NormalTok{        temp\_returns }\OperatorTok{=}\NormalTok{ temp\_data[[}\StringTok{\textquotesingle{}close\textquotesingle{}}\NormalTok{]].astype(}\BuiltInTok{float}\NormalTok{).pct\_change(}\DecValTok{1}\NormalTok{)[}\DecValTok{1}\NormalTok{:].rename(columns}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}close\textquotesingle{}}\NormalTok{: symbol\})}
+\NormalTok{        temp\_trades }\OperatorTok{=}\NormalTok{ temp\_data[[}\StringTok{\textquotesingle{}trades\textquotesingle{}}\NormalTok{]].rename(columns}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}trades\textquotesingle{}}\NormalTok{: symbol\})}
+
+\NormalTok{        df\_close }\OperatorTok{=}\NormalTok{ pd.concat([df\_close, temp\_close], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+\NormalTok{        df\_vol }\OperatorTok{=}\NormalTok{ pd.concat([df\_vol, temp\_vol], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+\NormalTok{        df\_returns }\OperatorTok{=}\NormalTok{ pd.concat([df\_returns, temp\_returns], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+\NormalTok{        df\_trades }\OperatorTok{=}\NormalTok{ pd.concat([df\_trades, temp\_trades], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+
+\NormalTok{        sleep(}\FloatTok{0.1}\NormalTok{)}
+
+\NormalTok{    df\_close }\OperatorTok{=}\NormalTok{ df\_close.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+\NormalTok{    df\_vol }\OperatorTok{=}\NormalTok{ df\_vol.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+\NormalTok{    df\_returns }\OperatorTok{=}\NormalTok{ df\_returns.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+\NormalTok{    df\_trades }\OperatorTok{=}\NormalTok{ df\_trades.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+
+    \ControlFlowTok{if}\NormalTok{ save\_csv:}
+\NormalTok{        df\_close.to\_csv(}\StringTok{\textquotesingle{}df\_close.csv\textquotesingle{}}\NormalTok{)}
+\NormalTok{        df\_vol.to\_csv(}\StringTok{\textquotesingle{}df\_vol.csv\textquotesingle{}}\NormalTok{)}
+\NormalTok{        df\_returns.to\_csv(}\StringTok{\textquotesingle{}df\_returns.csv\textquotesingle{}}\NormalTok{)}
+\NormalTok{        df\_trades.to\_csv(}\StringTok{\textquotesingle{}df\_trades.csv\textquotesingle{}}\NormalTok{)}
+
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}All caught up..!\textquotesingle{}}\NormalTok{)}
+    
+    \ControlFlowTok{if}\NormalTok{ symbols\_with\_no\_data:}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Symbols with no data:\textquotesingle{}}\NormalTok{)}
+        \BuiltInTok{print}\NormalTok{(symbols\_with\_no\_data)}
+
+    \ControlFlowTok{return}\NormalTok{ df\_close, df\_vol, df\_returns, df\_trades}
+
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#utility functions}
+\KeywordTok{def}\NormalTok{ rolling\_beta(X, y, idx, window}\OperatorTok{=}\DecValTok{30}\NormalTok{):}
+
+    \ControlFlowTok{assert} \BuiltInTok{len}\NormalTok{(X)}\OperatorTok{==}\BuiltInTok{len}\NormalTok{(y)}
+
+\NormalTok{    out\_dates }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{    out\_beta }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{    out\_alpha }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{    out\_r2 }\OperatorTok{=}\NormalTok{ []}
+
+\NormalTok{    model\_ols }\OperatorTok{=}\NormalTok{ linear\_model.LinearRegression()}
+
+    \ControlFlowTok{for}\NormalTok{ iStart }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{, }\BuiltInTok{len}\NormalTok{(X)}\OperatorTok{{-}}\NormalTok{window):        }
+\NormalTok{        iEnd }\OperatorTok{=}\NormalTok{ iStart}\OperatorTok{+}\NormalTok{window}
+
+\NormalTok{        model\_ols.fit(X[iStart:iEnd], y[iStart:iEnd])}
+
+        \CommentTok{\#store output}
+\NormalTok{        out\_dates.append(idx[iEnd])}
+\NormalTok{        out\_beta.append(model\_ols.coef\_[}\DecValTok{0}\NormalTok{][}\DecValTok{0}\NormalTok{])}
+\NormalTok{        out\_alpha.append(model\_ols.intercept\_[}\DecValTok{0}\NormalTok{])}
+\NormalTok{        out\_r2.append(model\_ols.intercept\_[}\DecValTok{0}\NormalTok{])}
+
+    \ControlFlowTok{return}\NormalTok{ pd.DataFrame(\{}\StringTok{\textquotesingle{}beta\textquotesingle{}}\NormalTok{:out\_beta\}, index}\OperatorTok{=}\NormalTok{out\_dates), pd.DataFrame(\{}\StringTok{\textquotesingle{}alpha\textquotesingle{}}\NormalTok{:out\_alpha\}, index}\OperatorTok{=}\NormalTok{out\_dates), pd.DataFrame(\{}\StringTok{\textquotesingle{}r2\_score\textquotesingle{}}\NormalTok{:out\_r2\}, index}\OperatorTok{=}\NormalTok{out\_dates)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{mins-tf}{%
+\section{30mins TF}\label{mins-tf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_close\_5m, df\_vol\_5m, df\_returns\_5m, df\_trades\_5m }\OperatorTok{=}\NormalTok{ get\_all\_binance\_futures\_data(kline\_size}\OperatorTok{=}\StringTok{\textquotesingle{}5m\textquotesingle{}}\NormalTok{, start\_date}\OperatorTok{=}\StringTok{\textquotesingle{}31 May 2023\textquotesingle{}}\NormalTok{, save\_csv}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Downloading 3840.0 minutes of new data available for 1INCHUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for AAVEUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ACHUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ADAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for AGIXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ALGOUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ALICEUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ALPHAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for AMBUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ANKRUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ANTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for APEUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for API3USDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for APTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ARBUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ARPAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ARUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ASTRUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ATAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ATOMUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for AUDIOUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for AVAXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for AXSUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BAKEUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BALUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BANDUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BATUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BCHUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BELUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BLZUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BNBUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BNXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BTCUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for BTSUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for C98USDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CELOUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CELRUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CFXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CHRUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CHZUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CKBUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for COMBOUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for COMPUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for COTIUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CRVUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CTKUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CTSIUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for CVXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for DARUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for DASHUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for DENTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for DGBUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for DOGEUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for DOTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for DUSKUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for DYDXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for EDUUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for EGLDUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ENJUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ENSUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for EOSUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ETCUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ETHUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for FETUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for FILUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for FLMUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for FLOWUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for FTMUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for FXSUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for GALAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for GALUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for GMTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for GMXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for GRTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for GTCUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for HBARUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for HFTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for HIGHUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for HOOKUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for HOTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ICPUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for ICXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for IDEXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for IDUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for IMXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for INJUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for IOSTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for IOTAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for IOTXUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for JASMYUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for JOEUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for KAVAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for KEYUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for KLAYUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for KNCUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for KSMUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LDOUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LEVERUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LINAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LINKUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LITUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LPTUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LQTYUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LRCUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for LTCUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for MAGICUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for MANAUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3840.0 minutes of new data available for MASKUSDT, i.e., 768 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for MATICUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for MINAUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for MKRUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for MTLUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for NEARUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for NEOUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for NKNUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for OCEANUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for OGNUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for OMGUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for ONEUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for ONTUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for OPUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for PEOPLEUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for PERPUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for PHBUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for QNTUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for QTUMUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for RADUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for RAYUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for REEFUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for RENUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for RLCUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for RNDRUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for ROSEUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for RSRUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for RUNEUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for RVNUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SANDUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SCUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SFPUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SKLUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SNXUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SOLUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SPELLUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SSVUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for STGUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for STMXUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for STORJUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for STXUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SUIUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SUSHIUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for SXPUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for THETAUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for TLMUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for TOMOUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for TRBUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for TRUUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for TRXUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for TUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for UMAUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for UNFIUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for UNIUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for VETUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for WAVESUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for WOOUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for XEMUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for XLMUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for XMRUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for XRPUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for XTZUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for XVSUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for YFIUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for ZECUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for ZENUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for ZILUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+Downloading 3845.0 minutes of new data available for ZRXUSDT, i.e., 769 instances of 5m data.
+All caught up..!
+All caught up..!
+\end{verbatim}
+
+\hypertarget{volume}{%
+\subsection{Volume}\label{volume}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_vol\_5m }\OperatorTok{=}\NormalTok{ df\_vol\_5m.replace(}\DecValTok{0}\NormalTok{, }\FloatTok{0.0001}\NormalTok{)}
+\NormalTok{df\_vol\_5m }\OperatorTok{=}\NormalTok{ df\_vol\_5m.dropna().astype(}\BuiltInTok{float}\NormalTok{)}
+\NormalTok{vol\_change\_5m }\OperatorTok{=}\NormalTok{ df\_vol\_5m.pct\_change(}\DecValTok{1}\NormalTok{)}
+\NormalTok{vol\_change\_5m }\OperatorTok{=}\NormalTok{ vol\_change\_5m.iloc[}\DecValTok{1}\NormalTok{:]}
+
+\CommentTok{\#sort index by the most recent date}
+\NormalTok{vol\_change\_5m }\OperatorTok{=}\NormalTok{ vol\_change\_5m.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+\NormalTok{vol\_change\_5m }\OperatorTok{=}\NormalTok{ vol\_change\_5m.reindex(}\BuiltInTok{sorted}\NormalTok{(vol\_change\_5m.columns), axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+
+
+\NormalTok{vol\_change\_styled }\OperatorTok{=}\NormalTok{ vol\_change\_5m.head(}\DecValTok{20}\NormalTok{).style.bar(align}\OperatorTok{=}\StringTok{\textquotesingle{}zero\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}\#d65f5f\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}\#5fba7d\textquotesingle{}}\NormalTok{])}
+
+\NormalTok{styles }\OperatorTok{=}\NormalTok{ [}\BuiltInTok{dict}\NormalTok{(selector}\OperatorTok{=}\StringTok{"caption"}\NormalTok{,}
+\NormalTok{            props}\OperatorTok{=}\NormalTok{[(}\StringTok{"text{-}align"}\NormalTok{, }\StringTok{"center"}\NormalTok{),}
+\NormalTok{                   (}\StringTok{"font{-}size"}\NormalTok{, }\StringTok{"120\%"}\NormalTok{),}
+\NormalTok{                   (}\StringTok{"color"}\NormalTok{, }\StringTok{\textquotesingle{}\#10de35\textquotesingle{}}\NormalTok{)])]}
+
+\NormalTok{vol\_change\_styled.set\_caption(}\StringTok{"5m Volume Change"}\NormalTok{).set\_table\_styles(styles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+c:\Users\ramdh\anaconda3\envs\crypto_env\Lib\site-packages\pandas\io\formats\style.py:4185: RuntimeWarning: invalid value encountered in scalar divide
+  start, end = (x - left) / (right - left), z_frac
+c:\Users\ramdh\anaconda3\envs\crypto_env\Lib\site-packages\pandas\io\formats\style.py:4187: RuntimeWarning: invalid value encountered in scalar divide
+  start, end = z_frac, (x - left) / (right - left)
+\end{verbatim}
+
+\begin{longtable}[]{@{}llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll@{}}
+\caption{5m Volume Change}\label{T_1f1c2}\tabularnewline
+\toprule()
+~ & 1INCHUSDT & AAVEUSDT & ACHUSDT & ADAUSDT & AGIXUSDT & ALGOUSDT &
+ALICEUSDT & ALPHAUSDT & AMBUSDT & ANKRUSDT & ANTUSDT & APEUSDT &
+API3USDT & APTUSDT & ARBUSDT & ARPAUSDT & ARUSDT & ASTRUSDT & ATAUSDT &
+ATOMUSDT & AUDIOUSDT & AVAXUSDT & AXSUSDT & BAKEUSDT & BALUSDT &
+BANDUSDT & BATUSDT & BCHUSDT & BELUSDT & BLZUSDT & BNBUSDT & BNXUSDT &
+BTCUSDT & BTSUSDT & C98USDT & CELOUSDT & CELRUSDT & CFXUSDT & CHRUSDT &
+CHZUSDT & CKBUSDT & COMBOUSDT & COMPUSDT & COTIUSDT & CRVUSDT & CTKUSDT
+& CTSIUSDT & CVXUSDT & DARUSDT & DASHUSDT & DENTUSDT & DGBUSDT &
+DOGEUSDT & DOTUSDT & DUSKUSDT & DYDXUSDT & EDUUSDT & EGLDUSDT & ENJUSDT
+& ENSUSDT & EOSUSDT & ETCUSDT & ETHUSDT & FETUSDT & FILUSDT & FLMUSDT &
+FLOWUSDT & FTMUSDT & FXSUSDT & GALAUSDT & GALUSDT & GMTUSDT & GMXUSDT &
+GRTUSDT & GTCUSDT & HBARUSDT & HFTUSDT & HIGHUSDT & HOOKUSDT & HOTUSDT &
+ICPUSDT & ICXUSDT & IDEXUSDT & IDUSDT & IMXUSDT & INJUSDT & IOSTUSDT &
+IOTAUSDT & IOTXUSDT & JASMYUSDT & JOEUSDT & KAVAUSDT & KEYUSDT &
+KLAYUSDT & KNCUSDT & KSMUSDT & LDOUSDT & LEVERUSDT & LINAUSDT & LINKUSDT
+& LITUSDT & LPTUSDT & LQTYUSDT & LRCUSDT & LTCUSDT & MAGICUSDT &
+MANAUSDT & MASKUSDT & MATICUSDT & MINAUSDT & MKRUSDT & MTLUSDT &
+NEARUSDT & NEOUSDT & NKNUSDT & OCEANUSDT & OGNUSDT & OMGUSDT & ONEUSDT &
+ONTUSDT & OPUSDT & PEOPLEUSDT & PERPUSDT & PHBUSDT & QNTUSDT & QTUMUSDT
+& RADUSDT & RAYUSDT & REEFUSDT & RENUSDT & RLCUSDT & RNDRUSDT & ROSEUSDT
+& RSRUSDT & RUNEUSDT & RVNUSDT & SANDUSDT & SCUSDT & SFPUSDT & SKLUSDT &
+SNXUSDT & SOLUSDT & SPELLUSDT & SSVUSDT & STGUSDT & STMXUSDT & STORJUSDT
+& STXUSDT & SUIUSDT & SUSHIUSDT & SXPUSDT & THETAUSDT & TLMUSDT &
+TOMOUSDT & TRBUSDT & TRUUSDT & TRXUSDT & TUSDT & UMAUSDT & UNFIUSDT &
+UNIUSDT & VETUSDT & WAVESUSDT & WOOUSDT & XEMUSDT & XLMUSDT & XMRUSDT &
+XRPUSDT & XTZUSDT & XVSUSDT & YFIUSDT & ZECUSDT & ZENUSDT & ZILUSDT &
+ZRXUSDT \\
+timestamp & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+\midrule()
+\endfirsthead
+\toprule()
+~ & 1INCHUSDT & AAVEUSDT & ACHUSDT & ADAUSDT & AGIXUSDT & ALGOUSDT &
+ALICEUSDT & ALPHAUSDT & AMBUSDT & ANKRUSDT & ANTUSDT & APEUSDT &
+API3USDT & APTUSDT & ARBUSDT & ARPAUSDT & ARUSDT & ASTRUSDT & ATAUSDT &
+ATOMUSDT & AUDIOUSDT & AVAXUSDT & AXSUSDT & BAKEUSDT & BALUSDT &
+BANDUSDT & BATUSDT & BCHUSDT & BELUSDT & BLZUSDT & BNBUSDT & BNXUSDT &
+BTCUSDT & BTSUSDT & C98USDT & CELOUSDT & CELRUSDT & CFXUSDT & CHRUSDT &
+CHZUSDT & CKBUSDT & COMBOUSDT & COMPUSDT & COTIUSDT & CRVUSDT & CTKUSDT
+& CTSIUSDT & CVXUSDT & DARUSDT & DASHUSDT & DENTUSDT & DGBUSDT &
+DOGEUSDT & DOTUSDT & DUSKUSDT & DYDXUSDT & EDUUSDT & EGLDUSDT & ENJUSDT
+& ENSUSDT & EOSUSDT & ETCUSDT & ETHUSDT & FETUSDT & FILUSDT & FLMUSDT &
+FLOWUSDT & FTMUSDT & FXSUSDT & GALAUSDT & GALUSDT & GMTUSDT & GMXUSDT &
+GRTUSDT & GTCUSDT & HBARUSDT & HFTUSDT & HIGHUSDT & HOOKUSDT & HOTUSDT &
+ICPUSDT & ICXUSDT & IDEXUSDT & IDUSDT & IMXUSDT & INJUSDT & IOSTUSDT &
+IOTAUSDT & IOTXUSDT & JASMYUSDT & JOEUSDT & KAVAUSDT & KEYUSDT &
+KLAYUSDT & KNCUSDT & KSMUSDT & LDOUSDT & LEVERUSDT & LINAUSDT & LINKUSDT
+& LITUSDT & LPTUSDT & LQTYUSDT & LRCUSDT & LTCUSDT & MAGICUSDT &
+MANAUSDT & MASKUSDT & MATICUSDT & MINAUSDT & MKRUSDT & MTLUSDT &
+NEARUSDT & NEOUSDT & NKNUSDT & OCEANUSDT & OGNUSDT & OMGUSDT & ONEUSDT &
+ONTUSDT & OPUSDT & PEOPLEUSDT & PERPUSDT & PHBUSDT & QNTUSDT & QTUMUSDT
+& RADUSDT & RAYUSDT & REEFUSDT & RENUSDT & RLCUSDT & RNDRUSDT & ROSEUSDT
+& RSRUSDT & RUNEUSDT & RVNUSDT & SANDUSDT & SCUSDT & SFPUSDT & SKLUSDT &
+SNXUSDT & SOLUSDT & SPELLUSDT & SSVUSDT & STGUSDT & STMXUSDT & STORJUSDT
+& STXUSDT & SUIUSDT & SUSHIUSDT & SXPUSDT & THETAUSDT & TLMUSDT &
+TOMOUSDT & TRBUSDT & TRUUSDT & TRXUSDT & TUSDT & UMAUSDT & UNFIUSDT &
+UNIUSDT & VETUSDT & WAVESUSDT & WOOUSDT & XEMUSDT & XLMUSDT & XMRUSDT &
+XRPUSDT & XTZUSDT & XVSUSDT & YFIUSDT & ZECUSDT & ZENUSDT & ZILUSDT &
+ZRXUSDT \\
+timestamp & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &
+~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+\midrule()
+\endhead
+2023-06-02 15:55:00 & 1.110618 & 0.489264 & 1.493932 & 2.431989 &
+0.143788 & -0.660534 & 26.784577 & 1.525813 & 0.371408 & -0.388737 &
+-0.017818 & 0.261037 & -0.958164 & -0.516047 & 1.194215 & 1.506156 &
+-0.963142 & 1.078758 & -0.260892 & 0.198118 & -0.582085 & -0.430627 &
+3.565433 & 0.037222 & -0.644914 & -0.532301 & -0.981970 & 0.042089 &
+-0.248022 & -0.620201 & -0.359643 & -0.872826 & 0.274197 & 13.032525 &
+0.309749 & -0.177745 & -0.209858 & 0.144694 & 3.972325 & 2.383768 &
+0.016822 & 1.084122 & 0.067758 & -0.897662 & -0.216410 & -0.318305 &
+-0.230319 & 0.323142 & -0.428987 & -0.776460 & -0.928215 & -0.984387 &
+3.228002 & 0.620758 & -0.373809 & -0.810196 & 0.641186 & 2.037529 &
+-0.607932 & 0.887168 & -0.522591 & 0.310790 & -0.051225 & 1.542764 &
+0.106035 & -0.629489 & 1.811890 & 0.996224 & -0.050729 & 0.362962 &
+0.807237 & -0.465366 & -0.767221 & 0.571723 & -0.292514 & 0.663893 &
+-0.376685 & -0.877961 & 3.833058 & 0.442708 & 0.039099 & -0.575990 &
+-0.462366 & 2.764271 & -0.166430 & -0.831906 & -0.214501 & -0.126630 &
+-0.469652 & 1.017738 & -0.774571 & -0.832418 & 0.126120 & -0.146340 &
+-1.000000 & -0.167021 & 0.149994 & -0.544914 & -0.483012 & -0.532263 &
+-0.302012 & inf & -0.702363 & -0.590623 & -0.172559 & -0.743996 &
+-0.377902 & -0.595867 & -0.248392 & -0.662276 & -0.900559 & 2.477804 &
+0.005284 & 0.792116 & -0.006129 & -0.868822 & -0.792206 & -0.975927 &
+0.089014 & 0.374158 & -0.410017 & -0.262833 & 0.335645 & -0.687953 &
+0.092401 & 0.923937 & -0.951571 & -0.282373 & 0.968303 & -0.682447 &
+-0.842063 & -0.637426 & 32.329295 & 0.335687 & -0.815440 & -0.424377 &
+-0.600419 & -0.862392 & -0.988866 & -0.069118 & -0.430243 & 0.497719 &
+0.397962 & -0.342488 & 0.013394 & -0.961752 & -0.964523 & -0.146577 &
+-0.079386 & -0.932767 & -0.588817 & -0.913433 & 13.768130 & -0.075979 &
+3.706731 & -0.803184 & -0.876599 & -0.642436 & -0.796684 & -0.851519 &
+-0.493273 & -0.286868 & -0.256676 & 1.132101 & 1.309900 & 1.778070 &
+-0.289896 & 1.066581 & -0.355516 & -0.923437 & -0.851287 & -0.711518 &
+-0.711166 & -0.548255 & -0.219928 \\
+2023-06-02 15:50:00 & 1.011940 & 1.150628 & 11.352251 & 0.300024 &
+-0.247511 & 0.096930 & -0.103752 & -0.213071 & 0.219278 & 0.429622 &
+0.186605 & 0.704550 & 26.464392 & 0.468548 & -0.550455 & -0.239834 &
+22.575139 & -0.397736 & 18.992416 & 0.195968 & 2.332573 & 0.366928 &
+-0.362402 & 0.173271 & 4.072151 & -0.825828 & 175.043011 & -0.607159 &
+1.053961 & -0.900919 & -0.204320 & -0.720237 & -0.065380 & 14.873667 &
+0.674985 & 0.068879 & 1.694861 & -0.337017 & -0.233931 & -0.677132 &
+20.106686 & 1.477939 & -0.196381 & 137.353760 & -0.937233 & 7.206100 &
+0.024775 & 0.306067 & 0.526979 & 0.360266 & 14.959544 & 1.951174 &
+-0.508781 & -0.469192 & -0.101839 & 0.756801 & 1.637526 & -0.414349 &
+1.419686 & -0.536751 & 13.047090 & -0.292939 & -0.590507 & -0.754934 &
+0.258559 & -0.649841 & -0.349514 & -0.802527 & 3.038771 & -0.653838 &
+-0.161704 & -0.331652 & 8.300712 & 1.238014 & -0.132966 & 2.889576 &
+-0.413360 & 2.680711 & -0.728784 & 1.416435 & -0.052143 & 11.913863 &
+-0.569221 & -0.222917 & 0.373399 & 0.647637 & -0.098053 & 1.159050 &
+1.127903 & -0.576625 & 1.374107 & 0.971526 & -0.622296 & 0.169655 & inf
+& -0.765198 & -0.790815 & 1.435890 & -0.235374 & -0.676363 & -0.269989 &
+0.250076 & 0.784979 & -0.542361 & -0.468782 & 1.343837 & -0.312759 &
+-0.328040 & 0.148294 & 0.788893 & 0.441664 & -0.856534 & -0.071745 &
+-0.750676 & 1.042773 & -0.220660 & 3.728186 & 7.006585 & -0.269847 &
+-0.813450 & 0.575100 & 0.617081 & -0.919528 & 0.897199 & 0.203382 &
+0.201550 & -0.119163 & -0.766538 & 2.021738 & 1.003726 & -0.492804 &
+-0.140917 & -0.830459 & -0.606547 & 0.539936 & -0.156731 & 0.077805 &
+-1.000000 & 97.455172 & -0.762223 & -0.333406 & 0.731918 & 40.711286 &
+0.299916 & -0.572604 & 19.155827 & 64.312500 & -0.619184 & 0.575547 &
+25.327625 & 0.579148 & 0.006185 & 0.049435 & -0.440251 & -0.620573 &
+-0.176348 & 0.060274 & -0.346957 & 1.047885 & -0.152946 & -0.362948 &
+-0.503220 & 4.832855 & -0.325319 & -1.000000 & -0.828198 & 0.388468 &
+-0.345826 & -0.096069 & 7.815461 & 12.555586 & 2.303887 & 1.141204 &
+0.514422 & 0.151681 \\
+2023-06-02 15:45:00 & 0.017106 & -0.782412 & -0.958987 & -0.828179 &
+-0.234648 & 1.898256 & 0.752039 & 0.685704 & 1.427235 & -0.085852 &
+-0.876622 & -0.367484 & -0.348951 & 0.380296 & 1.474595 & 0.397153 &
+-0.889287 & -0.131104 & -0.990248 & -0.908219 & 0.899527 & -0.544438 &
+-0.268592 & -0.774884 & -0.297190 & 3.073959 & -0.977462 & -0.516742 &
+0.765124 & 5.429746 & -0.802749 & -0.824118 & -0.612801 & -0.994568 &
+-0.205764 & 0.689845 & 1.047330 & 1.099813 & -0.538298 & -0.325442 &
+1.255384 & -0.518542 & -0.126857 & -0.818871 & 20.625436 & -0.525133 &
+0.165916 & 0.761770 & -0.611240 & -0.342557 & -0.951202 & 4.713787 &
+-0.631895 & -0.511998 & -0.980938 & -0.443810 & -0.717652 & 0.760906 &
+-0.963136 & -0.260989 & -0.574951 & -0.829783 & -0.311448 & -0.041872 &
+-0.619105 & 0.183429 & 0.919913 & 0.958207 & 0.524864 & 0.480475 &
+0.165964 & 0.614106 & -0.927176 & -0.788886 & -0.869779 & -0.847615 &
+0.634994 & -0.317512 & -0.594309 & 1.228554 & 0.093632 & -0.875672 &
+0.465171 & -0.091508 & -0.752545 & -0.251625 & -0.112555 & 0.123413 &
+-0.560064 & -0.325874 & -0.720107 & -0.800509 & 0.697770 & -0.748565 &
+0.357002 & 10.191986 & 2.333753 & 0.221347 & -0.061593 & 0.540290 &
+1.675494 & 1.932689 & 0.121584 & -0.845002 & -0.673693 & -0.751408 &
+0.459398 & 0.170533 & -0.245403 & -0.231718 & 0.036202 & -0.592569 &
+-0.151467 & -0.229112 & -0.844088 & -0.355655 & -0.955340 & -0.807493 &
+-0.301688 & 1.973353 & -0.585732 & -0.104332 & 8.038527 & -0.490335 &
+0.850855 & -0.929032 & 7.613873 & 2.565942 & -0.424724 & -0.590266 &
+-0.266071 & 0.136187 & 0.077773 & 2.807695 & -0.507264 & -0.283504 &
+-0.350436 & nan & -0.439269 & 0.601163 & 0.831110 & -0.600411 &
+-0.801869 & 0.236403 & -0.657766 & -0.900361 & -0.560766 & -0.152314 &
+-0.293784 & -0.919864 & -0.161571 & 7.060443 & -0.944602 & 0.600230 &
+-0.875218 & 0.395860 & -0.363692 & -0.525251 & -0.516790 & -0.098618 &
+0.068701 & -0.491915 & -0.799186 & -0.926535 & inf & 0.072278 &
+-0.242649 & -0.159859 & -0.828006 & 0.028359 & -0.936662 & 0.073208 &
+1.406036 & -0.759565 & 1.205217 \\
+2023-06-02 15:40:00 & -0.308807 & 1.874114 & 0.430312 & 1.036331 &
+-0.409775 & -0.797077 & -0.448254 & -0.840873 & -0.359477 & 1.243469 &
+1.812458 & 0.322606 & -0.985752 & 2.269983 & -0.244554 & -0.476872 &
+1.368914 & -0.751716 & 0.194130 & 5.411327 & -0.306210 & 2.347522 &
+-0.463071 & 2.232032 & 0.640753 & 0.016323 & 7.325203 & 1.821090 &
+-0.442680 & 0.083417 & 2.233997 & -0.928641 & 0.226282 & -0.880418 &
+-0.382598 & 8.096572 & -0.970843 & -0.764622 & 1.532239 & 2.668871 &
+0.174670 & 0.085600 & 1.272420 & 0.609959 & 0.567593 & -1.000000 &
+-0.375469 & -0.718664 & 2.322862 & 1.282482 & 0.139692 & -0.963709 &
+-0.316976 & 0.297000 & 53.829630 & 0.915485 & 0.621532 & -0.860726 &
+35.560378 & 0.491162 & 0.892434 & 4.719512 & 0.717906 & 0.187074 &
+2.405377 & 8.104006 & 2.701527 & -0.535863 & -0.011343 & -0.081598 &
+0.488747 & -0.389520 & 0.159233 & 0.073551 & 7.718553 & 4.245627 &
+-0.538459 & -0.196662 & 1.692754 & -0.670861 & 1.570738 & -0.570475 &
+0.852070 & -0.763974 & -0.413888 & 1.615480 & 1.641630 & -0.357637 &
+-0.127785 & 0.192670 & 2.680268 & 7.181892 & -0.182766 & 0.706870 &
+0.417901 & -0.170406 & -0.034136 & -0.803922 & 0.114395 & 0.786812 &
+0.047162 & -0.529927 & 2.272903 & 8.564045 & 3.956604 & 3.930397 &
+-0.057949 & 1.410638 & 0.155743 & 1.283663 & 7.145894 & 24.423935 &
+0.215008 & 3.082457 & 2.121720 & 5.948894 & 16.052863 & 7.983353 &
+0.158038 & 0.805996 & 1.201827 & 0.074972 & -0.751879 & 3.237130 &
+-0.557951 & 85.968182 & 0.258070 & -0.140170 & -0.144766 & -0.358267 &
+0.133652 & -0.554998 & -0.323674 & 0.282151 & 0.061756 & 3.487390 &
+1.926359 & inf & -0.905559 & 2.250950 & -0.932468 & 0.688290 & -0.827540
+& -0.647159 & 3.776334 & 1.576467 & -0.632742 & 0.092477 & -0.595226 &
+12.188112 & -0.142687 & -0.485352 & 6.390467 & -0.866741 & 5.091545 &
+1.216174 & 2.911869 & 3.311686 & 6.942696 & 0.316068 & 2.498022 &
+3.368798 & 4.723774 & 4.707084 & -1.000000 & 1.034317 & -0.227824 &
+0.439202 & 92.135849 & -0.955918 & 2.522438 & -0.523608 & -0.647845 &
+0.342759 & -0.646952 \\
+2023-06-02 15:35:00 & 0.575719 & -0.704795 & -0.659740 & 0.044023 &
+-0.315779 & 0.020056 & 1.027079 & -0.674033 & 1.677909 & 0.377232 &
+-0.945701 & -0.718994 & 4.980652 & -0.705865 & -0.815944 & -0.206981 &
+-0.985247 & -0.970644 & 9.703287 & 0.237148 & -0.767850 & -0.353627 &
+-0.828480 & -0.574005 & -0.826201 & -0.756980 & 0.031250 & 0.180732 &
+-0.273700 & 4.486670 & 1.797692 & 20.881836 & -0.202835 & 23.883748 &
+3.615204 & -0.605423 & 1.818861 & 0.345522 & -1.000000 & -0.158141 &
+-0.139425 & -0.129595 & -0.833014 & 0.088684 & -0.726244 & inf &
+-0.529274 & 0.651748 & -0.964154 & -0.698739 & 8.394055 & 10.415590 &
+3.025347 & -0.378123 & -1.000000 & 0.277953 & 0.264180 & 0.140261 &
+-0.731625 & -0.380107 & -0.994486 & -0.955409 & -0.557933 & -0.410339 &
+-0.598424 & -0.113398 & -0.881007 & 1.415366 & -0.512850 & 5.691831 &
+1.314408 & 0.745735 & 1.781505 & 1.458743 & -0.644545 & -0.524576 &
+11.342748 & 0.484881 & -0.086475 & -0.632125 & -0.514307 & -0.544719 &
+-0.503433 & -0.076250 & -0.473493 & -0.369467 & -0.989003 & -0.689170 &
+-0.751788 & 0.222941 & 0.000033 & -0.183222 & 0.256593 & 0.202439 &
+5.185377 & 0.546404 & -0.471648 & -0.488514 & 0.406112 & -0.023532 &
+-0.197772 & -0.863797 & -1.000000 & 0.175869 & -0.582919 & -0.596346 &
+0.007699 & -0.445694 & -0.627083 & -0.687621 & -0.616325 & -1.000000 &
+-0.271805 & -0.937634 & -0.140579 & 0.177355 & -0.390235 & -0.925663 &
+-0.885191 & 0.134330 & -0.431914 & -0.621309 & -0.767173 & -0.570271 &
+-0.887627 & -0.971097 & -0.753202 & -0.887136 & -0.475749 & -0.648380 &
+-0.779579 & -0.011039 & 2.348068 & -0.277391 & 5.818182 & -0.391552 &
+-0.469938 & -1.000000 & 30.095238 & -0.791158 & 7.771930 & -0.725262 &
+0.170783 & -0.717077 & -0.774299 & -0.775231 & -1.000000 & -0.601834 &
+1.569443 & -0.969165 & 0.445858 & -0.884269 & 2.027219 & 0.233047 &
+-0.982004 & -0.834121 & 0.106149 & -0.862643 & 0.501592 & 0.978313 &
+-0.861464 & -0.515517 & -0.734328 & 0.306636 & inf & 5.961200 &
+-0.694564 & -0.015711 & -0.657226 & 40.024961 & 0.507923 & -0.967474 &
+-0.899841 & 0.487135 & 0.229850 \\
+2023-06-02 15:30:00 & 0.018423 & 6.306443 & 1.131991 & -0.098316 &
+2.600850 & 3.017619 & -0.637156 & 0.162928 & -0.503004 & 1.107583 &
+31.929825 & 1.470979 & -0.332964 & -0.442763 & 1.474044 & 1.551012 &
+1277.647458 & 113.199801 & -0.370646 & -0.254210 & 1.746340 & -0.744144
+& 4.993049 & 2.464635 & 0.989095 & 1.134033 & 2.752525 & 0.543731 &
+-0.036049 & -0.496455 & -0.618457 & 0.481189 & 0.411016 & -0.959770 &
+0.168142 & -0.662387 & 0.649951 & 1.268221 & inf & 0.394970 & -0.595927
+& 0.312527 & 1.479260 & 1.055744 & 1.499439 & -0.627226 & 0.993151 &
+-0.528252 & 5.536020 & 5.868133 & 14.918868 & -0.929795 & -0.636032 &
+0.549961 & inf & -0.214578 & -0.312383 & -0.451235 & 1.361785 &
+-0.843237 & 148.145940 & 10.326403 & -0.048010 & 3.198512 & 0.457812 &
+-0.659464 & 0.663805 & 1.070664 & -0.889543 & -0.950814 & -0.893136 &
+0.117244 & 1.345476 & -0.024797 & 5.807204 & 1.462946 & -0.891732 &
+3.325747 & 3.063208 & -0.469315 & 1.654347 & 10.003778 & 2.410540 &
+-0.084616 & 0.401314 & -0.323364 & 3.587410 & 1.333892 & 0.763095 &
+0.538630 & 0.205096 & 1.316028 & 0.978455 & 0.588898 & -0.957915 &
+-0.145313 & 0.338284 & -0.026600 & 0.388498 & -0.671493 & -0.695084 &
+2.228689 & inf & 6.064142 & 0.378656 & 1.041722 & 0.379966 & 0.017262 &
+0.396750 & 1.741272 & 0.339211 & inf & 4.101894 & 30.337981 & 1.348889 &
+-0.392237 & -0.670141 & 11.785793 & 0.332352 & -0.005422 & 0.681373 &
+1.021477 & 8.790405 & 0.274124 & 5.702762 & 2.184448 & 0.135517 &
+3.630333 & 1.923656 & 6.324035 & -0.481375 & 0.820803 & -0.397827 &
+0.138304 & -0.634640 & -0.280224 & 0.162905 & nan & -0.838183 &
+-0.315024 & 4.863400 & 0.637117 & -0.456351 & 8.174353 & -0.402759 &
+0.055975 & inf & -0.834308 & -0.490780 & 35.616378 & 0.473586 & 3.283809
+& -0.782214 & 1.546119 & 39.781915 & 2.877770 & -0.686997 & 10.697982 &
+-0.892009 & 1.371701 & 0.992692 & 0.486009 & -0.128647 & 0.452947 &
+-1.000000 & -0.549563 & 0.519536 & 0.839390 & -1.000000 & -1.000000 &
+-0.497971 & 30.721692 & -1.000000 & 0.430632 & -0.845875 \\
+2023-06-02 15:25:00 & -0.484975 & 3.715349 & -0.505753 & -0.564816 &
+0.603686 & -0.647296 & -0.797017 & -0.757416 & -0.275086 & -0.446968 &
+-0.116143 & 1.390363 & 1.317039 & 1.882667 & -0.317045 & -0.383530 &
+-0.965353 & 0.301716 & -0.844250 & -0.505812 & -0.461230 & 3.556732 &
+0.972493 & -0.525318 & -0.630086 & 2.317221 & -0.930350 & -0.607230 &
+0.977721 & -0.943129 & 0.378310 & -0.976167 & 0.065192 & 3.904080 &
+-0.605905 & 0.088970 & 2.159979 & -0.693121 & -0.956753 & -0.539386 &
+2.892807 & 0.883297 & -0.262911 & -0.798865 & -0.170468 & 1.790544 &
+0.608081 & 0.701188 & 0.563049 & -0.851637 & -0.958803 & 0.506019 &
+-0.136503 & -0.355832 & 0.050188 & -0.651290 & 0.480287 & 0.925433 &
+-0.010446 & 1.192147 & 1.453637 & 2.552037 & 0.113019 & -0.533237 &
+-0.144691 & -0.068757 & 0.878519 & -0.678431 & -0.518124 & 0.855773 &
+-0.745327 & -0.426675 & -0.722055 & -0.673490 & -0.895804 & -0.579913 &
+-0.002526 & -0.039710 & 0.824483 & 5.301333 & -0.277988 & -0.683162 &
+0.510334 & 1.311270 & 0.787710 & 1.023504 & -0.060015 & 0.043684 &
+2.636347 & -0.341115 & -0.486744 & -0.685778 & -0.811695 & -0.680029 &
+-1.000000 & -0.896996 & 0.844123 & 9.184168 & -0.438639 & -0.492938 &
+-0.016695 & 2.467018 & -0.057209 & 0.477194 & 0.821981 & 1.132052 &
+0.255613 & -0.240715 & 0.534965 & -0.407961 & -0.550036 & 5.838140 &
+-0.728577 & -0.629558 & -0.337234 & -0.035249 & 7.199332 & -0.908848 &
+4.533165 & -0.557335 & -0.614808 & 0.498666 & -0.892520 & -0.024441 &
+-0.608521 & -0.701874 & -0.435463 & -0.915822 & -0.881541 & -0.175731 &
+0.012891 & -0.495179 & 0.050193 & -0.389487 & 0.396456 & -0.460306 &
+-0.243284 & inf & -0.987645 & -0.047603 & -0.898497 & -0.417370 &
+2.231628 & -0.932691 & 3.425136 & 36.270903 & -0.868935 & 8.282721 &
+5.158344 & -0.951889 & -0.660305 & -0.124533 & 0.225815 & -0.027167 &
+-0.920830 & 0.727482 & 0.931764 & -0.249178 & 0.858051 & -0.800137 &
+0.308705 & 0.038661 & -0.297537 & -0.826532 & inf & -0.960025 & 1.622510
+& -0.656218 & inf & inf & -0.721016 & -0.962633 & inf & -0.541565 &
+4.054388 \\
+2023-06-02 15:20:00 & 4.015928 & 0.521839 & 0.656667 & 0.187852 &
+-0.537366 & -0.719786 & 6.952874 & 1.930829 & 0.268182 & 0.356627 &
+-0.764768 & -0.413209 & 1.369230 & 0.585614 & -0.629634 & 0.538675 &
+-0.933277 & -0.704201 & 4.638724 & 1.083802 & 0.566549 & -0.064414 &
+0.262646 & 1.601254 & 4.247790 & 0.665561 & -0.867150 & 2.037581 &
+0.324362 & 23.054917 & -0.238415 & 7.978508 & -0.318447 & 5.884342 &
+3.547721 & 0.806743 & 2.802888 & -0.016480 & 27.937843 & 0.080952 &
+-0.475560 & -0.022679 & -0.025661 & 0.078528 & -0.179794 & -0.939573 &
+-0.738548 & 0.567316 & -0.458707 & -0.297288 & 0.626662 & 12.096874 &
+1.248602 & 1.027914 & -0.408303 & 5.291400 & -0.444915 & 3.698738 &
+0.149631 & 12.107476 & -0.826111 & -0.553032 & -0.416163 & 0.084802 &
+-0.211725 & 0.001581 & 0.484348 & 0.333231 & 1.913717 & 1.520775 &
+11.118867 & 0.005878 & 20.934272 & 2.037845 & -1.000000 & -0.503923 &
+1.553890 & -0.088496 & -0.943273 & -0.914510 & 0.213199 & -0.467091 &
+-0.549130 & -0.501097 & 0.249506 & -0.145676 & -0.812945 & 0.589557 &
+-0.746835 & 0.217568 & 0.667063 & 2.629793 & 2.869292 & 0.726248 & nan &
+1.373092 & -0.112128 & -0.522375 & -0.190079 & 11.802627 & 0.908011 &
+-0.459486 & -0.008863 & -0.937958 & 1.607691 & -0.715967 & -0.506252 &
+-0.403245 & -0.045263 & -0.323457 & 0.157010 & 0.362147 & -0.755044 &
+-0.872948 & 7.401113 & -0.238716 & -0.745207 & 0.666288 & 0.068885 &
+0.974110 & 2.587996 & -0.053910 & 0.232923 & -0.065821 & 5.053316 &
+2.066667 & 0.660209 & 6.400984 & 3.087233 & 0.096819 & 2.127273 &
+-0.283383 & -0.562861 & 0.010492 & -0.959955 & 2.680563 & 0.548188 &
+19.004312 & 114.659574 & 3.610514 & -0.675040 & 2.013876 & -0.009934 &
+-0.927144 & -0.567012 & 0.635663 & 56.153191 & 0.834766 & -0.882559 &
+22.860047 & 1.427029 & 1.303556 & 5.135092 & 0.386115 & 0.079077 &
+4.126710 & 1.401651 & 4.691163 & 1.409198 & 0.432976 & -0.809410 &
+-0.479314 & 4.890546 & 1.437791 & -0.467482 & 5.738897 & -0.669517 &
+0.054342 & -0.293539 & -0.711778 & 0.884973 & -0.182001 & 3.508016 &
+0.627289 & -0.927366 \\
+2023-06-02 15:15:00 & -0.022223 & -0.948095 & 0.027973 & -0.218103 &
+-0.262524 & 1.408896 & -0.908014 & 0.908210 & -0.593145 & -0.572220 &
+0.711083 & 2.736564 & -0.415475 & -0.819199 & 1.282335 & 0.544838 &
+0.667431 & 1.315143 & -0.888227 & 0.249270 & 0.985448 & -0.585977 &
+-0.712370 & -0.837653 & -0.795026 & -0.776416 & 8.109091 & -0.912881 &
+-0.141672 & -0.108636 & -0.325843 & 0.910025 & 0.582971 & -0.590770 &
+-0.633242 & -0.554602 & -0.757262 & 1.862261 & -0.278076 & -0.542952 &
+-0.886976 & 0.430771 & 0.059851 & 1.799417 & -0.339002 & 9.632353 &
+0.704462 & -0.676542 & 12.149923 & 1.497961 & 0.386665 & 0.339630 &
+0.013638 & -0.214807 & 1.790005 & -0.481900 & -0.588728 & -0.394824 &
+-0.719910 & -0.393907 & -0.785697 & -0.873808 & 0.900309 & -0.450533 &
+0.942835 & 4.404262 & -0.536825 & 0.418053 & -0.332574 & -0.238148 &
+-0.939906 & 0.282765 & -0.964340 & -0.584318 & inf & -0.402937 &
+0.190652 & -0.622890 & 0.769501 & 82.576028 & 0.015218 & 0.178510 &
+-0.120171 & 1.475672 & -0.246590 & 0.728739 & 25.581100 & -0.540680 &
+4.463624 & 0.230638 & -0.202628 & -0.628158 & -0.501829 & -0.526282 &
+inf & 1.040075 & 0.523282 & -0.842737 & 0.292078 & -0.746884 & -0.982537
+& -0.932110 & -0.323346 & 0.797222 & 0.579028 & 0.495495 & -0.274785 &
+0.615733 & 0.803492 & -0.199131 & -0.346683 & -0.638329 & 1.229025 &
+1.482350 & -0.234538 & 0.164857 & -0.975040 & 4.244576 & 0.798772 &
+1.855345 & -0.034513 & -0.184785 & 0.746611 & -0.239546 & -0.826265 &
+-0.909317 & -0.301167 & -0.050534 & 6.060215 & 0.737533 & 6.273837 &
+0.633484 & 0.295500 & 0.259843 & 127.879870 & -0.780595 & 0.138947 &
+-0.739382 & -0.294518 & 0.232367 & 6.455533 & -0.708214 & -0.157806 &
+4.823752 & 14.624336 & -0.846195 & -0.252029 & -0.017798 & 0.578217 &
+0.153532 & 0.523591 & 0.325491 & -0.947377 & -0.037438 & 2.569466 &
+-0.871224 & -0.619844 & -0.966466 & -0.916291 & 2.118051 & 9.178934 &
+5.439960 & -0.304737 & 2.938663 & -1.000000 & 0.210843 & 0.728150 &
+0.126189 & -0.306300 & -1.000000 & 0.445974 & 2.575907 & -0.425261 &
+-0.190967 & 11.569024 \\
+2023-06-02 15:10:00 & -0.928894 & 0.787220 & 0.195255 & 3.030916 &
+0.606580 & 7.396663 & 1.639358 & -0.636229 & -0.405534 & -0.192426 &
+0.679521 & 0.129792 & 2.906090 & 0.852562 & 0.253347 & 1.683372 &
+19.160248 & -0.963227 & 6.937752 & 0.087435 & -0.944189 & 1.159315 &
+0.123277 & 0.749783 & -0.909838 & -0.851921 & 4.471058 & 0.175008 &
+0.526365 & 1.461981 & 0.583139 & -0.450424 & -0.328234 & 2.554068 &
+-0.025661 & -0.158441 & -0.798517 & 0.400227 & -0.504901 & 0.947193 &
+2.110996 & -0.208283 & 1.775584 & -0.599731 & 0.722593 & -1.000000 &
+-0.657022 & -0.249409 & -0.700954 & -0.267789 & -0.288441 & 2.465031 &
+0.435739 & -0.318375 & 1.596888 & -0.689575 & 1.205220 & -0.897545 &
+1.287437 & -0.057872 & 4.714762 & 1.178653 & -0.259353 & 1.389892 &
+1.162179 & -1.000000 & -0.313926 & 0.918775 & 10.461889 & 0.784451 &
+19.926768 & 0.279223 & -0.345875 & -0.597980 & 13.067584 & 1.230499 &
+3.805719 & 0.510885 & 0.613674 & -0.966429 & -0.283001 & 4.184698 &
+-0.292918 & -0.535744 & 0.222588 & 0.748229 & 1.140649 & -0.331910 &
+-0.521956 & 0.286300 & -0.197335 & 1.607006 & 0.516965 & 0.709650 &
+-0.910296 & -0.816846 & -0.325674 & -0.014319 & -0.251697 & 0.701089 &
+76.236842 & 12.380564 & 0.075962 & 0.880646 & -0.692679 & -0.021325 &
+-0.157616 & 0.197503 & -0.135219 & -0.638810 & -0.175166 & -0.580941 &
+-0.421547 & 7.676597 & -0.803573 & -0.065381 & 39.738916 & -0.786281 &
+-0.444208 & -0.863857 & -0.346842 & -0.204983 & 1.513950 & 0.658469 &
+0.880871 & 13.404110 & 1.258884 & -0.570925 & -0.887121 & -0.967522 &
+-0.573256 & 0.976629 & -0.489695 & -0.646083 & -0.684006 & 1.368161 &
+0.420401 & -1.000000 & 0.290222 & -1.000000 & 2.233927 & 2.398259 &
+0.370579 & 0.000341 & -0.805200 & 0.468626 & -0.912403 & -0.387031 &
+0.665268 & -0.757541 & -0.204679 & -0.610762 & 0.128018 & -0.672088 &
+-1.000000 & -0.444693 & -0.189840 & 1.363427 & 1.763664 & 0.823157 &
+-0.956648 & -0.291789 & -0.407239 & -0.731216 & inf & -0.531423 &
+0.156755 & -0.178126 & -0.823176 & inf & -0.249484 & -1.000000 &
+-0.867157 & 0.300469 & -0.544334 \\
+2023-06-02 15:05:00 & 2.962519 & -0.020970 & 0.346453 & -0.073804 &
+1.168311 & -0.746676 & -0.276313 & 2.067232 & 1.223184 & -0.398612 &
+1.015158 & -0.870901 & -0.055701 & 0.345588 & 0.344143 & -0.882775 &
+-0.803227 & 188.346079 & -0.490268 & 1.004610 & 3.430060 & -0.267892 &
+4.241385 & 1.845467 & -1.000000 & 2.501582 & -0.626049 & 1.348354 &
+0.096841 & -0.964532 & 0.094804 & -0.135882 & 1.280612 & -0.979539 &
+0.029692 & 0.632388 & 1.081166 & 0.205387 & -0.297001 & 1.277548 &
+1.387095 & -0.209529 & 0.120798 & 0.457326 & 1.281516 & inf & 1.060100 &
+7.833316 & 1.327120 & 0.141022 & -0.151134 & -0.922288 & -0.186727 &
+0.557887 & -0.067164 & 0.674157 & 0.839044 & 0.666130 & -0.570770 &
+-0.924373 & -0.466293 & 7.872372 & 0.862693 & -0.119491 & -0.090073 &
+inf & -0.247396 & -0.259610 & -0.842283 & -0.274166 & -0.963942 &
+0.208847 & 5.450049 & 8.426095 & -0.888879 & 1.619189 & -0.874142 &
+-0.813274 & -0.439151 & 0.606821 & 1.232029 & -0.469678 & 9.396178 &
+-0.388329 & 2.206526 & -0.679245 & 0.303690 & 1.265695 & -0.581807 &
+-0.172448 & 2.452003 & -0.291091 & 0.473590 & 0.415286 & -1.000000 &
+1.534878 & -0.050966 & 5.977666 & -0.219956 & 0.404144 & 0.248010 &
+-1.000000 & 0.173372 & 0.037394 & -0.464387 & 2.348061 & 0.188737 &
+0.061734 & 0.918400 & 5.916432 & 1.051614 & -0.290013 & -0.522260 &
+-0.808135 & 1.371987 & 0.236013 & -0.384281 & -0.149387 & -0.741582 &
+0.085712 & 2.063315 & -0.732194 & -0.496000 & -0.367842 & -0.495366 &
+14.581550 & -0.481193 & 1.016096 & -0.582350 & 1.864583 & 0.201910 &
+0.307333 & 0.636105 & 4.644476 & -0.238899 & -0.005590 & -0.507663 & inf
+& -0.258892 & inf & -0.736018 & -0.161130 & 5.468458 & -0.955988 &
+1.082190 & -0.115010 & -0.926136 & 2.765982 & -0.514305 & -0.978778 &
+-0.246450 & 0.084261 & 5.081242 & 1.248739 & nan & -0.058200 & 0.676320
+& -0.559251 & -0.875205 & -0.508228 & 3.557482 & -0.637456 & -0.900687 &
+7.128776 & 0.268503 & 0.257037 & -0.546190 & 1.153632 & 4.329126 &
+-1.000000 & 0.741465 & inf & 8.153566 & -0.496045 & 4.726631 \\
+2023-06-02 15:00:00 & 0.458349 & 8.740533 & 0.504619 & -0.223235 &
+-0.512112 & 1.090449 & 0.264634 & -0.283022 & -0.426561 & 1.129462 &
+-0.589159 & 4.824191 & 2.575653 & 0.862692 & 0.632980 & 1.230908 &
+2.779300 & -0.819267 & 3.219590 & 2.463749 & 0.338520 & 0.414136 &
+-0.306009 & -0.583562 & inf & 9.851785 & 5.866341 & 3.368466 & -0.203328
+& 46.723364 & 0.668196 & 0.369295 & 0.066742 & 4.273078 & -0.102463 &
+0.335928 & 2.092070 & -0.234868 & 5.848558 & 0.568039 & -0.297348 &
+0.727465 & 0.035709 & -0.838109 & -0.464887 & 5.086877 & 1.108346 &
+-0.812296 & 0.035202 & 0.718600 & 0.295524 & 8.577800 & 0.020074 &
+-0.008766 & 0.178505 & 1.299887 & 0.008015 & 1.456565 & 1.394151 &
+15.107173 & 6.879966 & -0.939214 & 0.493289 & -0.351067 & -0.386363 &
+-0.896791 & 0.430139 & 0.893905 & 7.714915 & 0.263965 & 16.737332 &
+-0.039026 & 2.998982 & 0.239621 & 5.830264 & 0.436381 & 1.041661 &
+1.683386 & 2.192219 & 1.310732 & -0.502644 & 1.519247 & -0.749871 &
+0.967410 & 0.152467 & 1.939806 & -0.452786 & 1.446426 & 3.849461 &
+0.347226 & -0.504384 & 1.080410 & 0.101067 & 0.296931 & inf & 0.747608 &
+0.303781 & 2.088834 & 0.352290 & -0.660415 & 0.232403 & inf & 0.327735 &
+-0.497557 & 3.683002 & -0.276394 & 1.167480 & 1.066223 & 0.270358 &
+0.211756 & 1.567071 & 5.328625 & 7.991423 & 5.015607 & -0.124331 &
+0.015382 & 3.091909 & 0.617777 & 1.706383 & 0.530444 & 0.094439 &
+2.255680 & -0.173542 & 3.125332 & 0.824164 & -0.617126 & -0.088010 &
+0.215733 & 5.181697 & 1.726364 & -0.489793 & 0.182619 & 0.613176 &
+1.787768 & 11.737546 & 0.296631 & 0.680916 & -1.000000 & -0.515680 &
+0.375533 & 15.045900 & 0.368823 & -0.933299 & 18.428710 & -0.454583 &
+3.314788 & 36.169231 & 0.061807 & 1.291714 & 18.867059 & -0.009537 &
+3.325588 & -0.567502 & -0.641433 & inf & 1.991655 & -0.710659 & 1.658745
+& 7.375956 & 0.394484 & 2.035829 & 0.208207 & 16.552991 & -0.037613 &
+-0.617776 & 2.085515 & -0.171758 & 0.453595 & -0.001822 & inf &
+-0.660415 & -0.880996 & 2.872943 & 3.321618 & -0.570373 \\
+2023-06-02 14:55:00 & -0.779630 & -0.787236 & -0.003490 & 0.556270 &
+-0.441481 & -0.430025 & 0.582038 & 0.046099 & -0.146635 & -0.618624 &
+-0.920032 & -0.664804 & -0.934960 & -0.780964 & -0.565752 & -0.542209 &
+6.217487 & -0.890735 & -0.689067 & -0.861596 & -0.360692 & 0.747126 &
+-0.139032 & 1.770335 & -0.091648 & -0.306059 & -0.949204 & -0.857459 &
+-0.674278 & 0.013117 & 0.777715 & 9.717946 & -0.472931 & -0.131901 &
+-0.520556 & 0.040976 & -0.862768 & -0.638624 & -0.814286 & -0.634991 &
+-0.755508 & -0.448112 & -0.011019 & 1.820065 & -0.926569 & -0.990244 &
+0.202116 & 3.008780 & -0.109871 & 0.193462 & -0.371486 & -0.955693 &
+-0.680717 & -0.317386 & 0.003612 & 2.315066 & 0.832287 & 0.092944 &
+3.173512 & -0.327448 & -0.931040 & 16.778558 & -0.388300 & 0.005212 &
+-0.231459 & -0.975103 & 0.697580 & -0.527523 & -0.739818 & -0.094609 &
+-0.453144 & -0.535025 & 1.026058 & -0.675769 & -0.092017 & -0.713639 &
+0.992393 & -0.629568 & -0.326893 & -0.678580 & -0.212777 & -0.358968 &
+3.557216 & -0.508642 & 0.272883 & -0.302554 & -0.619150 & -0.028130 &
+-0.816963 & -0.785685 & -0.629672 & -0.479101 & -0.001890 & -0.387670 &
+1.091647 & 0.439392 & 1.227919 & -0.845947 & -0.307027 & 0.880597 &
+-0.778959 & -0.017548 & 0.172894 & 1.494832 & -0.798069 & -0.070875 &
+-0.510621 & -0.063129 & -0.209482 & -0.670922 & -0.304729 & -0.719373 &
+-0.530495 & -0.774098 & 0.549505 & -0.550906 & -0.885823 & -0.185668 &
+0.726818 & -0.891620 & 0.422058 & 0.019205 & -0.443190 & -0.764819 &
+0.489174 & -0.764307 & -0.563427 & 0.788680 & -0.944561 & -0.523508 &
+1.281918 & -0.105305 & -0.740051 & -0.868591 & -0.895853 & -0.779558 &
+-0.179965 & inf & 0.865991 & -0.866146 & -0.839224 & -0.394371 &
+2.284053 & 1.866373 & -0.448552 & -0.677683 & 0.850993 & -0.686131 &
+-0.273057 & 4.082371 & 0.739165 & -0.595539 & -0.660803 & 0.416764 &
+-0.948724 & -0.241894 & -0.503021 & 0.487871 & -0.410360 & -0.958065 &
+-0.777283 & 2.229567 & -0.908979 & -0.109768 & -0.989277 & -0.707083 &
+2.797906 & -0.302249 & -0.588976 & -0.762846 & 13.656479 & 56.507692 &
+-0.963211 & -0.388729 & -0.028435 \\
+2023-06-02 14:50:00 & 1.602410 & -0.937532 & 0.158054 & -0.678994 &
+0.089551 & -0.566879 & -0.576423 & -0.365111 & 0.173593 & -0.770457 &
+20.420875 & 0.050374 & -0.926087 & 0.635687 & -0.150682 & 0.190958 &
+-0.962507 & 13.046869 & -0.523621 & -0.323193 & 0.534495 & -0.589445 &
+-0.950921 & -0.359841 & -0.354799 & -0.898890 & 0.186014 & 4.039315 &
+1.389347 & -0.147945 & -0.668844 & -0.051902 & -0.341924 & -0.786652 &
+-0.803623 & 0.187389 & 0.235369 & -0.667762 & -0.746771 & -0.916029 &
+-0.807709 & -0.474368 & 1.135531 & 1.519504 & 8.894274 & -1.000000 &
+-0.869968 & -0.799501 & -0.910869 & -0.792694 & -0.742324 & 17.830090 &
+-0.174614 & 0.884136 & -0.837143 & -0.552414 & -0.438699 & -0.642028 &
+-0.850111 & -0.655410 & 0.184011 & -0.973027 & -0.321297 & -0.636113 &
+-0.338363 & -0.284058 & 0.064634 & -0.616565 & -0.921177 & 0.202247 &
+-0.342239 & -0.405707 & -0.811940 & -0.551433 & -0.879163 & 3.338152 &
+-0.612576 & 1.338369 & -0.371541 & 0.239048 & -0.110771 & -0.506210 &
+-0.873274 & -0.478372 & -0.923842 & 0.239651 & -0.840252 & 0.055202 &
+-0.536707 & 0.342643 & 0.700890 & 1.467642 & -0.058840 & -0.231911 &
+-0.806568 & -0.831620 & -0.674561 & 0.329729 & -0.317975 & 1.355994 &
+0.325802 & -0.349036 & -0.969499 & -0.769004 & 0.621955 & 0.085268 &
+0.084382 & 1.100406 & -0.644893 & -0.423153 & -0.991840 & -0.294805 &
+-0.485013 & 1.824295 & -0.638357 & 0.329296 & -1.000000 & 0.682735 &
+-0.806993 & 1.908861 & -0.642373 & -0.250877 & 2.311462 & -0.781022 &
+-0.466905 & -0.497125 & 0.330384 & 3.333132 & 7.596538 & -0.747842 &
+-0.791460 & -0.659081 & 2.288362 & -0.046170 & 0.073654 & 1.149357 &
+-0.577046 & -0.863679 & 0.293905 & -0.630780 & -0.964511 & -0.634309 &
+-0.527678 & -0.424788 & 0.960212 & -0.470953 & -0.654517 & -0.150291 &
+0.133690 & -0.337916 & 0.989840 & -0.747618 & 0.418162 & 0.006699 &
+7.091324 & 0.383929 & 0.623035 & -0.916194 & -0.821421 & 5.129799 &
+8.066460 & -0.734096 & 0.953279 & -0.448586 & 30.695721 & 1.980118 &
+-0.734887 & -0.216578 & 4.893428 & -1.000000 & -0.937075 & -0.948422 &
+8.513393 & -0.803241 & -0.931628 \\
+2023-06-02 14:45:00 & 1.063187 & 14.223092 & 0.339751 & 3.271259 &
+0.978280 & 0.018848 & 1.553853 & 0.748917 & -0.475466 & 8.868479 &
+1.910091 & 0.664518 & 45.270389 & 1.148471 & 0.002881 & 0.082796 &
+23.129005 & -0.982872 & 8.789446 & 0.791455 & 0.817939 & 0.992273 &
+23.975217 & -0.076351 & 0.386048 & 15.585757 & 0.318396 & -0.915238 &
+0.666446 & -0.327590 & 0.227160 & 0.202608 & 1.625050 & -0.235946 &
+16.625200 & -0.434582 & 2.985335 & 4.205147 & 22.422847 & 21.043784 &
+112.909722 & 0.910323 & 0.282255 & 3.287883 & 0.277879 & inf & 14.260592
+& 10.077097 & 6.545828 & 2.854837 & 11.245376 & -0.875386 & 2.697263 &
+0.028209 & 2.187670 & -0.517419 & 1.980258 & -0.089797 & 6.532288 &
+-0.443088 & 13.221597 & 41.270732 & 1.510810 & 6.416667 & 3.089583 &
+5.437247 & 0.366963 & 2.098832 & 6.140845 & 1.057702 & 0.206310 &
+1.555134 & -0.187949 & 1.085363 & 17.820513 & 0.577291 & -0.204007 &
+-0.370994 & 0.574959 & -0.597069 & 1.298508 & 3.978062 & 0.375180 &
+4.170545 & 2.020396 & 0.440094 & 40.993147 & -0.163208 & 5.086515 &
+0.517732 & -0.271533 & -0.810793 & 1.230331 & -0.011664 & 38.264188 &
+2.422557 & 0.041439 & 0.209663 & 1.257469 & 0.244866 & 3.712205 &
+-0.831537 & 11.513245 & 1.040128 & 1.557436 & 0.941069 & 1.674612 &
+-0.528784 & 1.296169 & 1.813542 & 267.190678 & -0.554111 & 10.920334 &
+-0.147057 & 0.529643 & -0.271831 & inf & -0.304364 & 0.621150 &
+-0.437076 & -0.229642 & 1.292005 & 10.197073 & 11.454167 & -0.643767 &
+-0.124412 & 0.346437 & -0.795700 & -0.047695 & 5.760407 & 4.103979 &
+1.139043 & 0.431898 & -0.464086 & -0.316178 & 1.975917 & 1.352830 &
+223.805896 & 0.738806 & 8.436054 & 239.283496 & 3.097502 & 0.928909 &
+-0.423973 & 1.073450 & -0.869020 & -0.770874 & 1.075779 & 0.663028 &
+0.791796 & -0.439416 & 0.959750 & 9.984249 & 0.121227 & 0.147573 &
+-0.770716 & 1.656021 & 9.831555 & 10.159851 & 0.715479 & 0.994365 &
+1.461398 & 1.009221 & 2.411948 & 9.167200 & -0.252925 & 2.673549 &
+1.130744 & -0.032098 & inf & 2.739535 & 2.116183 & -0.234104 & 0.012231
+& 14.402878 \\
+2023-06-02 14:40:00 & -0.196335 & -0.939816 & -0.314185 & -0.020115 &
+-0.371689 & 0.779718 & 1.365592 & 0.826094 & 2.911398 & -0.646360 &
+-0.916388 & 1.835582 & 0.290435 & 0.616986 & -0.109795 & 0.086699 &
+0.772160 & 18.665781 & -0.867712 & -0.359644 & -0.463569 & 0.375936 &
+-0.818395 & 0.250771 & -0.981360 & -0.802591 & 9.457961 & 11.790553 &
+-0.161331 & 0.017901 & 0.035698 & -0.379973 & -0.319479 & 0.322181 &
+-0.714409 & 0.704102 & -0.615173 & 0.059613 & -0.175573 & 0.753181 &
+0.250034 & -0.482823 & -0.003345 & -0.096740 & -0.376201 & -0.620918 &
+-0.655981 & -0.880768 & -0.694386 & -0.580670 & 0.557958 & 0.464921 &
+-0.620707 & -0.284839 & 0.104610 & 0.688768 & -0.882929 & 1.496595 &
+-0.802068 & 0.937081 & -0.590588 & 0.275249 & -0.480943 & -0.586653 &
+3.453090 & 3.398742 & -0.703279 & 0.296706 & 1.749014 & 0.254284 &
+0.248683 & 1.819154 & -0.587493 & -0.155994 & -0.841110 & -0.928043 &
+0.114630 & -0.181634 & -0.212854 & 3.883048 & -0.030117 & -0.422503 &
+1.929228 & -0.751068 & -0.908848 & -0.591679 & -0.749857 & -0.471468 &
+-0.961363 & -0.725548 & 1.156815 & -0.376155 & -0.534177 & 1.602698 &
+-1.000000 & 0.932225 & 1.168076 & -0.852996 & -0.563126 & -0.709113 &
+0.251035 & 6.764003 & 0.901003 & -0.598197 & -0.356173 & -0.637068 &
+-0.360453 & -0.598017 & -0.508211 & -0.119702 & -0.767715 & 2.776994 &
+-0.576113 & -0.641077 & -0.457324 & 1.683007 & 0.529330 & 0.154910 &
+-0.047334 & 0.711503 & 0.301207 & -0.568830 & -0.966422 & 0.192902 &
+2.447649 & 4.178955 & 0.396048 & -0.639699 & -0.684967 & -0.882047 &
+3.660086 & -0.082427 & 0.592263 & 0.691124 & 0.912263 & -0.544588 &
+0.264304 & -1.000000 & 0.148069 & -0.819578 & -0.975436 & -0.563667 &
+0.820885 & 3.329962 & -0.590360 & 16.437225 & 2.039548 & 0.910022 &
+-0.439665 & -0.739729 & -0.617601 & -0.023409 & -0.840010 & 0.723847 &
+-1.000000 & -0.447010 & 0.181742 & -0.608399 & 0.604930 & 0.068498 &
+-0.337805 & 2.091295 & -0.023884 & -0.827814 & -1.000000 & -0.357409 &
+-0.916235 & 0.255574 & 0.805387 & 0.200447 & -0.541511 & 44.298935 &
+2.566286 & -0.572295 & -0.902149 \\
+2023-06-02 14:35:00 & -0.128707 & 2.570589 & 0.872944 & 0.091901 &
+-0.233995 & 0.591908 & -0.705711 & 0.332257 & -0.659777 & 0.673940 &
+2.626615 & -0.190375 & -0.881252 & -0.613842 & -0.043821 & 0.171804 &
+-0.857741 & 2.190056 & -0.500889 & -0.150408 & -0.169582 & -0.169989 &
+0.296795 & 0.095953 & 20.252632 & -0.035527 & -0.858878 & -0.458884 &
+-0.442481 & -0.926980 & -0.484735 & -0.545776 & -0.027509 & -0.432326 &
+-0.540736 & -0.289537 & -0.767464 & 0.916918 & -0.208692 & -0.492979 &
+-0.913498 & -0.088056 & -0.502708 & -0.839222 & 0.556052 & -0.687597 &
+0.070781 & 0.230108 & 0.755796 & 2.588469 & -0.979216 & -0.783057 &
+0.990046 & 1.097317 & -0.655545 & -0.775640 & 0.195734 & -0.152426 &
+-0.482640 & 3.362531 & 0.376525 & 0.337943 & 0.220756 & -0.318451 &
+-0.879949 & 2.692308 & -0.248654 & -0.239451 & 0.466547 & -0.830653 &
+0.218482 & -0.003561 & 8.879344 & 1.078184 & 0.052161 & 3.535547 &
+-0.261176 & 0.518623 & 0.087570 & -0.286682 & -0.562571 & -0.036079 &
+-0.676996 & 0.235813 & 6.486207 & -0.526981 & 1.209899 & 0.359752 &
+3.187321 & 1.278235 & 1.254354 & 0.969314 & 0.044239 & 0.301202 & inf &
+-0.625555 & -0.270917 & 10.659555 & 0.269041 & 0.152981 & 0.148847 &
+-1.000000 & 1.147413 & 1.866308 & -0.127972 & 0.191783 & -0.485389 &
+0.204644 & 0.298712 & -0.418765 & 0.306738 & -0.475449 & -0.434222 &
+1.329859 & 1.267409 & -0.839438 & 0.694977 & 0.785055 & 0.097773 &
+9.782475 & -0.332233 & 0.391973 & 2.763970 & -0.160773 & -0.693714 &
+-0.523358 & 0.338156 & 1.020567 & 0.957489 & 3.354988 & -0.935235 &
+1.837728 & -0.861592 & 4.281339 & -0.177081 & 1.548047 & -0.391788 & nan
+& -0.386682 & 2.812196 & 12.925962 & 1.399518 & -0.045202 & -0.577293 &
+0.066144 & -0.327656 & 0.520446 & 0.296908 & -0.519953 & 0.548679 &
+-0.181315 & 0.672915 & 1.393203 & 1.039810 & inf & 3.679110 & -0.310833
+& 4.273424 & -0.566833 & 0.763911 & 1.916320 & 1.030852 & 0.358628 &
+0.573529 & inf & 3.059620 & 5.453023 & 0.505360 & -0.710935 & 0.014070 &
+1.375721 & 0.122790 & -0.957286 & 2.849936 & -0.584726 \\
+2023-06-02 14:30:00 & -0.562505 & 0.171945 & 0.401269 & -0.258710 &
+0.640641 & 1.374140 & -0.485889 & -0.862975 & 1.638599 & 0.850574 &
+0.204311 & -0.687452 & -0.127234 & 0.456700 & -0.357489 & -0.512876 &
+-0.649788 & 0.026561 & 0.055616 & 0.040159 & 1.238494 & -0.235546 &
+5.415774 & 0.393209 & 0.568351 & -0.254276 & -0.716364 & 0.254800 &
+-0.270175 & 10.726714 & 0.663344 & 11.177839 & -0.073265 & 28.094999 &
+0.279530 & -0.034852 & 11.859210 & 0.564119 & -0.009792 & 0.981173 &
+0.274928 & 0.113890 & -0.675556 & 2.261155 & -0.624467 & 1.491089 &
+-0.567808 & 4.692263 & 0.617645 & -0.765381 & 15.628019 & 84.957715 &
+0.714556 & -0.261465 & 6.053069 & 0.854192 & 0.418205 & 0.182664 &
+4.397076 & -0.304592 & 0.777549 & -0.661237 & -0.022854 & 1.320076 &
+0.882468 & -0.708953 & 0.444160 & 0.136663 & -0.798679 & 0.917765 &
+0.565802 & -0.547844 & -0.142941 & -0.448346 & -0.821053 & -0.786160 &
+1.342272 & 0.440285 & -0.328079 & 1.374391 & 0.891034 & -0.714637 &
+-0.388759 & 0.001939 & -0.061452 & 2.985652 & -0.750131 & -0.297042 &
+6.852461 & -0.074078 & -0.632015 & 14.450599 & -0.422461 & -0.358524 &
+1.558399 & -0.267239 & 0.274560 & -0.776852 & -0.034963 & 1.149979 &
+-0.601431 & inf & -0.445899 & -0.493854 & -0.515734 & -0.171688 &
+0.198184 & -0.138244 & 0.139654 & -0.807045 & -0.188792 & -0.661447 &
+2.797909 & 1.440423 & -0.502821 & 0.644076 & -0.941864 & -0.364989 &
+-0.402711 & 4.016236 & -0.671906 & -0.393597 & -0.086041 & 1.912777 &
+1.278616 & -0.107343 & 1.186765 & 0.631655 & -0.013402 & 0.468567 &
+6.208750 & -0.666440 & 0.662407 & -0.875316 & -0.563190 & 0.230067 &
+-0.054611 & nan & -0.280952 & -0.002602 & -0.888175 & -0.009595 &
+-0.468656 & -0.355806 & -0.211661 & 0.301197 & 1.765281 & -0.558462 &
+0.680897 & 0.218104 & 0.485741 & 11.393222 & 2.161814 & -0.072374 &
+1.379119 & 0.512378 & -0.243150 & -0.846389 & 0.061971 & -0.505581 &
+-0.648325 & -0.740455 & 2.173720 & 2.941423 & -0.885460 & 0.130702 &
+-0.039570 & -0.440840 & 0.911993 & -1.000000 & -0.051051 & 0.237631 &
+2.140774 & 1.430252 & 10.402299 \\
+2023-06-02 14:25:00 & 2.103257 & 1.945870 & 2.488920 & 0.038049 &
+-0.334032 & -0.732475 & -0.703407 & 0.859780 & -0.592411 & -0.181536 &
+-0.659814 & 0.017954 & 1.238341 & 0.691897 & 5.060934 & 0.770176 &
+0.543805 & -0.434133 & 0.930184 & -0.424301 & -0.379586 & 4.774827 &
+-0.608105 & -0.483540 & 0.777199 & -0.089970 & 38.241453 & 1.668346 &
+0.466925 & -0.745332 & -0.038521 & -0.828678 & 0.532799 & -0.240842 &
+6.391152 & 0.126712 & -0.763821 & -0.716282 & 1.870159 & -0.833530 &
+1.504517 & -0.068982 & 0.166317 & -0.639973 & 3.441245 & -0.296105 &
+4.568729 & -0.542753 & -0.055212 & 3.758155 & -0.531235 & -0.112741 &
+0.556206 & 0.689618 & -0.225773 & 1.281092 & 0.015911 & -0.178391 &
+-0.330793 & -0.189335 & 0.000587 & -0.264575 & -0.061030 & 0.257416 &
+-0.458935 & -0.968866 & 0.657510 & -0.646397 & 2.814702 & -0.545329 &
+2.870882 & -0.575622 & 0.332338 & 1.223611 & 0.700190 & 1.674664 &
+-0.700864 & 3.317567 & 0.410192 & -0.218545 & -0.665400 & 0.086247 &
+3.953106 & 1.510600 & 1.479808 & 0.241073 & 14.649545 & 0.123475 &
+-0.586322 & 0.226991 & 0.372384 & -0.867502 & 2.130318 & -0.195809 &
+2.308370 & 1.801106 & -0.663413 & 17.863681 & 0.146002 & -0.126438 &
+0.365520 & 2.784657 & 2.820608 & 0.903758 & 0.982368 & -0.089055 &
+1.331938 & 0.913150 & -0.107687 & -0.356957 & -0.876353 & 9.954148 &
+-0.546508 & -0.825702 & 1.957087 & 2.374927 & 9.786840 & -0.398607 &
+1.714789 & -0.791655 & 0.698165 & 1.830012 & -0.909968 & -0.357609 &
+-0.510968 & -0.269780 & 0.070595 & 1.148412 & 0.600341 & -0.751859 &
+-0.486504 & 0.620537 & 12.132728 & -0.302826 & -0.031229 & 0.092692 &
+-0.006535 & nan & 0.482119 & -0.373958 & -0.221064 & -0.478173 &
+0.400825 & 2.643215 & 0.393054 & -0.896944 & -0.992263 & -0.275762 &
+1.654573 & 1.339781 & -0.162572 & -0.976317 & 0.795961 & -0.449014 &
+-0.967220 & -0.302082 & 0.855832 & 1.008701 & -0.156114 & -0.197948 &
+0.882126 & -0.757431 & -0.358218 & 0.253108 & 1.980678 & 0.107798 &
+-0.257235 & -0.466131 & -0.517085 & inf & -0.298120 & -0.991105 &
+2.129182 & 0.015726 & -0.595262 \\
+2023-06-02 14:20:00 & -0.499767 & 0.755680 & -0.922964 & -0.528652 &
+0.571069 & 0.157480 & 7.389661 & 0.620804 & 3.737685 & 1.259759 &
+1.445652 & 0.443515 & -0.202274 & -0.093455 & 0.442259 & -0.350366 &
+3.296995 & 13.317841 & 1.781229 & 0.521761 & 1.644661 & -0.794714 &
+-0.593817 & -0.337889 & 0.578587 & 1.880089 & 0.297141 & 0.825143 &
+-0.041220 & -0.458567 & 4.148029 & -0.747533 & -0.041461 & -1.000000 &
+-0.755438 & 0.162487 & 2.578885 & 1.774168 & -0.777194 & 55.968709 &
+0.379136 & -0.212310 & 2.888035 & 1.107124 & -0.255885 & -0.073970 &
+2.626384 & 0.496363 & -0.295846 & -0.083648 & 1.575809 & -0.578881 &
+-0.633503 & -0.195687 & -0.343247 & -0.359732 & 0.388170 & -0.329245 &
+0.101937 & -0.111495 & 0.922962 & 2.089860 & 0.142053 & -0.473255 &
+0.809322 & -1.000000 & 0.326277 & 1.935698 & -0.460424 & 2.875693 &
+-0.748565 & 1.014398 & -0.656778 & -0.358156 & 2.989955 & 0.173823 &
+5.308787 & -0.757683 & -0.293060 & -0.228936 & 0.754332 & 0.362358 &
+-0.693753 & -0.189520 & -0.747578 & 0.190164 & -0.128441 & 1.837668 &
+1.030821 & 1.528308 & -0.712539 & -0.176154 & -0.169295 & -0.534241 &
+-0.842927 & 0.158411 & 3.377512 & -0.932226 & 0.065568 & -0.205974 &
+-0.413878 & -0.479090 & -0.845506 & 0.333132 & 0.263184 & 0.002722 &
+0.028574 & 0.168694 & 0.788122 & 10.440977 & 19.178689 & -0.465309 &
+-0.112744 & -0.645621 & 0.071693 & 0.179621 & 1.120113 & 2.723847 &
+-0.521759 & -0.947557 & 0.766547 & 0.747668 & 17.369709 & -0.661448 &
+1.871317 & 0.371838 & -0.540397 & -0.089456 & -0.778175 & 1.574561 &
+1.971184 & -0.736003 & -0.926873 & 2.072797 & 0.033173 & -0.358937 &
+0.400712 & inf & 0.086327 & -0.009838 & 0.592762 & 0.148908 & -0.233312
+& -0.225231 & 1.082751 & 5.096704 & 93.228571 & 0.925790 & -0.137282 &
+0.151204 & 0.497194 & 3.408752 & -0.954519 & 2.873857 & 4.335484 &
+0.256076 & -0.525065 & 0.285580 & 0.543753 & 2.689463 & 0.787793 &
+0.133386 & 0.176743 & -0.855656 & -0.719560 & -0.852112 & -0.197286 &
+0.223490 & 4.473990 & 5.678058 & 0.804772 & 0.542806 & 1.546910 &
+-0.614151 & 16.473225 \\
+\bottomrule()
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vol\_change\_styled }\OperatorTok{=}\NormalTok{ vol\_change\_5m.sort\_values(by}\OperatorTok{=}\NormalTok{vol\_change\_5m.index[}\DecValTok{0}\NormalTok{], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{, ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).}\OperatorTok{\textbackslash{}}
+\NormalTok{    iloc[:}\DecValTok{20}\NormalTok{, :}\DecValTok{15}\NormalTok{].style.bar(align}\OperatorTok{=}\StringTok{\textquotesingle{}zero\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}\#d65f5f\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}\#5fba7d\textquotesingle{}}\NormalTok{])}
+
+\NormalTok{vol\_change\_styled.set\_caption(}\StringTok{"5m Volume Change"}\NormalTok{).set\_table\_styles(styles)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llllllllllllllll@{}}
+\caption{5m Volume Change}\label{T_5b76b}\tabularnewline
+\toprule()
+~ & XEMUSDT & CTKUSDT & XVSUSDT & SFPUSDT & BTSUSDT & BNXUSDT & HFTUSDT
+& DGBUSDT & ATAUSDT & DENTUSDT & SNXUSDT & XLMUSDT & RUNEUSDT & GALAUSDT
+& KNCUSDT \\
+timestamp & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+\midrule()
+\endfirsthead
+\toprule()
+~ & XEMUSDT & CTKUSDT & XVSUSDT & SFPUSDT & BTSUSDT & BNXUSDT & HFTUSDT
+& DGBUSDT & ATAUSDT & DENTUSDT & SNXUSDT & XLMUSDT & RUNEUSDT & GALAUSDT
+& KNCUSDT \\
+timestamp & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+\midrule()
+\endhead
+2023-06-02 15:35:00 & inf & inf & 40.024961 & 30.095238 & 23.883748 &
+20.881836 & 11.342748 & 10.415590 & 9.703287 & 8.394055 & 7.771930 &
+5.961200 & 5.818182 & 5.691831 & 5.185377 \\
+2023-06-02 15:30:00 & -1.000000 & -0.627226 & -1.000000 & -0.838183 &
+-0.959770 & 0.481189 & -0.891732 & -0.929795 & -0.370646 & 14.918868 &
+4.863400 & -0.549563 & -0.634640 & -0.950814 & -0.957915 \\
+2023-06-02 15:25:00 & inf & 1.790544 & inf & -0.987645 & 3.904080 &
+-0.976167 & -0.002526 & 0.506019 & -0.844250 & -0.958803 & -0.898497 &
+-0.960025 & 0.396456 & 0.855773 & -1.000000 \\
+2023-06-02 15:20:00 & -0.467482 & -0.939573 & -0.711778 & 114.659574 &
+5.884342 & 7.978508 & 1.553890 & 12.096874 & 4.638724 & 0.626662 &
+-0.675040 & 5.738897 & -0.959955 & 1.520775 & nan \\
+2023-06-02 15:15:00 & -1.000000 & 9.632353 & -1.000000 & -0.294518 &
+-0.590770 & 0.910025 & 0.190652 & 0.339630 & -0.888227 & 0.386665 &
+6.455533 & 0.210843 & 127.879870 & -0.238148 & inf \\
+2023-06-02 15:10:00 & inf & -1.000000 & inf & 0.290222 & 2.554068 &
+-0.450424 & 3.805719 & 2.465031 & 6.937752 & -0.288441 & 2.233927 &
+-0.531423 & -0.684006 & 0.784451 & -0.910296 \\
+2023-06-02 15:05:00 & 0.268503 & inf & -1.000000 & -0.258892 & -0.979539
+& -0.135882 & -0.874142 & -0.922288 & -0.490268 & -0.151134 & -0.736018
+& 0.257037 & -0.238899 & -0.274166 & -1.000000 \\
+2023-06-02 15:00:00 & -0.617776 & 5.086877 & inf & -0.515680 & 4.273078
+& 0.369295 & 1.041661 & 8.577800 & 3.219590 & 0.295524 & 15.045900 &
+2.085515 & 11.737546 & 0.263965 & inf \\
+2023-06-02 14:55:00 & -0.989277 & -0.990244 & -0.762846 & 0.865991 &
+-0.131901 & 9.717946 & 0.992393 & -0.955693 & -0.689067 & -0.371486 &
+-0.839224 & -0.707083 & -0.895853 & -0.094609 & 1.091647 \\
+2023-06-02 14:50:00 & 30.695721 & -1.000000 & -1.000000 & 0.293905 &
+-0.786652 & -0.051902 & -0.612576 & 17.830090 & -0.523621 & -0.742324 &
+-0.964511 & 1.980118 & 0.073654 & 0.202247 & -0.806568 \\
+2023-06-02 14:45:00 & 9.167200 & inf & inf & 0.738806 & -0.235946 &
+0.202608 & -0.204007 & -0.875386 & 8.789446 & 11.245376 & 239.283496 &
+-0.252925 & -0.316178 & 1.057702 & 38.264188 \\
+2023-06-02 14:40:00 & -1.000000 & -0.620918 & 0.200447 & 0.148069 &
+0.322181 & -0.379973 & 0.114630 & 0.464921 & -0.867712 & 0.557958 &
+-0.975436 & -0.357409 & 0.912263 & 0.254284 & -1.000000 \\
+2023-06-02 14:35:00 & inf & -0.687597 & 0.014070 & -0.386682 & -0.432326
+& -0.545776 & -0.261176 & -0.783057 & -0.500889 & -0.979216 & 12.925962
+& 3.059620 & -0.177081 & -0.830653 & inf \\
+2023-06-02 14:30:00 & -0.885460 & 1.491089 & -1.000000 & -0.280952 &
+28.094999 & 11.177839 & 1.342272 & 84.957715 & 0.055616 & 15.628019 &
+-0.888175 & 0.130702 & -0.563190 & 0.917765 & 1.558399 \\
+2023-06-02 14:25:00 & 1.980678 & -0.296105 & inf & 0.482119 & -0.240842
+& -0.828678 & -0.700864 & -0.112741 & 0.930184 & -0.531235 & -0.221064 &
+0.107798 & -0.031229 & -0.545329 & 2.308370 \\
+2023-06-02 14:20:00 & -0.719560 & -0.073970 & 5.678058 & 0.086327 &
+-1.000000 & -0.747533 & 5.308787 & -0.578881 & 1.781229 & 1.575809 &
+0.592762 & -0.852112 & 0.033173 & 2.875693 & -0.842927 \\
+2023-06-02 14:15:00 & -0.896817 & 0.974695 & -0.797741 & -0.712241 & nan
+& 1.953411 & -0.879479 & 1.371712 & -0.602591 & -0.607227 & 0.633987 &
+0.933838 & -0.293253 & -0.591924 & 2.538774 \\
+2023-06-02 14:10:00 & 6.275974 & 0.405743 & 2.201187 & 9.475129 & inf &
+-0.557021 & 3.082705 & -0.587866 & 0.783212 & 1.037735 & 0.919786 &
+-0.273914 & 3.366496 & 1.694783 & -0.315570 \\
+2023-06-02 14:05:00 & 32.525658 & -0.906315 & 7.044587 & -0.804487 &
+-0.469897 & 1.397065 & -0.746287 & 0.349223 & -0.395961 & 0.700509 &
+5.772569 & 1.389233 & -0.088168 & 0.155230 & -0.659726 \\
+2023-06-02 14:00:00 & 1.721007 & 9.977726 & 0.775900 & 2.743998 &
+-0.642044 & 0.676544 & 4.065892 & 1.341497 & 0.902643 & 0.622420 &
+-0.085535 & 0.243040 & 0.322612 & 0.882428 & 0.381477 \\
+\bottomrule()
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#display first 30 columns from the left}
+\NormalTok{vol\_change\_5m.sort\_values(by}\OperatorTok{=}\NormalTok{vol\_change\_5m.index[}\DecValTok{0}\NormalTok{], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{, ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).iloc[:}\DecValTok{1}\NormalTok{, :}\DecValTok{50}\NormalTok{].T.}\OperatorTok{\textbackslash{}}
+\NormalTok{    style.bar(align}\OperatorTok{=}\StringTok{\textquotesingle{}zero\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}\#d65f5f\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}\#5fba7d\textquotesingle{}}\NormalTok{]).set\_caption(}\StringTok{"3om Volume Change"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{3om Volume Change}\label{T_900fb}\tabularnewline
+\toprule()
+timestamp & 2023-06-02 15:55:00 \\
+\midrule()
+\endfirsthead
+\toprule()
+timestamp & 2023-06-02 15:55:00 \\
+\midrule()
+\endhead
+LPTUSDT & inf \\
+ROSEUSDT & 32.329295 \\
+ALICEUSDT & 26.784577 \\
+TLMUSDT & 13.768130 \\
+BTSUSDT & 13.032525 \\
+CHRUSDT & 3.972325 \\
+HOOKUSDT & 3.833058 \\
+TRBUSDT & 3.706731 \\
+AXSUSDT & 3.565433 \\
+DOGEUSDT & 3.228002 \\
+IDUSDT & 2.764271 \\
+MTLUSDT & 2.477804 \\
+ADAUSDT & 2.431989 \\
+CHZUSDT & 2.383768 \\
+EGLDUSDT & 2.037529 \\
+FLOWUSDT & 1.811890 \\
+XLMUSDT & 1.778070 \\
+FETUSDT & 1.542764 \\
+ALPHAUSDT & 1.525813 \\
+ARPAUSDT & 1.506156 \\
+ACHUSDT & 1.493932 \\
+XEMUSDT & 1.309900 \\
+ARBUSDT & 1.194215 \\
+WOOUSDT & 1.132101 \\
+1INCHUSDT & 1.110618 \\
+COMBOUSDT & 1.084122 \\
+ASTRUSDT & 1.078758 \\
+XRPUSDT & 1.066581 \\
+JASMYUSDT & 1.017738 \\
+FTMUSDT & 0.996224 \\
+REEFUSDT & 0.968303 \\
+QTUMUSDT & 0.923937 \\
+ENSUSDT & 0.887168 \\
+GALUSDT & 0.807237 \\
+NEOUSDT & 0.792116 \\
+HBARUSDT & 0.663893 \\
+EDUUSDT & 0.641186 \\
+DOTUSDT & 0.620758 \\
+GRTUSDT & 0.571723 \\
+SOLUSDT & 0.497719 \\
+AAVEUSDT & 0.489264 \\
+HOTUSDT & 0.442708 \\
+SPELLUSDT & 0.397962 \\
+ONTUSDT & 0.374158 \\
+AMBUSDT & 0.371408 \\
+GALAUSDT & 0.362962 \\
+RSRUSDT & 0.335687 \\
+PERPUSDT & 0.335645 \\
+CVXUSDT & 0.323142 \\
+ETCUSDT & 0.310790 \\
+\bottomrule()
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ plotly.subplots }\ImportTok{import}\NormalTok{ make\_subplots}
+\ImportTok{import}\NormalTok{ plotly.graph\_objects }\ImportTok{as}\NormalTok{ go}
+
+\NormalTok{cols }\OperatorTok{=}\NormalTok{ vol\_change\_5m.columns.to\_list()}
+\NormalTok{to\_plot }\OperatorTok{=}\NormalTok{ vol\_change\_5m.iloc[}\DecValTok{0}\NormalTok{:(}\DecValTok{24}\OperatorTok{*}\DecValTok{3}\NormalTok{)]}
+\NormalTok{to\_plot }\OperatorTok{=}\NormalTok{ to\_plot[cols]}
+
+\CommentTok{\# plotly setup}
+\NormalTok{plot\_rows}\OperatorTok{=}\BuiltInTok{int}\NormalTok{(}\BuiltInTok{len}\NormalTok{(cols)}\OperatorTok{/}\DecValTok{3}\NormalTok{)}
+\NormalTok{plot\_cols}\OperatorTok{=}\DecValTok{3}
+\NormalTok{fig }\OperatorTok{=}\NormalTok{ make\_subplots(rows}\OperatorTok{=}\NormalTok{plot\_rows, cols}\OperatorTok{=}\NormalTok{plot\_cols, subplot\_titles}\OperatorTok{=}\BuiltInTok{tuple}\NormalTok{(to\_plot.columns),}
+\NormalTok{                    x\_title}\OperatorTok{=}\StringTok{\textquotesingle{}Date\textquotesingle{}}\NormalTok{,}
+\NormalTok{                    y\_title}\OperatorTok{=}\StringTok{\textquotesingle{}\% Volume Change\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# add traces}
+\NormalTok{x }\OperatorTok{=} \DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{, plot\_rows }\OperatorTok{+} \DecValTok{1}\NormalTok{):}
+    \ControlFlowTok{for}\NormalTok{ j }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{, plot\_cols }\OperatorTok{+} \DecValTok{1}\NormalTok{):}
+        \CommentTok{\#print(str(i)+ \textquotesingle{}, \textquotesingle{} + str(j))}
+\NormalTok{        fig.add\_trace(go.Scatter(y}\OperatorTok{=}\NormalTok{to\_plot[to\_plot.columns[x]].values}\OperatorTok{*}\DecValTok{100}\NormalTok{,}
+\NormalTok{                                 name }\OperatorTok{=}\NormalTok{ to\_plot.columns[x],}
+\NormalTok{                                 x}\OperatorTok{=}\NormalTok{to\_plot.index}
+\NormalTok{                            ),}
+\NormalTok{                     row}\OperatorTok{=}\NormalTok{i,}
+\NormalTok{                     col}\OperatorTok{=}\NormalTok{j)}
+
+\NormalTok{        x}\OperatorTok{=}\NormalTok{x}\OperatorTok{+}\DecValTok{1}
+
+\CommentTok{\# Format and show fig}
+\NormalTok{fig.update\_layout(height}\OperatorTok{=}\DecValTok{4200}\NormalTok{, width}\OperatorTok{=}\DecValTok{2000}\NormalTok{, showlegend}\OperatorTok{=}\VariableTok{False}\NormalTok{,}
+\NormalTok{                  title\_text}\OperatorTok{=}\StringTok{\textquotesingle{}5m Volume Change\textquotesingle{}}\NormalTok{, template}\OperatorTok{=}\StringTok{\textquotesingle{}plotly\_dark\textquotesingle{}}\NormalTok{)}
+\NormalTok{fig.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Unable to display output for mime type(s): application/vnd.plotly.v1+json
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_returns\_5m }\OperatorTok{=}\NormalTok{ df\_returns\_5m.iloc[::}\OperatorTok{{-}}\DecValTok{1}\NormalTok{].dropna()}
+\NormalTok{X }\OperatorTok{=}\NormalTok{ df\_returns\_5m[}\StringTok{\textquotesingle{}BTCUSDT\textquotesingle{}}\NormalTok{].values}
+\NormalTok{df\_beta5m }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+\NormalTok{df\_alpha5m }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+\NormalTok{df\_r25m }\OperatorTok{=}\NormalTok{ pd.DataFrame()}
+\NormalTok{futures\_pairs2 }\OperatorTok{=}\NormalTok{ [x }\ControlFlowTok{for}\NormalTok{ x }\KeywordTok{in}\NormalTok{ futures\_pairs }\ControlFlowTok{if}\NormalTok{ x }\KeywordTok{not} \KeywordTok{in}\NormalTok{  [}\StringTok{\textquotesingle{}BTCUSDT\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}1000FLOKIUSDT\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}1000PEPEUSDT\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}BLURUSDT\textquotesingle{}}\NormalTok{]]}
+
+\ControlFlowTok{for}\NormalTok{ symbol }\KeywordTok{in}\NormalTok{ futures\_pairs2:}
+\NormalTok{    y }\OperatorTok{=}\NormalTok{ df\_returns\_5m[symbol].values}
+\NormalTok{    beta, alpha, r2\_score }\OperatorTok{=}\NormalTok{ rolling\_beta(X.reshape(}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{), y.reshape(}\OperatorTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{), df\_returns\_5m.index.values, }\DecValTok{60}\NormalTok{)}
+
+\NormalTok{    beta }\OperatorTok{=}\NormalTok{ beta.rename(\{}\StringTok{\textquotesingle{}beta\textquotesingle{}}\NormalTok{:symbol\}, axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+\NormalTok{    df\_beta5m }\OperatorTok{=}\NormalTok{ pd.concat([df\_beta5m, beta], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+
+\NormalTok{    alpha }\OperatorTok{=}\NormalTok{ alpha.rename(\{}\StringTok{\textquotesingle{}alpha\textquotesingle{}}\NormalTok{:symbol\}, axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+\NormalTok{    df\_alpha5m }\OperatorTok{=}\NormalTok{ pd.concat([df\_alpha5m, alpha], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+
+\NormalTok{    r2\_score }\OperatorTok{=}\NormalTok{ r2\_score.rename(\{}\StringTok{\textquotesingle{}r2\_score\textquotesingle{}}\NormalTok{:symbol\}, axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+\NormalTok{    df\_r25m }\OperatorTok{=}\NormalTok{ pd.concat([df\_r25m, r2\_score], axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_beta5m}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llllllllllllllllllllll@{}}
+\toprule()
+& 1INCHUSDT & AAVEUSDT & ACHUSDT & ADAUSDT & AGIXUSDT & ALGOUSDT &
+ALICEUSDT & ALPHAUSDT & AMBUSDT & ANKRUSDT & ... & XLMUSDT & XMRUSDT &
+XRPUSDT & XTZUSDT & XVSUSDT & YFIUSDT & ZECUSDT & ZENUSDT & ZILUSDT &
+ZRXUSDT \\
+\midrule()
+\endhead
+2023-06-02 11:00:00 & 0.669761 & 0.829467 & 1.168733 & 0.867082 &
+1.764965 & 1.004559 & 0.728090 & 1.495176 & 0.781588 & 0.822926 & ... &
+0.736779 & 0.214441 & 0.705246 & 0.824976 & 0.794537 & 0.508169 &
+0.927640 & 0.776545 & 0.799619 & 0.871189 \\
+2023-06-02 10:55:00 & 0.679495 & 0.842529 & 1.146018 & 0.872821 &
+1.789677 & 1.020569 & 0.727916 & 1.517994 & 0.918929 & 0.831011 & ... &
+0.737069 & 0.205266 & 0.708261 & 0.840654 & 0.807032 & 0.506113 &
+0.901244 & 0.768664 & 0.833068 & 0.889356 \\
+2023-06-02 10:50:00 & 0.696093 & 0.844343 & 1.140404 & 0.871833 &
+1.774375 & 1.015528 & 0.730210 & 1.512558 & 0.884563 & 0.828648 & ... &
+0.738811 & 0.199985 & 0.707413 & 0.833619 & 0.808772 & 0.506867 &
+0.885737 & 0.763355 & 0.833947 & 0.884629 \\
+2023-06-02 10:45:00 & 0.575714 & 0.856841 & 1.334589 & 0.905903 &
+1.826849 & 1.067620 & 0.767799 & 1.548536 & 0.970177 & 0.884736 & ... &
+0.753530 & 0.235248 & 0.754493 & 0.891327 & 0.758073 & 0.538146 &
+0.943271 & 0.784176 & 0.837152 & 0.933221 \\
+2023-06-02 10:40:00 & 0.577749 & 0.860113 & 1.336101 & 0.906479 &
+1.826220 & 1.071170 & 0.756162 & 1.484318 & 1.013680 & 0.891472 & ... &
+0.764889 & 0.241174 & 0.752676 & 0.896008 & 0.774834 & 0.535765 &
+0.946417 & 0.786813 & 0.840610 & 0.936567 \\
+2023-06-02 10:35:00 & 0.576668 & 0.865238 & 1.346151 & 0.884366 &
+1.833595 & 1.064800 & 0.754752 & 1.500883 & 0.911283 & 0.892524 & ... &
+0.766710 & 0.249362 & 0.750620 & 0.897794 & 0.771935 & 0.537246 &
+0.944493 & 0.785230 & 0.843285 & 0.937644 \\
+2023-06-02 10:30:00 & 0.574978 & 0.871741 & 1.349491 & 0.902320 &
+1.834294 & 1.062468 & 0.747855 & 1.530175 & 0.989430 & 0.889952 & ... &
+0.764544 & 0.248967 & 0.755172 & 0.895182 & 0.770115 & 0.542560 &
+0.943117 & 0.790092 & 0.843274 & 0.938131 \\
+2023-06-02 10:25:00 & 0.573170 & 0.859475 & 1.349840 & 0.903050 &
+1.840847 & 1.062635 & 0.746300 & 1.499267 & 0.996419 & 0.885075 & ... &
+0.768743 & 0.231531 & 0.752582 & 0.899225 & 0.767484 & 0.543755 &
+0.957852 & 0.787351 & 0.838274 & 0.934575 \\
+2023-06-02 10:20:00 & 0.575032 & 0.874210 & 1.355638 & 0.905087 &
+1.844626 & 1.057159 & 0.744745 & 1.514752 & 1.085819 & 0.883466 & ... &
+0.778084 & 0.232458 & 0.750239 & 0.895249 & 0.785199 & 0.545914 &
+0.959763 & 0.781809 & 0.841365 & 0.935177 \\
+2023-06-02 10:15:00 & 0.557550 & 0.874016 & 1.355719 & 0.911375 &
+1.824360 & 1.057353 & 0.746701 & 1.502468 & 1.135442 & 0.893095 & ... &
+0.783526 & 0.218246 & 0.751639 & 0.893316 & 0.793344 & 0.541484 &
+0.965032 & 0.779420 & 0.839952 & 0.936722 \\
+2023-06-02 10:10:00 & 0.564325 & 0.881012 & 1.347169 & 0.911477 &
+1.837518 & 1.049814 & 0.744794 & 1.482750 & 1.118028 & 0.891162 & ... &
+0.778832 & 0.217607 & 0.750621 & 0.894596 & 0.803057 & 0.540243 &
+0.980954 & 0.777806 & 0.829562 & 0.940149 \\
+2023-06-02 10:05:00 & 0.564898 & 0.881792 & 1.360327 & 0.914967 &
+1.824503 & 1.048910 & 0.744436 & 1.457467 & 1.035584 & 0.887784 & ... &
+0.783992 & 0.217888 & 0.745639 & 0.895445 & 0.803822 & 0.538021 &
+0.981665 & 0.780366 & 0.829697 & 0.933366 \\
+2023-06-02 10:00:00 & 0.571979 & 0.889976 & 1.349125 & 0.927138 &
+1.832455 & 1.050190 & 0.755911 & 1.477832 & 1.034277 & 0.897481 & ... &
+0.789204 & 0.214440 & 0.732132 & 0.892657 & 0.811780 & 0.547630 &
+0.993337 & 0.795722 & 0.831756 & 0.951065 \\
+2023-06-02 09:55:00 & 0.537542 & 0.898450 & 1.417605 & 0.930103 &
+1.894285 & 1.034562 & 0.759306 & 1.540492 & 1.289722 & 0.874542 & ... &
+0.775447 & 0.226513 & 0.680729 & 0.885139 & 0.802150 & 0.552588 &
+1.046663 & 0.804914 & 0.854340 & 0.961223 \\
+2023-06-02 09:50:00 & 0.542057 & 0.891253 & 1.406797 & 0.930640 &
+1.882454 & 1.026231 & 0.749722 & 1.568759 & 1.299701 & 0.869001 & ... &
+0.781940 & 0.227419 & 0.684225 & 0.881270 & 0.808563 & 0.546395 &
+1.022180 & 0.810006 & 0.851570 & 0.972218 \\
+2023-06-02 09:45:00 & 0.541248 & 0.888853 & 1.413636 & 0.931736 &
+1.888095 & 1.029007 & 0.752329 & 1.566607 & 1.287523 & 0.867677 & ... &
+0.776131 & 0.230424 & 0.680415 & 0.874342 & 0.807534 & 0.547633 &
+1.021450 & 0.814372 & 0.854024 & 0.973992 \\
+2023-06-02 09:40:00 & 0.554243 & 0.895985 & 1.418601 & 0.943266 &
+1.885738 & 1.028354 & 0.763685 & 1.543352 & 1.167818 & 0.873667 & ... &
+0.781659 & 0.230319 & 0.686674 & 0.878607 & 0.816941 & 0.552412 &
+1.020821 & 0.819897 & 0.853043 & 0.977557 \\
+2023-06-02 09:35:00 & 0.574682 & 0.903586 & 1.414801 & 0.958199 &
+1.896427 & 1.031792 & 0.765329 & 1.569358 & 1.161029 & 0.881592 & ... &
+0.785281 & 0.246088 & 0.684384 & 0.882681 & 0.795118 & 0.558150 &
+1.013756 & 0.814081 & 0.855533 & 0.978563 \\
+2023-06-02 09:30:00 & 0.596687 & 0.885160 & 1.465198 & 0.951427 &
+1.897866 & 1.047136 & 0.752682 & 1.478725 & 1.231603 & 0.872611 & ... &
+0.782922 & 0.251669 & 0.656395 & 0.902727 & 0.820170 & 0.553459 &
+1.045123 & 0.813873 & 0.868025 & 0.973260 \\
+2023-06-02 09:25:00 & 0.598104 & 0.883655 & 1.459298 & 0.952482 &
+1.897058 & 1.046461 & 0.751204 & 1.483839 & 1.248257 & 0.872257 & ... &
+0.783519 & 0.251031 & 0.658954 & 0.902831 & 0.821284 & 0.554790 &
+1.040380 & 0.818195 & 0.867280 & 0.973869 \\
+2023-06-02 09:20:00 & 0.591459 & 0.857747 & 1.265943 & 0.951612 &
+1.897683 & 1.036279 & 0.762852 & 1.442548 & 1.292303 & 0.860726 & ... &
+0.791760 & 0.249518 & 0.642753 & 0.898281 & 0.820566 & 0.556648 &
+1.050003 & 0.810981 & 0.865035 & 0.973394 \\
+2023-06-02 09:15:00 & 0.608898 & 0.854053 & 1.261528 & 0.947042 &
+1.866108 & 1.030447 & 0.769604 & 1.436055 & 1.355261 & 0.848936 & ... &
+0.814226 & 0.244177 & 0.616777 & 0.923273 & 0.843688 & 0.569636 &
+1.082879 & 0.834137 & 0.872760 & 0.977837 \\
+2023-06-02 09:10:00 & 0.585002 & 0.854416 & 1.316732 & 0.932746 &
+1.918939 & 1.019008 & 0.766690 & 1.390920 & 1.470670 & 0.849055 & ... &
+0.788224 & 0.283805 & 0.625730 & 0.944007 & 0.811510 & 0.578605 &
+1.021426 & 0.856333 & 0.872048 & 0.931082 \\
+2023-06-02 09:05:00 & 0.436367 & 0.856934 & 1.423774 & 0.943374 &
+1.947638 & 1.030998 & 0.777289 & 1.290332 & 1.496040 & 0.857353 & ... &
+0.751769 & 0.299257 & 0.656614 & 0.986341 & 0.766959 & 0.599271 &
+0.982053 & 0.890071 & 0.858199 & 0.891291 \\
+2023-06-02 09:00:00 & 0.383724 & 0.878299 & 1.436296 & 0.925029 &
+1.910129 & 1.016368 & 0.757477 & 1.181882 & 1.534307 & 0.830491 & ... &
+0.762431 & 0.243344 & 0.614900 & 0.948776 & 0.744567 & 0.607799 &
+0.952973 & 0.859240 & 0.831528 & 0.884287 \\
+2023-06-02 08:55:00 & 0.401965 & 0.823581 & 1.410540 & 0.883704 &
+1.881631 & 0.969536 & 0.729846 & 1.086350 & 1.506049 & 0.775090 & ... &
+0.739543 & 0.233657 & 0.590046 & 0.901203 & 0.662666 & 0.569698 &
+0.908594 & 0.761855 & 0.802492 & 0.869890 \\
+2023-06-02 08:50:00 & 0.344538 & 0.775218 & 1.427901 & 0.837925 &
+1.781425 & 0.958026 & 0.695172 & 0.991957 & 1.391353 & 0.800053 & ... &
+0.663348 & 0.185636 & 0.550826 & 0.909137 & 0.518536 & 0.570145 &
+0.953221 & 0.726515 & 0.779040 & 0.775602 \\
+2023-06-02 08:45:00 & 0.382094 & 0.795378 & 1.412246 & 0.841523 &
+1.824214 & 0.958523 & 0.721198 & 0.902566 & 1.384689 & 0.791079 & ... &
+0.683746 & 0.194303 & 0.534505 & 0.918051 & 0.511497 & 0.591389 &
+0.952984 & 0.740336 & 0.798820 & 0.764768 \\
+2023-06-02 08:40:00 & 0.284341 & 0.821251 & 1.370900 & 0.941637 &
+2.022714 & 1.025849 & 0.705113 & 0.728332 & 1.938318 & 0.873007 & ... &
+0.544756 & 0.147348 & 0.483694 & 0.945858 & 0.344791 & 0.492663 &
+1.042896 & 0.579964 & 0.884540 & 0.730695 \\
+2023-06-02 08:35:00 & 0.284338 & 0.823548 & 1.369657 & 0.939676 &
+2.020959 & 1.022281 & 0.702625 & 0.716969 & 1.955470 & 0.872861 & ... &
+0.541326 & 0.147308 & 0.481760 & 0.942035 & 0.338412 & 0.492063 &
+1.043121 & 0.577860 & 0.885544 & 0.729590 \\
+2023-06-02 08:30:00 & 0.310694 & 0.908172 & 1.366976 & 0.936101 &
+2.087548 & 1.093780 & 0.693933 & 0.562687 & 1.683302 & 0.848605 & ... &
+0.491434 & 0.196344 & 0.520572 & 0.978672 & 0.371557 & 0.559526 &
+1.161487 & 0.572288 & 0.903826 & 0.783948 \\
+2023-06-02 08:25:00 & 0.441373 & 0.828406 & 1.369927 & 0.982053 &
+1.989704 & 1.093923 & 0.684262 & 0.407730 & 1.454771 & 0.828831 & ... &
+0.399677 & 0.208781 & 0.556413 & 0.951746 & 0.492265 & 0.524160 &
+1.337504 & 0.511676 & 0.861685 & 0.742490 \\
+2023-06-02 08:20:00 & 0.349481 & 0.833201 & 1.370065 & 0.970386 &
+2.023311 & 1.085678 & 0.684842 & 0.447759 & 1.495331 & 0.824205 & ... &
+0.388853 & 0.198165 & 0.535580 & 0.918669 & 0.495532 & 0.543426 &
+1.345364 & 0.493605 & 0.865364 & 0.748884 \\
+2023-06-02 08:15:00 & 0.359624 & 0.816900 & 1.308296 & 0.958346 &
+2.037744 & 1.046121 & 0.661821 & 0.374767 & 1.343521 & 0.806470 & ... &
+0.372131 & 0.116529 & 0.533743 & 0.915670 & 0.403604 & 0.528403 &
+1.382696 & 0.505983 & 0.874214 & 0.748283 \\
+2023-06-02 08:10:00 & 0.486771 & 0.962136 & 1.417223 & 0.948843 &
+2.116042 & 1.061116 & 0.677728 & 0.265331 & 1.131620 & 0.841341 & ... &
+0.372331 & 0.136255 & 0.554240 & 0.957733 & 0.356920 & 0.570982 &
+1.328066 & 0.588527 & 0.979215 & 0.775966 \\
+2023-06-02 08:05:00 & 0.504702 & 0.945674 & 1.259606 & 0.965428 &
+2.114572 & 1.060531 & 0.627898 & 0.145670 & 0.743780 & 0.822319 & ... &
+0.348374 & 0.115628 & 0.536984 & 0.960171 & 0.304692 & 0.604235 &
+1.282240 & 0.569548 & 1.012800 & 0.718658 \\
+\bottomrule()
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reverse the order of rows in df\_alpha5m and df\_beta5m}
+\NormalTok{df\_alpha5m\_reversed }\OperatorTok{=}\NormalTok{ df\_alpha5m.iloc[::}\OperatorTok{{-}}\DecValTok{1}\NormalTok{]}
+\NormalTok{df\_beta5m\_reversed }\OperatorTok{=}\NormalTok{ df\_beta5m.iloc[::}\OperatorTok{{-}}\DecValTok{1}\NormalTok{]}
+
+\CommentTok{\# Calculate trend of alpha for every 12 observations}
+\NormalTok{alpha\_trend }\OperatorTok{=}\NormalTok{ df\_alpha5m\_reversed.rolling(window}\OperatorTok{=}\DecValTok{12}\NormalTok{).}\BuiltInTok{apply}\NormalTok{(}\KeywordTok{lambda}\NormalTok{ x: np.polyfit(}\BuiltInTok{range}\NormalTok{(}\DecValTok{12}\NormalTok{), x, }\DecValTok{1}\NormalTok{)[}\DecValTok{0}\NormalTok{])}
+\NormalTok{alpha\_trend\_df }\OperatorTok{=}\NormalTok{ pd.DataFrame(alpha\_trend[::}\OperatorTok{{-}}\DecValTok{1}\NormalTok{], columns}\OperatorTok{=}\NormalTok{df\_alpha5m.columns, index}\OperatorTok{=}\NormalTok{df\_alpha5m.index)}
+\NormalTok{alpha\_trend\_df }\OperatorTok{=}\NormalTok{ alpha\_trend\_df.dropna()}
+
+\CommentTok{\# Calculate trend of beta for every 12 observations}
+\NormalTok{beta\_trend }\OperatorTok{=}\NormalTok{ df\_beta5m\_reversed.rolling(window}\OperatorTok{=}\DecValTok{12}\NormalTok{).}\BuiltInTok{apply}\NormalTok{(}\KeywordTok{lambda}\NormalTok{ x: np.polyfit(}\BuiltInTok{range}\NormalTok{(}\DecValTok{12}\NormalTok{), x, }\DecValTok{1}\NormalTok{)[}\DecValTok{0}\NormalTok{])}
+\NormalTok{beta\_trend\_df }\OperatorTok{=}\NormalTok{ pd.DataFrame(beta\_trend[::}\OperatorTok{{-}}\DecValTok{1}\NormalTok{], columns}\OperatorTok{=}\NormalTok{df\_beta5m.columns, index}\OperatorTok{=}\NormalTok{df\_beta5m.index)}
+\NormalTok{beta\_trend\_df }\OperatorTok{=}\NormalTok{ beta\_trend\_df.dropna()}
+
+
+
+\NormalTok{df\_beta\_latest }\OperatorTok{=}\NormalTok{ df\_beta5m.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).iloc[}\DecValTok{0}\NormalTok{:}\DecValTok{1}\NormalTok{,:].reset\_index().melt(}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{, var\_name}\OperatorTok{=}\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{, value\_name}\OperatorTok{=}\StringTok{\textquotesingle{}beta\textquotesingle{}}\NormalTok{).sort\_values([}\StringTok{\textquotesingle{}beta\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{], ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).set\_index(}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{)}
+\NormalTok{df\_alpha\_latest }\OperatorTok{=}\NormalTok{ df\_alpha5m.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).iloc[}\DecValTok{0}\NormalTok{:}\DecValTok{1}\NormalTok{,:].reset\_index().melt(}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{, var\_name}\OperatorTok{=}\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{, value\_name}\OperatorTok{=}\StringTok{\textquotesingle{}alpha\textquotesingle{}}\NormalTok{).sort\_values([}\StringTok{\textquotesingle{}alpha\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{], ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).set\_index(}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{)}
+\NormalTok{df\_alpha\_trend\_latest }\OperatorTok{=}\NormalTok{ alpha\_trend\_df.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).iloc[}\DecValTok{0}\NormalTok{:}\DecValTok{1}\NormalTok{,:].reset\_index().melt(}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{, var\_name}\OperatorTok{=}\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{, value\_name}\OperatorTok{=}\StringTok{\textquotesingle{}alpha\_trend\textquotesingle{}}\NormalTok{).sort\_values([}\StringTok{\textquotesingle{}alpha\_trend\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{], ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).set\_index(}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{)}
+\NormalTok{df\_beta\_trend\_latest }\OperatorTok{=}\NormalTok{ beta\_trend\_df.sort\_index(ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).iloc[}\DecValTok{0}\NormalTok{:}\DecValTok{1}\NormalTok{,:].reset\_index().melt(}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{, var\_name}\OperatorTok{=}\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{, value\_name}\OperatorTok{=}\StringTok{\textquotesingle{}beta\_trend\textquotesingle{}}\NormalTok{).sort\_values([}\StringTok{\textquotesingle{}beta\_trend\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{], ascending}\OperatorTok{=}\VariableTok{False}\NormalTok{).set\_index(}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{df\_ab\_latest }\OperatorTok{=}\NormalTok{ pd.merge(df\_alpha\_latest, df\_beta\_latest, how}\OperatorTok{=}\StringTok{\textquotesingle{}inner\textquotesingle{}}\NormalTok{)}
+\NormalTok{df\_ab\_latest.index }\OperatorTok{=}\NormalTok{ df\_beta\_latest.index}
+
+\NormalTok{df\_ab\_trend\_latest }\OperatorTok{=}\NormalTok{ pd.merge(df\_alpha\_trend\_latest, df\_beta\_trend\_latest, how}\OperatorTok{=}\StringTok{\textquotesingle{}inner\textquotesingle{}}\NormalTok{)}
+\NormalTok{df\_ab\_trend\_latest.index }\OperatorTok{=}\NormalTok{ df\_beta\_trend\_latest.index}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ plotly.figure\_factory }\ImportTok{import}\NormalTok{ create\_2d\_density}
+\ImportTok{import}\NormalTok{ plotly.graph\_objects }\ImportTok{as}\NormalTok{ go}
+
+\NormalTok{x }\OperatorTok{=}\NormalTok{ df\_ab\_latest[}\StringTok{\textquotesingle{}alpha\textquotesingle{}}\NormalTok{].values}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ df\_ab\_latest[}\StringTok{\textquotesingle{}beta\textquotesingle{}}\NormalTok{].values}
+\NormalTok{labels }\OperatorTok{=}\NormalTok{ [label.replace(}\StringTok{"USDT"}\NormalTok{, }\StringTok{""}\NormalTok{) }\ControlFlowTok{for}\NormalTok{ label }\KeywordTok{in}\NormalTok{ df\_ab\_latest[}\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{].values]}
+
+\NormalTok{colorscale }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}\#7A4579\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}\#D56073\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rgb(236,158,105)\textquotesingle{}}\NormalTok{, (}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{0.2}\NormalTok{), (}\FloatTok{0.98}\NormalTok{,}\FloatTok{0.98}\NormalTok{,}\FloatTok{0.98}\NormalTok{)]}
+
+\NormalTok{fig }\OperatorTok{=}\NormalTok{ create\_2d\_density(x, y, colorscale}\OperatorTok{=}\NormalTok{colorscale, point\_size}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+
+\NormalTok{fig.add\_trace(go.Scatter(x}\OperatorTok{=}\NormalTok{x, y}\OperatorTok{=}\NormalTok{y, mode}\OperatorTok{=}\StringTok{\textquotesingle{}text\textquotesingle{}}\NormalTok{, text}\OperatorTok{=}\NormalTok{labels, textfont }\OperatorTok{=} \BuiltInTok{dict}\NormalTok{(size }\OperatorTok{=} \DecValTok{9}\NormalTok{, color }\OperatorTok{=} \StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{), marker}\OperatorTok{=}\BuiltInTok{dict}\NormalTok{(size}\OperatorTok{=}\DecValTok{1}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{)))}
+\NormalTok{fig.update\_layout(xaxis\_title}\OperatorTok{=}\StringTok{"Alpha"}\NormalTok{, yaxis\_title}\OperatorTok{=}\StringTok{"Beta"}\NormalTok{, height}\OperatorTok{=}\DecValTok{800}\NormalTok{, width}\OperatorTok{=}\DecValTok{1600}\NormalTok{, title\_text}\OperatorTok{=}\StringTok{\textquotesingle{}Alpha \& Beta: distribution across asset\textquotesingle{}}\NormalTok{)}
+\NormalTok{fig.update\_layout(paper\_bgcolor}\OperatorTok{=}\StringTok{"white"}\NormalTok{, plot\_bgcolor}\OperatorTok{=}\StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{)}
+\NormalTok{fig.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Unable to display output for mime type(s): application/vnd.plotly.v1+json
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ plotly.figure\_factory }\ImportTok{import}\NormalTok{ create\_2d\_density}
+\ImportTok{import}\NormalTok{ plotly.graph\_objects }\ImportTok{as}\NormalTok{ go}
+
+\NormalTok{x }\OperatorTok{=}\NormalTok{ df\_ab\_trend\_latest[}\StringTok{\textquotesingle{}alpha\_trend\textquotesingle{}}\NormalTok{].values}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ df\_ab\_trend\_latest[}\StringTok{\textquotesingle{}beta\_trend\textquotesingle{}}\NormalTok{].values}
+\NormalTok{labels }\OperatorTok{=}\NormalTok{ [label.replace(}\StringTok{"USDT"}\NormalTok{, }\StringTok{""}\NormalTok{) }\ControlFlowTok{for}\NormalTok{ label }\KeywordTok{in}\NormalTok{ df\_ab\_latest[}\StringTok{\textquotesingle{}asset\textquotesingle{}}\NormalTok{].values]}
+
+\NormalTok{colorscale }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}\#7A4579\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}\#D56073\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rgb(236,158,105)\textquotesingle{}}\NormalTok{, (}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{0.2}\NormalTok{), (}\FloatTok{0.98}\NormalTok{,}\FloatTok{0.98}\NormalTok{,}\FloatTok{0.98}\NormalTok{)]}
+
+\NormalTok{fig }\OperatorTok{=}\NormalTok{ create\_2d\_density(x, y, colorscale}\OperatorTok{=}\NormalTok{colorscale, point\_size}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+
+\NormalTok{fig.add\_trace(go.Scatter(x}\OperatorTok{=}\NormalTok{x, y}\OperatorTok{=}\NormalTok{y, mode}\OperatorTok{=}\StringTok{\textquotesingle{}text\textquotesingle{}}\NormalTok{, text}\OperatorTok{=}\NormalTok{labels, textfont }\OperatorTok{=} \BuiltInTok{dict}\NormalTok{(size }\OperatorTok{=} \DecValTok{9}\NormalTok{, color }\OperatorTok{=} \StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{), marker}\OperatorTok{=}\BuiltInTok{dict}\NormalTok{(size}\OperatorTok{=}\DecValTok{1}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{)))}
+\NormalTok{fig.update\_layout(xaxis\_title}\OperatorTok{=}\StringTok{"alpha\_trend (higher is better)"}\NormalTok{, yaxis\_title}\OperatorTok{=}\StringTok{"beta\_trend (higher is better)"}\NormalTok{, height}\OperatorTok{=}\DecValTok{800}\NormalTok{, width}\OperatorTok{=}\DecValTok{1600}\NormalTok{, title\_text}\OperatorTok{=}\StringTok{\textquotesingle{}alpha\& beta trend (last 1hr)\textquotesingle{}}\NormalTok{)}
+\NormalTok{fig.update\_layout(paper\_bgcolor}\OperatorTok{=}\StringTok{"white"}\NormalTok{, plot\_bgcolor}\OperatorTok{=}\StringTok{\textquotesingle{}white\textquotesingle{}}\NormalTok{)}
+\NormalTok{fig.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Unable to display output for mime type(s): application/vnd.plotly.v1+json
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_alpha5m}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llllllllllllllllllllll@{}}
+\toprule()
+& 1INCHUSDT & AAVEUSDT & ACHUSDT & ADAUSDT & AGIXUSDT & ALGOUSDT &
+ALICEUSDT & ALPHAUSDT & AMBUSDT & ANKRUSDT & ... & XLMUSDT & XMRUSDT &
+XRPUSDT & XTZUSDT & XVSUSDT & YFIUSDT & ZECUSDT & ZENUSDT & ZILUSDT &
+ZRXUSDT \\
+\midrule()
+\endhead
+2023-05-25 06:05:00 & 0.000015 & 0.000035 & 0.000137 & 4.657509e-06 &
+0.000056 & -0.000076 & 0.000064 & 0.000099 & 0.000261 & -0.000010 & ...
+& 2.453137e-06 & 0.000057 & 0.000012 & 0.000008 & -1.473184e-05 &
+-0.000064 & 0.000010 & -0.000010 & 0.000021 & 0.000012 \\
+2023-05-25 06:10:00 & 0.000023 & 0.000036 & 0.000143 & 3.455880e-07 &
+0.000048 & -0.000071 & 0.000072 & 0.000102 & 0.000310 & -0.000002 & ...
+& 9.144313e-08 & 0.000051 & 0.000018 & 0.000019 & -7.682699e-06 &
+-0.000060 & 0.000011 & -0.000005 & 0.000026 & 0.000019 \\
+2023-05-25 06:15:00 & 0.000024 & 0.000038 & 0.000140 & -2.660747e-06 &
+0.000050 & -0.000071 & 0.000066 & 0.000097 & 0.000304 & -0.000005 & ...
+& 4.253365e-06 & 0.000053 & 0.000018 & 0.000017 & -4.732553e-07 &
+-0.000057 & 0.000013 & -0.000010 & 0.000027 & 0.000022 \\
+2023-05-25 06:20:00 & 0.000037 & 0.000045 & 0.000168 & -2.507152e-06 &
+0.000059 & -0.000069 & 0.000068 & 0.000102 & 0.000299 & 0.000004 & ... &
+3.105143e-06 & 0.000056 & 0.000013 & 0.000022 & 8.757067e-06 & -0.000062
+& 0.000020 & -0.000005 & 0.000035 & 0.000021 \\
+2023-05-25 06:25:00 & 0.000017 & 0.000038 & 0.000151 & -9.819127e-06 &
+0.000051 & -0.000075 & 0.000066 & 0.000107 & 0.000294 & -0.000003 & ...
+& 4.095199e-06 & 0.000051 & 0.000008 & 0.000023 & -6.920681e-06 &
+-0.000065 & 0.000021 & -0.000013 & 0.000032 & 0.000022 \\
+... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... &
+... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\
+2023-05-27 13:40:00 & 0.000016 & 0.000052 & 0.000069 & 2.429018e-05 &
+0.000318 & 0.000013 & 0.000017 & 0.000170 & -0.000075 & 0.000010 & ... &
+-7.562557e-06 & -0.000016 & 0.000043 & 0.000013 & -4.853066e-06 &
+0.000029 & 0.000110 & 0.000030 & 0.000005 & 0.000014 \\
+2023-05-27 13:45:00 & 0.000017 & 0.000049 & 0.000082 & 2.827081e-05 &
+0.000317 & 0.000013 & 0.000016 & 0.000160 & -0.000065 & 0.000008 & ... &
+-6.372770e-06 & -0.000017 & 0.000050 & 0.000015 & -3.350416e-06 &
+0.000030 & 0.000128 & 0.000028 & -0.000004 & 0.000018 \\
+2023-05-27 13:50:00 & 0.000018 & 0.000055 & 0.000075 & 2.738629e-05 &
+0.000322 & 0.000016 & 0.000014 & 0.000151 & -0.000077 & 0.000010 & ... &
+-8.728020e-06 & -0.000018 & 0.000050 & 0.000013 & 3.397379e-06 &
+0.000029 & 0.000111 & 0.000026 & -0.000002 & 0.000023 \\
+2023-05-27 13:55:00 & 0.000021 & 0.000052 & 0.000078 & 2.827479e-05 &
+0.000328 & 0.000010 & 0.000015 & 0.000145 & -0.000075 & 0.000006 & ... &
+-8.627822e-06 & -0.000017 & 0.000048 & 0.000013 & 2.095677e-06 &
+0.000026 & 0.000104 & 0.000028 & -0.000001 & 0.000014 \\
+2023-05-27 14:00:00 & 0.000001 & 0.000042 & 0.000056 & 1.468369e-05 &
+0.000330 & -0.000002 & 0.000011 & 0.000122 & -0.000091 & -0.000002 & ...
+& -5.834374e-06 & -0.000021 & 0.000040 & 0.000005 & -7.002555e-06 &
+0.000026 & 0.000086 & 0.000014 & -0.000006 & 0.000006 \\
+\bottomrule()
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ plotly.graph\_objs }\ImportTok{as}\NormalTok{ go}
+\ImportTok{from}\NormalTok{ plotly.subplots }\ImportTok{import}\NormalTok{ make\_subplots}
+
+\NormalTok{to\_plot }\OperatorTok{=}\NormalTok{ df\_beta5m.sort\_index(axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)}
+\NormalTok{to\_plot2 }\OperatorTok{=}\NormalTok{ df\_alpha5m}
+
+\CommentTok{\# plotly setup}
+\NormalTok{plot\_rows}\OperatorTok{=}\BuiltInTok{int}\NormalTok{(}\BuiltInTok{len}\NormalTok{(to\_plot.columns.to\_list())}\OperatorTok{/}\DecValTok{3}\NormalTok{)}
+\NormalTok{plot\_cols}\OperatorTok{=}\DecValTok{3}
+\NormalTok{specs\_elem1 }\OperatorTok{=}\NormalTok{ [\{}\StringTok{"secondary\_y"}\NormalTok{: }\VariableTok{True}\NormalTok{\} }\ControlFlowTok{for}\NormalTok{ x }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(plot\_cols)]}
+\NormalTok{specs\_elem2 }\OperatorTok{=}\NormalTok{ [specs\_elem1 }\ControlFlowTok{for}\NormalTok{ x }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(plot\_rows)]}
+\NormalTok{fig }\OperatorTok{=}\NormalTok{ make\_subplots(rows}\OperatorTok{=}\NormalTok{plot\_rows, cols}\OperatorTok{=}\NormalTok{plot\_cols, subplot\_titles}\OperatorTok{=}\BuiltInTok{tuple}\NormalTok{(to\_plot.columns),}
+\NormalTok{                    x\_title}\OperatorTok{=}\StringTok{\textquotesingle{}Date\textquotesingle{}}\NormalTok{,}
+\NormalTok{                    y\_title}\OperatorTok{=}\StringTok{\textquotesingle{}Beta\textquotesingle{}}\NormalTok{, }
+\NormalTok{                    specs}\OperatorTok{=}\NormalTok{specs\_elem2, horizontal\_spacing }\OperatorTok{=} \FloatTok{0.035}\NormalTok{)}
+
+\CommentTok{\# add traces}
+\NormalTok{x }\OperatorTok{=} \DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{, plot\_rows }\OperatorTok{+} \DecValTok{1}\NormalTok{):}
+    \ControlFlowTok{for}\NormalTok{ j }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{, plot\_cols }\OperatorTok{+} \DecValTok{1}\NormalTok{):}
+\NormalTok{        fig.add\_trace(go.Scatter(y}\OperatorTok{=}\NormalTok{to\_plot[to\_plot.columns[x]].values, name}\OperatorTok{=}\NormalTok{to\_plot.columns[x], x}\OperatorTok{=}\NormalTok{to\_plot.index, line}\OperatorTok{=}\BuiltInTok{dict}\NormalTok{(width}\OperatorTok{=}\FloatTok{1.7}\NormalTok{)), }
+\NormalTok{                     row}\OperatorTok{=}\NormalTok{i, col}\OperatorTok{=}\NormalTok{j)}
+\NormalTok{        fig.add\_trace(go.Scatter(y}\OperatorTok{=}\NormalTok{to\_plot2[to\_plot.columns[x]].values, name}\OperatorTok{=}\NormalTok{to\_plot.columns[x], x}\OperatorTok{=}\NormalTok{to\_plot.index, showlegend}\OperatorTok{=}\VariableTok{True}\NormalTok{, line}\OperatorTok{=}\BuiltInTok{dict}\NormalTok{(color}\OperatorTok{=}\StringTok{\textquotesingle{}slategrey\textquotesingle{}}\NormalTok{, width}\OperatorTok{=}\FloatTok{0.85}\NormalTok{), text}\OperatorTok{=}\StringTok{\textquotesingle{}alpha\textquotesingle{}}\NormalTok{, fill}\OperatorTok{=}\StringTok{\textquotesingle{}tozeroy\textquotesingle{}}\NormalTok{),}
+\NormalTok{                     row}\OperatorTok{=}\NormalTok{i, col}\OperatorTok{=}\NormalTok{j, secondary\_y}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
+
+\NormalTok{        x}\OperatorTok{=}\NormalTok{x}\OperatorTok{+}\DecValTok{1}
+
+\CommentTok{\# Format and show fig}
+\NormalTok{fig.update\_layout(height}\OperatorTok{=}\DecValTok{5400}\NormalTok{, width}\OperatorTok{=}\DecValTok{2500}\NormalTok{, font}\OperatorTok{=}\BuiltInTok{dict}\NormalTok{(size}\OperatorTok{=}\DecValTok{10}\NormalTok{), showlegend}\OperatorTok{=}\VariableTok{False}\NormalTok{, title\_text}\OperatorTok{=}\StringTok{\textquotesingle{}Alpha (shaded) \& Beta\textquotesingle{}}\NormalTok{, template}\OperatorTok{=}\StringTok{\textquotesingle{}plotly\_dark\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{fig.for\_each\_xaxis(}\KeywordTok{lambda}\NormalTok{ x: x.update(showgrid}\OperatorTok{=}\VariableTok{False}\NormalTok{))}
+\NormalTok{fig.for\_each\_yaxis(}\KeywordTok{lambda}\NormalTok{ x: x.update(showgrid}\OperatorTok{=}\VariableTok{False}\NormalTok{))}
+\NormalTok{fig.update\_annotations(font\_size}\OperatorTok{=}\FloatTok{10.5}\NormalTok{)}
+
+\NormalTok{fig.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Unable to display output for mime type(s): application/vnd.plotly.v1+json
+\end{verbatim}
+
+
+
+\end{document}
