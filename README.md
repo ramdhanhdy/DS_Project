@@ -15,8 +15,12 @@ This repo contains personal projects completed by me for academic, self learning
     </a>
     <a href="HomeCredit\readme.md"> 
   <img src="HomeCredit\images\default_cntchildren.png" width="90%" /> 
-    </a>   
+    </a>
+    <a href="HomeCredit\notebooks\HomeCredit_Modeling.ipynb"> 
+  <img src="HomeCredit\images\catboost_result.png" width="90%" /> 
+    </a>      
 </p>
+
 
 <p align= "center">
 <a href="PwC_CallCenter"> 
