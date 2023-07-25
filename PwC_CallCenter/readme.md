@@ -2,9 +2,7 @@
 
 ## Executive Summary
 
-<blockquote style="background-color: #D6EAF8; padding: 20px; border-radius: 15px; font-family: Arial, sans-serif;">
-This project analyzes call center data from a major telecom company, focusing on call volumes, agent performance, and customer satisfaction. Key findings include an 81% response rate to 5000 customer calls in Q1 2021, with room for improvement in unanswered calls. Agent performance was generally strong, but variations in customer satisfaction suggest differences in call handling. Factors such as the day of the week and the agent's personal schedule may influence performance. Customer satisfaction was highest at the start and end of the workday, with a dip around 2 p.m. The analysis found weak associations between call volume and agent performance metrics, suggesting that the number of calls an agent handles does not primarily determine their performance. Further analysis is required to fully understand and optimize agent performance and customer satisfaction.
-</blockquote>
+***This project analyzes call center data from a major telecom company, focusing on call volumes, agent performance, and customer satisfaction. Key findings include an 81% response rate to 5000 customer calls in Q1 2021, with room for improvement in unanswered calls. Agent performance was generally strong, but variations in customer satisfaction suggest differences in call handling. Factors such as the day of the week and the agent's personal schedule may influence performance. Customer satisfaction was highest at the start and end of the workday, with a dip around 2 p.m. The analysis found weak associations between call volume and agent performance metrics, suggesting that the number of calls an agent handles does not primarily determine their performance. Further analysis is required to fully understand and optimize agent performance and customer satisfaction.***
 
 ## Introduction
 
