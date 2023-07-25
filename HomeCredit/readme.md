@@ -39,7 +39,6 @@ This study begins with the acquisition and merging of relevant datasets. Followi
 ## Key Deliverables
 * [Notebook on Exploratory Data Analysis](link)
 * [Notebook on Feature Selection and Classification Model](link)
-* [Blog Post Discussing the Exploratory Data Analysis](link)
 
 ---
 
