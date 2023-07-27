@@ -4,6 +4,12 @@ This repo contains personal projects completed by me for academic, self learning
 -----
 # Gallery
 
+## Sales Dashboard
+<p align= "center">
+  <a href="Sales Dashboard\readme.md"> 
+  <img src="Sales Dashboard\images\sales_dashboard_red.png" width="100%" /> 
+    </a>
+
 ## Home Credit: Loan Default Analysis
 <p align= "center">
   <a href="HomeCredit\readme.md"> 

@@ -1,0 +1,1176 @@
+Version: 3.4.0
+Language: en-US
+DynamicImprovement: HighConfidence
+Entities:
+  FactTable_sale:
+    Definition:
+      Binding: {Table: FactTable Sales}
+    State: Generated
+    Terms:
+    - FactTable sale: {State: Generated}
+    - facttable auction: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - facttable transaction: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - facttable deal: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.461}
+    - facttable trade: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.461}
+    - facttable vending: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.461}
+    - facttable retailing: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.461}
+    - facttable selling: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.461}
+
+  FactTable_sale.order_date:
+    Definition:
+      Binding: {Table: FactTable Sales, Column: OrderDate}
+    State: Generated
+    Terms:
+    - order date: {State: Generated}
+    - OrderDate: {Type: Noun, State: Generated, Weight: 0.99}
+    - date: {State: Generated, Weight: 0.7}
+    - order moment: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - order period: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    SemanticType: Time
+
+  FactTable_sale.order_number:
+    Definition:
+      Binding: {Table: FactTable Sales, Column: OrderNumber}
+    State: Generated
+    Terms:
+    - order number: {State: Generated}
+    - OrderNumber: {Type: Noun, State: Generated, Weight: 0.99}
+    - order no: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+
+  FactTable_sale.product_key:
+    Definition:
+      Binding: {Table: FactTable Sales, Column: ProductKey}
+    State: Generated
+    Visibility: Hidden
+    Terms:
+    - product key: {State: Generated}
+    - ProductKey: {Type: Noun, State: Generated, Weight: 0.99}
+    - key: {State: Generated, Weight: 0.97}
+    - artifact key: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - item key: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - merchandise key: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - produce key: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - main: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - basic: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - fundamental: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - central: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - major: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - keynote: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+
+  FactTable_sale.salesperson_key:
+    Definition:
+      Binding: {Table: FactTable Sales, Column: SalespersonKey}
+    State: Generated
+    Visibility: Hidden
+    Terms:
+    - salesperson key: {State: Generated}
+    - SalespersonKey: {Type: Noun, State: Generated, Weight: 0.99}
+    - key: {State: Generated, Weight: 0.97}
+    - main: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - basic: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - fundamental: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - central: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - major: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - keynote: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - essential: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - salesperson solution: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - salesperson explanation: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - salesperson basis: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+
+  FactTable_sale.channel:
+    Definition:
+      Binding: {Table: FactTable Sales, Column: Channel}
+    State: Generated
+    Terms:
+    - channel: {State: Generated}
+    - frequency: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - station: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - network: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - conduit: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - waterway: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - canal: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.452}
+    - strait: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.452}
+    - passage: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.452}
+
+  FactTable_sale.quantity:
+    Definition:
+      Binding: {Table: FactTable Sales, Column: Quantity}
+    State: Generated
+    Terms:
+    - quantity: {State: Generated}
+    - extent: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - magnitude: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - measure: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - size: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - capacity: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - mass: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+
+  FactTable_sale.unit_price:
+    Definition:
+      Binding: {Table: FactTable Sales, Column: UnitPrice}
+    State: Generated
+    Terms:
+    - unit price: {State: Generated}
+    - UnitPrice: {Type: Noun, State: Generated, Weight: 0.99}
+    - price: {State: Generated, Weight: 0.97}
+    - module price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - element price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - entity price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - group price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - component price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - constituent price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - item price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - part price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - section price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - unit value: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+
+  FactTable_budget:
+    Definition:
+      Binding: {Table: FactTable Budget}
+    State: Generated
+    Terms:
+    - FactTable budget: {State: Generated}
+    - facttable account: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - facttable cost: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - facttable finance: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+
+  FactTable_budget.salesperson_ID:
+    Definition:
+      Binding: {Table: FactTable Budget, Column: SalespersonID}
+    State: Generated
+    Visibility: Hidden
+    Terms:
+    - salesperson ID: {State: Generated}
+    - SalespersonID: {Type: Noun, State: Generated, Weight: 0.99}
+    - salesperson identification: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - salesperson identity: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - salesperson identifier: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - salesperson credential: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+
+  FactTable_budget.budget:
+    Definition:
+      Binding: {Table: FactTable Budget, Column: Budget}
+    State: Generated
+    Terms:
+    - budget: {State: Generated}
+    - account: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - cost: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - finance: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+
+  FactTable_budget.budget_date:
+    Definition:
+      Binding: {Table: FactTable Budget, Column: BudgetDate}
+    State: Generated
+    Terms:
+    - budget date: {State: Generated}
+    - BudgetDate: {Type: Noun, State: Generated, Weight: 0.99}
+    - date: {State: Generated, Weight: 0.7}
+    - budget moment: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - budget period: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - account date: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - cost date: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - finance date: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    SemanticType: Time
+
+  FactTable_budget.total_budget:
+    Definition:
+      Binding: {Table: FactTable Budget, Measure: TotalBudget}
+    State: Generated
+    Terms:
+    - total budget: {State: Generated}
+    - TotalBudget: {Type: Noun, State: Generated, Weight: 0.99}
+    - total account: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - total cost: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - total finance: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - aggregate budget: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - overall budget: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+
+  LookUpTable_person:
+    Definition:
+      Binding: {Table: LookUpTable Person}
+    State: Generated
+    Terms:
+    - LookUpTable person: {State: Generated}
+    - lookuptable creature: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - lookuptable being: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - lookuptable individual: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - lookuptable one: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - lookuptable soul: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - lookuptable somebody: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - lookuptable type: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - lookuptable party: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - lookuptable human: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - lookuptable self: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+
+  LookUpTable_person.salesperson_key:
+    Definition:
+      Binding: {Table: LookUpTable Person, Column: SalespersonKey}
+    State: Generated
+    Terms:
+    - salesperson key: {State: Generated}
+    - SalespersonKey: {Type: Noun, State: Generated, Weight: 0.99}
+    - key: {State: Generated, Weight: 0.97}
+    - main: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - basic: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - fundamental: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - central: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - major: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - keynote: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - essential: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - salesperson solution: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - salesperson explanation: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - salesperson basis: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+
+  LookUpTable_person.salesperson:
+    Definition:
+      Binding: {Table: LookUpTable Person, Column: Salesperson}
+    State: Generated
+    Terms:
+    - salesperson: {State: Generated}
+    - salesclerk: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - floorwalker: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - seller: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - vender: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - vendor: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - retailer: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - wholesaler: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - dealer: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - hawker: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - purveyor: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+
+  LookUpTable_person.supervisor:
+    Definition:
+      Binding: {Table: LookUpTable Person, Column: Supervisor}
+    State: Generated
+    Terms:
+    - supervisor: {State: Generated}
+    - administrator: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - controller: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - overseer: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - director: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - superintendent: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - boss: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - superior: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - head: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - chief: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+
+  LookUpTable_person.manager:
+    Definition:
+      Binding: {Table: LookUpTable Person, Column: Manager}
+    State: Generated
+    Terms:
+    - manager: {State: Generated}
+    - director: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - administrator: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - leader: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - boss: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - executive: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - chief: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - superior: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+
+  date_table:
+    Definition:
+      Binding: {Table: DateTable}
+    State: Generated
+    Terms:
+    - date table: {State: Generated}
+    - DateTable: {Type: Noun, State: Generated, Weight: 0.99}
+    - moment table: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - period table: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - date tabletop: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - date bench: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - date board: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - date counter: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - date stand: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - date slab: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - date desk: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - date stall: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+
+  date_table.date:
+    Definition:
+      Binding: {Table: DateTable, Column: Date}
+    State: Generated
+    Terms:
+    - date: {State: Generated}
+    - moment: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    - period: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    SemanticType: Time
+
+  date_table.year:
+    Definition:
+      Binding: {Table: DateTable, Column: Year}
+    State: Generated
+    Terms:
+    - year: {State: Generated}
+    - yr: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    SemanticType: Time
+
+  date_table.month:
+    Definition:
+      Binding: {Table: DateTable, Column: Month}
+    State: Generated
+    Terms:
+    - month: {State: Generated}
+    - mth: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+
+  date_table.month_num:
+    Definition:
+      Binding: {Table: DateTable, Column: MonthNum}
+    State: Generated
+    Terms:
+    - month num: {State: Generated}
+    - MonthNum: {Type: Noun, State: Generated, Weight: 0.99}
+    - month number: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - mth num: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+
+  date_table.week_day:
+    Definition:
+      Binding: {Table: DateTable, Column: WeekDay}
+    State: Generated
+    Terms:
+    - week day: {State: Generated}
+    - WeekDay: {Type: Noun, State: Generated, Weight: 0.99}
+    - ordinary: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - standard: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - basic: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - routine: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+
+  date_table.week_num:
+    Definition:
+      Binding: {Table: DateTable, Column: WeekNum}
+    State: Generated
+    Terms:
+    - week num: {State: Generated}
+    - WeekNum: {Type: Noun, State: Generated, Weight: 0.99}
+    - week number: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+
+  date_table.quarter:
+    Definition:
+      Binding: {Table: DateTable, Column: Quarter}
+    State: Generated
+    Terms:
+    - quarter: {State: Generated}
+    - qtr: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.818}
+
+  date_table.weekday_weekend:
+    Definition:
+      Binding: {Table: DateTable, Column: Weekday/Weekend}
+    State: Generated
+    Terms:
+    - weekday/weekend: {State: Generated}
+    - weekday weekend: {State: Generated, Weight: 0.97}
+    - weekend: {State: Generated, Weight: 0.97}
+
+  date_table.year_hierarchy:
+    Definition:
+      Binding: {Table: DateTable, Hierarchy: Year Hierarchy}
+    State: Generated
+    Terms:
+    - year hierarchy: {State: Generated}
+    - hierarchy: {State: Generated, Weight: 0.97}
+    - yr hierarchy: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - year ladder: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - year grading: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - year order: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - year pyramid: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - ladder: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - grading: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - order: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - pyramid: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    SemanticType: Time
+
+  date_table.year_hierarchy.year:
+    Definition:
+      Binding: {Table: DateTable, Hierarchy: Year Hierarchy, HierarchyLevel: Year}
+    State: Generated
+    Terms:
+    - year: {State: Generated}
+    - yr: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    SemanticType: Time
+
+  date_table.year_hierarchy.month:
+    Definition:
+      Binding: {Table: DateTable, Hierarchy: Year Hierarchy, HierarchyLevel: Month}
+    State: Generated
+    Terms:
+    - month: {State: Generated}
+    - mth: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    SemanticType: Time
+
+  date_table.year_hierarchy.quarter:
+    Definition:
+      Binding: {Table: DateTable, Hierarchy: Year Hierarchy, HierarchyLevel: Quarter}
+    State: Generated
+    Terms:
+    - quarter: {State: Generated}
+    - qtr: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.818}
+    SemanticType: Time
+
+  LookUpTable_product:
+    Definition:
+      Binding: {Table: LookUpTable Product}
+    State: Generated
+    Terms:
+    - LookUpTable product: {State: Generated}
+    - lookuptable artifact: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - lookuptable item: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - lookuptable merchandise: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - lookuptable produce: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+
+  LookUpTable_product.ID:
+    Definition:
+      Binding: {Table: LookUpTable Product, Column: ID}
+    State: Generated
+    Terms:
+    - ID: {State: Generated}
+    - identification: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    - identity: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    - credential: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    NameType: Identifier
+
+  LookUpTable_product.product_name:
+    Definition:
+      Binding: {Table: LookUpTable Product, Column: ProductName}
+    State: Generated
+    Terms:
+    - product name: {State: Generated}
+    - ProductName: {Type: Noun, State: Generated, Weight: 0.99}
+    - product: {State: Generated, Weight: 0.97}
+    - artifact: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    - product nickname: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product title: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product label: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product tag: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - item: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - merchandise: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - produce: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - artifact name: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - item name: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+
+  LookUpTable_product.product_group:
+    Definition:
+      Binding: {Table: LookUpTable Product, Column: ProductGroup}
+    State: Generated
+    Terms:
+    - product group: {State: Generated}
+    - ProductGroup: {Type: Noun, State: Generated, Weight: 0.99}
+    - product organization: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - product bracket: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product class: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product crew: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product team: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - artifact group: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - item group: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - merchandise group: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - produce group: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+
+  LookUpTable_product.product_category:
+    Definition:
+      Binding: {Table: LookUpTable Product, Column: ProductCategory}
+    State: Generated
+    Terms:
+    - product category: {State: Generated}
+    - ProductCategory: {Type: Noun, State: Generated, Weight: 0.99}
+    - category: {State: Generated, Weight: 0.97}
+    - product classification: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - classification: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    - product class: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product type: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product grouping: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - product kind: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - class: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - grouping: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - kind: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - artifact category: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+
+  pick_rank:
+    Definition:
+      Binding: {Table: Pick Rank}
+    State: Generated
+    Terms:
+    - pick rank: {State: Generated, Weight: 0.87}
+
+  pick_rank.pick_rank:
+    Definition:
+      Binding: {Table: Pick Rank, Column: Pick Rank}
+    State: Generated
+    Terms:
+    - pick rank: {State: Generated}
+
+  pick_rank.pick_rank_value:
+    Definition:
+      Binding: {Table: Pick Rank, Measure: Pick Rank Value}
+    State: Generated
+    Terms:
+    - pick rank value: {State: Generated}
+    - value: {State: Generated, Weight: 0.97}
+    - rank value: {State: Generated, Weight: 0.97}
+    - pick rank assessment: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.508}
+    - rank assessment: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - pick rank worth: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.492}
+    - pick rank price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.492}
+    - pick rank cost: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.492}
+    - pick rank charge: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.492}
+    - pick rank rate: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.492}
+    - assessment: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - rank worth: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - rank price: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+
+  pick_rank_type:
+    Definition:
+      Binding: {Table: Pick Rank Type}
+    State: Generated
+    Terms:
+    - pick rank type: {State: Generated}
+    - type: {State: Generated, Weight: 0.97}
+    - rank type: {State: Generated, Weight: 0.97}
+    - pick rank category: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.762}
+    - pick rank genre: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.762}
+    - pick rank manner: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.762}
+    - pick rank variety: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.762}
+    - rank category: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - rank genre: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - rank manner: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - rank variety: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - pick rank brand: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.739}
+    - pick rank class: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.739}
+
+  pick_rank_type.select:
+    Definition:
+      Binding: {Table: Pick Rank Type, Column: Select}
+    State: Generated
+    Terms:
+    - select: {State: Generated}
+    - choice: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - first-rate: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - first-class: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - hand-picked: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - exclusive: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.452}
+    - elite: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.452}
+
+  pick_rank_type.sort:
+    Definition:
+      Binding: {Table: Pick Rank Type, Column: Sort}
+    State: Generated
+    Terms:
+    - sort: {State: Generated}
+    - genus: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - species: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - variety: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - nature: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - kind: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - class: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - ilk: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - order: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - person: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+    - character: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.452}
+
+  measure_table:
+    Definition:
+      Binding: {Table: MeasureTable}
+    State: Generated
+    Terms:
+    - measure table: {State: Generated}
+    - MeasureTable: {Type: Noun, State: Generated, Weight: 0.99}
+    - measure tabletop: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - measure bench: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - measure board: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - measure counter: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - measure stand: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - measure slab: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - measure desk: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - measure stall: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - measure table top: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - measure spreadsheet: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+
+  measure_table.column:
+    Definition:
+      Binding: {Table: MeasureTable, Column: Column}
+    State: Generated
+    Terms:
+    - column: {State: Generated}
+    - pilaster: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - pier: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - pillar: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - post: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - support: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - stake: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - pole: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - buttress: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - underpinning: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - contribution: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.466}
+
+  measure_table.total_quantity:
+    Definition:
+      Binding: {Table: MeasureTable, Measure: Total Quantity}
+    State: Generated
+    Terms:
+    - total quantity: {State: Generated}
+    - aggregate quantity: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - overall quantity: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - total extent: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - total magnitude: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - total amount: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - total number: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - total measure: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - total size: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - total capacity: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - total mass: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+
+  measure_table.quantity_pct:
+    Definition:
+      Binding: {Table: MeasureTable, Measure: Quantity Pct}
+    State: Generated
+    Terms:
+    - quantity pct: {State: Generated}
+
+  measure_table.revenue_pct:
+    Definition:
+      Binding: {Table: MeasureTable, Measure: Revenue Pct}
+    State: Generated
+    Terms:
+    - revenue pct: {State: Generated}
+    - income pct: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.6}
+    - profit pct: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - turnover pct: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - yield pct: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+
+  measure_table.total_revenue:
+    Definition:
+      Binding: {Table: MeasureTable, Measure: Total Revenue}
+    State: Generated
+    Terms:
+    - total revenue: {State: Generated}
+    - revenue: {State: Generated, Weight: 0.97}
+    - total income: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.75}
+    - income: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.736}
+    - total profit: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - total turnover: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - total yield: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.727}
+    - profit: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - turnover: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - yield: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.714}
+    - aggregate revenue: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - overall revenue: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+
+  measure_table.total_transaction:
+    Definition:
+      Binding: {Table: MeasureTable, Measure: Total Transaction}
+    State: Generated
+    Terms:
+    - total transaction: {State: Generated}
+    - transaction: {State: Generated, Weight: 0.97}
+    - aggregate transaction: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - overall transaction: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.582}
+    - total operation: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - operation: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - total deal: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - total business: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - total contract: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - total matter: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - deal: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - business: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+
+  measure_table.ranking:
+    Definition:
+      Binding: {Table: MeasureTable, Measure: Ranking}
+    State: Generated
+    Terms:
+    - ranking: {State: Generated}
+    - status: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - classification: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.491}
+    - position: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - place: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - grade: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - standing: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+    - level: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.476}
+
+  select_to_rank:
+    Definition:
+      Binding: {Table: 'SelectToRank '}
+    State: Generated
+    Terms:
+    - select to rank: {State: Generated}
+    - 'SelectToRank ': {Type: Noun, State: Generated, Weight: 0.99}
+    - SelectToRank: {State: Generated, Weight: 0.96029999999999993}
+
+  select_to_rank.select_to_rank:
+    Definition:
+      Binding: {Table: 'SelectToRank ', Column: 'SelectToRank '}
+    State: Generated
+    Terms:
+    - select to rank: {State: Generated}
+    - select to rank name: {State: Generated}
+    - 'SelectToRank ': {Type: Noun, State: Generated, Weight: 0.99}
+    - SelectToRank: {State: Generated, Weight: 0.96029999999999993}
+    NameType: Name
+
+  select_to_rank.SelectToRank__field:
+    Definition:
+      Binding: {Table: 'SelectToRank ', Column: SelectToRank  Fields}
+    State: Generated
+    Visibility: Hidden
+    Terms:
+    - SelectToRank  field: {State: Generated}
+    - SelectToRank field: {State: Generated, Weight: 0.97}
+    - selecttorank arena: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - selecttorank turf: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank ground: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank pitch: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank park: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank meadow: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - selecttorank grassland: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - selecttorank lea: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - selecttorank pasture: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.461}
+    - selecttorank countryside: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.461}
+
+  select_to_rank.SelectToRank__order:
+    Definition:
+      Binding: {Table: 'SelectToRank ', Column: SelectToRank  Order}
+    State: Generated
+    Visibility: Hidden
+    Terms:
+    - SelectToRank  order: {State: Generated}
+    - SelectToRank order: {State: Generated, Weight: 0.97}
+    - selecttorank instruction: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - selecttorank direction: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - selecttorank edict: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.5}
+    - selecttorank command: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank directive: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank demand: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank mandate: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank imperative: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.485}
+    - selecttorank stability: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+    - selecttorank harmony: {Type: Noun, State: Suggested, Source: {Agent: OfficeThesaurus}, Weight: 0.475}
+
+Relationships:
+  LookUpTable_product_is_named_ID:
+    Binding: {Table: LookUpTable Product}
+    State: Generated
+    Phrasings:
+    - Name:
+        Subject: LookUpTable_product
+        Name: LookUpTable_product.ID
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: LookUpTable_product, Object: LookUpTable_product.ID}
+      State: Generated
+      Weight: 0.99
+
+  select_to_rank_is_named_select_to_rank:
+    Binding: {Table: 'SelectToRank '}
+    State: Generated
+    Phrasings:
+    - Name:
+        Subject: select_to_rank
+        Name: select_to_rank.select_to_rank
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: select_to_rank, Object: select_to_rank.select_to_rank}
+      State: Generated
+      Weight: 0.99
+
+  LookUpTable_person_manager_manage_LookUpTable_person:
+    Binding: {Table: LookUpTable Person}
+    State: Generated
+    Phrasings:
+    - Verb:
+        Subject: LookUpTable_person.manager
+        Verbs:
+        - manage: {State: Generated}
+        Object: LookUpTable_person
+      State: Generated
+      Weight: 0.75
+    - Attribute: {Subject: LookUpTable_person.manager, Object: LookUpTable_person}
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: LookUpTable_person, Object: LookUpTable_person.manager}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_is_expensive:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Adjective:
+        Subject: FactTable_sale
+        Adjectives:
+        - expensive: {State: Generated}
+        Antonyms:
+        - cheap: {State: Generated}
+        Measurement: FactTable_sale.unit_price
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: FactTable_sale, Object: FactTable_sale.unit_price}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_is_ordered_on_order_date:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    SemanticSlots:
+      When: FactTable_sale.order_date
+    Phrasings:
+    - Verb:
+        Verbs:
+        - order: {State: Generated}
+        Object: FactTable_sale
+      State: Generated
+      Weight: 0.9
+
+  FactTable_budget_is_budgeted_on_budget_date:
+    Binding: {Table: FactTable Budget}
+    State: Generated
+    SemanticSlots:
+      When: FactTable_budget.budget_date
+    Phrasings:
+    - Verb:
+        Verbs:
+        - budget: {State: Generated}
+        Object: FactTable_budget
+      State: Generated
+      Weight: 0.9
+
+  FactTable_sale_has_order_date:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: FactTable_sale.order_date}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_order_number:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: FactTable_sale.order_number}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_channel:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: FactTable_sale.channel}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_quantity:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: FactTable_sale.quantity}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_budget_has_budget:
+    Binding: {Table: FactTable Budget}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_budget, Object: FactTable_budget.budget}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_budget_has_budget_date:
+    Binding: {Table: FactTable Budget}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_budget, Object: FactTable_budget.budget_date}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_budget_has_total_budget:
+    Binding: {Table: FactTable Budget}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_budget, Object: FactTable_budget.total_budget}
+      State: Generated
+      Weight: 0.99
+
+  LookUpTable_person_has_salesperson_key:
+    Binding: {Table: LookUpTable Person}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: LookUpTable_person, Object: LookUpTable_person.salesperson_key}
+      State: Generated
+      Weight: 0.99
+
+  LookUpTable_person_has_salesperson:
+    Binding: {Table: LookUpTable Person}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: LookUpTable_person, Object: LookUpTable_person.salesperson}
+      State: Generated
+      Weight: 0.99
+
+  LookUpTable_person_has_supervisor:
+    Binding: {Table: LookUpTable Person}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: LookUpTable_person, Object: LookUpTable_person.supervisor}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_date:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.date}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_year:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.year}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_month:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.month}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_month_num:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.month_num}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_week_day:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.week_day}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_week_num:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.week_num}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_quarter:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.quarter}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_weekday_weekend:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.weekday_weekend}
+      State: Generated
+      Weight: 0.99
+
+  date_table_has_year_hierarchy:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table, Object: date_table.year_hierarchy}
+      State: Generated
+      Weight: 0.99
+
+  LookUpTable_product_has_product_name:
+    Binding: {Table: LookUpTable Product}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: LookUpTable_product, Object: LookUpTable_product.product_name}
+      State: Generated
+      Weight: 0.99
+
+  LookUpTable_product_has_product_group:
+    Binding: {Table: LookUpTable Product}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: LookUpTable_product, Object: LookUpTable_product.product_group}
+      State: Generated
+      Weight: 0.99
+
+  LookUpTable_product_has_product_category:
+    Binding: {Table: LookUpTable Product}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: LookUpTable_product, Object: LookUpTable_product.product_category}
+      State: Generated
+      Weight: 0.99
+
+  pick_rank_has_pick_rank:
+    Binding: {Table: Pick Rank}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: pick_rank, Object: pick_rank.pick_rank}
+      State: Generated
+      Weight: 0.99
+
+  pick_rank_has_pick_rank_value:
+    Binding: {Table: Pick Rank}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: pick_rank, Object: pick_rank.pick_rank_value}
+      State: Generated
+      Weight: 0.99
+
+  pick_rank_type_has_select:
+    Binding: {Table: Pick Rank Type}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: pick_rank_type, Object: pick_rank_type.select}
+      State: Generated
+      Weight: 0.99
+
+  pick_rank_type_has_sort:
+    Binding: {Table: Pick Rank Type}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: pick_rank_type, Object: pick_rank_type.sort}
+      State: Generated
+      Weight: 0.99
+
+  measure_table_has_column:
+    Binding: {Table: MeasureTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: measure_table, Object: measure_table.column}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_measure_table_total_quantity:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: measure_table.total_quantity}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_measure_table_quantity_pct:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: measure_table.quantity_pct}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_measure_table_revenue_pct:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: measure_table.revenue_pct}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_measure_table_total_revenue:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: measure_table.total_revenue}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_measure_table_total_transaction:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: measure_table.total_transaction}
+      State: Generated
+      Weight: 0.99
+
+  measure_table_has_ranking:
+    Binding: {Table: MeasureTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: measure_table, Object: measure_table.ranking}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_LookUpTable_person:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: LookUpTable_person}
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: LookUpTable_person, Object: FactTable_sale}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_date_table:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: date_table}
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: date_table, Object: FactTable_sale}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_sale_has_LookUpTable_product:
+    Binding: {Table: FactTable Sales}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_sale, Object: LookUpTable_product}
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: LookUpTable_product, Object: FactTable_sale}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_budget_has_LookUpTable_person:
+    Binding: {Table: FactTable Budget}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_budget, Object: LookUpTable_person}
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: LookUpTable_person, Object: FactTable_budget}
+      State: Generated
+      Weight: 0.99
+
+  FactTable_budget_has_date_table:
+    Binding: {Table: FactTable Budget}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: FactTable_budget, Object: date_table}
+      State: Generated
+      Weight: 0.99
+    - Attribute: {Subject: date_table, Object: FactTable_budget}
+      State: Generated
+      Weight: 0.99
+
+  date_table_year_hierarchy_has_year:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table.year_hierarchy, Object: date_table.year_hierarchy.year}
+      State: Generated
+      Weight: 0.99
+
+  date_table_year_hierarchy_has_month:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table.year_hierarchy, Object: date_table.year_hierarchy.month}
+      State: Generated
+      Weight: 0.99
+
+  date_table_year_hierarchy_has_quarter:
+    Binding: {Table: DateTable}
+    State: Generated
+    Phrasings:
+    - Attribute: {Subject: date_table.year_hierarchy, Object: date_table.year_hierarchy.quarter}
+      State: Generated
+      Weight: 0.99
+
