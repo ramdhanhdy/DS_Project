@@ -3,6 +3,11 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+## Introduction
+
+This analysis delves into monthly sales data spanning from 2019 to 2021, comprising essential variables like Total Revenue, Total Quantity Sold, Total Budget, Sales Person, Supervisor, Manager, Product Name, and Product Category. The primary aim is to explore the intricate relationship between budget allocation and revenue fluctuations over time.
+
+Among the highlight of this analysis is the correlation assessments with distinct time lags (zero-lag to three-month lags) to ascertain whether budget adjustments exert an immediate or delayed impact on revenue. Furthermore, the study investigates correlations between revenue and other variables, such as salesperson performance and product categories.
 
 ```{r}
 library(ggplot2)
@@ -74,6 +79,7 @@ substantial positive impact on revenue. This observation aligns with the holiday
 
 - Moderate to Low Impacts in February, November, April, and March: These months show relatively lower correlations, suggesting that the budget's influence on revenue is not as pronounced during these periods. Businesses may adopt a cautious approach in allocating resources during these months, focusing on optimizing existing operations rather than aggressive budget expansions.
 
+The previous statistical finding comes with an assumption that the impact of budget revenue is 
 
 ```{r}
 # Create a data frame to store the time lag correlation results
@@ -138,5 +144,6 @@ print(correlation_test)
 
 The correlation coefficient (0.029) is close to zero, indicating a very weak linear relationship between the lagged budget and revenue. Additionally, the p-value of 0.6565 is substantially higher than the common significance level of 0.05. This high p-value suggests that the observed correlation is not statistically significant, meaning there is insufficient evidence to reject the null hypothesis that the true correlation is equal to zero.
 
-Practical Implications:
+**Practical Implications**:
+
 Based on these findings, businesses should prioritize monitoring and adjusting their budgets with a focus on the short term. Budget allocation decisions should consider immediate revenue impact, as any potential influence on revenue variations from budget adjustments diminishes quickly over time. It is essential to analyze additional factors and potential non-linear relationships that might play a more significant role in driving revenue fluctuations.
