@@ -6,7 +6,7 @@ This repository contains the materials and resources for the Power BI Sales Data
 
 This project involves the use of Power BI to analyze and visualize sales data, providing insights into various metrics and KPIs. The project includes a Power BI report file (.pbix), a YAML file containing the linguistic schema, and a collection of datasets.
 
-![Power BI Report Screenshot](images\sales_dashboard_red.png)
+![Power BI Report Screenshot](images/sales_dashboard_red.png)
 
 ## Contents
 
