@@ -9,41 +9,65 @@ This analysis delves into monthly sales data spanning from 2019 to 2021, compris
 
 Among the highlight of this analysis is the correlation assessments with distinct time lags (zero-lag to three-month lags) to ascertain whether budget adjustments exert an immediate or delayed impact on revenue. Furthermore, the study investigates correlations between revenue and other variables, such as salesperson performance and product categories.
 
-```{r}
+```{r warning=FALSE, message=FALSE, echo=FALSE}
 library(ggplot2)
 library(dplyr)
 library(ggstatsplot)
 library(lubridate)
 library(readr)
+library(kableExtra)
+library(knitr)
+library(broom)
 ```
+
 ```{r}
 glimpse(monthly_sales)
 ```
+
 ## Analyzing Overall Correlation between Variables
 
 ```{r}
 correlation_numerical <- cor(monthly_sales[c("TotalRevenue", "TotalBudget", "TotalQuantity")])
-print(correlation_numerical)
+correlation_numerical %>%
+  kbl() %>%
+  kable_minimal()
 ```
 
-The result shows a moderate positive correlation (approximately 0.56) between the budget allocated for sales efforts and the total revenue generated. This suggests that increasing the sales budget has the potential to positively influence revenue. However, the correlation is not as strong as the relationship between total quantity sold and total revenue. 
+The result shows a moderate positive correlation (approximately 0.56) between the budget allocated for sales efforts and the total revenue generated. This suggests that increasing the sales budget has the potential to positively influence revenue. However, the correlation is not as strong as the relationship between total quantity sold and total revenue.
 
 So, while total quantity sold has a clear and more significant impact on revenue, increasing the sales budget strategically can still contribute to revenue growth. Companies should carefully plan and allocate resources to sales initiatives to maximize their revenue-generating potential.
 
 ```{r}
 #TotalRevenue anova 
 revenue_anova <- aov(TotalRevenue ~ Month + Salesperson + Supervisor + Manager, data = monthly_sales)
-# Print the ANOVA result
-print(summary(revenue_anova))
+
+revenue_anova %>% 
+  summary() 
+```
+
+```{r echo=TRUE results='hide'}
+# TotalRevenue ANOVA
+revenue_anova <- aov(TotalRevenue ~ Month + Salesperson + Supervisor + Manager, data = monthly_sales)
+
+# Get tidy ANOVA results and display the ANOVA summary table
+tidy_anova <- revenue_anova %>% 
+  tidy() %>%
+  kable(format = "markdown", col.names = c("Term", "Df", "Sum Sq", "Mean Sq", "F value", "Pr(>F)"))
+```
+
+now
+
+```{r echo=FALSE}
+tidy_anova
 ```
 
 Interpretation:
 
-- **Month**: The p-value (Pr(>F)) is 6.89e-06 (less than 0.05), which means that the 'Month' variable has a significant effect on TotalRevenue.
+-   **Month**: The p-value (Pr(\>F)) is 6.89e-06 (less than 0.05), which means that the 'Month' variable has a significant effect on TotalRevenue.
 
-- **Salesperson**: The p-value (Pr(>F)) is less than 2e-16 (extremely small), showing that the 'Salesperson' variable has a highly significant effect on TotalRevenue.
+-   **Salesperson**: The p-value (Pr(\>F)) is less than 2e-16 (extremely small), showing that the 'Salesperson' variable has a highly significant effect on TotalRevenue.
 
-- Other variables are not shown and summarized as Residuals due to the lack of variation it gives on Total Revenue
+-   Other variables are not shown and summarized as Residuals due to the lack of variation it gives on Total Revenue
 
 ## Analyzing budget impacts on revenue
 
@@ -70,16 +94,15 @@ ggplot(correlation_table, aes(x = Month, y = correlation)) +
 
 The correlation results highlight the varying impact of the budget (TotalBudget) on revenue (TotalRevenue) across different months, with some months exhibiting stronger relationships than others:
 
-- High Positive Impact in December (correlation = 0.828): December stands out as the month when the budget has the most
-substantial positive impact on revenue. This observation aligns with the holiday season, where consumer spending tends to increase due to festivities and gift-giving. Businesses can leverage this insight by allocating more resources to marketing and promotions during December to capitalize on the higher revenue potential.
+-   High Positive Impact in December (correlation = 0.828): December stands out as the month when the budget has the most substantial positive impact on revenue. This observation aligns with the holiday season, where consumer spending tends to increase due to festivities and gift-giving. Businesses can leverage this insight by allocating more resources to marketing and promotions during December to capitalize on the higher revenue potential.
 
-- Strong Effects in January and May: January (correlation = 0.697) and May (correlation = 0.773) also show notable correlations between the budget and revenue. In January, businesses can take advantage of New Year's resolutions and promotions to attract customers seeking fresh starts. For May, businesses might focus on seasonal sales or promotions to tap into increased consumer activity during springtime.
+-   Strong Effects in January and May: January (correlation = 0.697) and May (correlation = 0.773) also show notable correlations between the budget and revenue. In January, businesses can take advantage of New Year's resolutions and promotions to attract customers seeking fresh starts. For May, businesses might focus on seasonal sales or promotions to tap into increased consumer activity during springtime.
 
-- Moderately Positive Impacts: August (correlation = 0.662), July (correlation = 0.617), and June (correlation = 0.640) exhibit moderate positive correlations. These summer months may present opportunities for businesses to invest in targeted marketing campaigns, taking advantage of vacations and leisure activities when consumer spending tends to rise.
+-   Moderately Positive Impacts: August (correlation = 0.662), July (correlation = 0.617), and June (correlation = 0.640) exhibit moderate positive correlations. These summer months may present opportunities for businesses to invest in targeted marketing campaigns, taking advantage of vacations and leisure activities when consumer spending tends to rise.
 
-- Moderate to Low Impacts in February, November, April, and March: These months show relatively lower correlations, suggesting that the budget's influence on revenue is not as pronounced during these periods. Businesses may adopt a cautious approach in allocating resources during these months, focusing on optimizing existing operations rather than aggressive budget expansions.
+-   Moderate to Low Impacts in February, November, April, and March: These months show relatively lower correlations, suggesting that the budget's influence on revenue is not as pronounced during these periods. Businesses may adopt a cautious approach in allocating resources during these months, focusing on optimizing existing operations rather than aggressive budget expansions.
 
-The previous statistical finding comes with an assumption that the impact of budget revenue is 
+The previous statistical finding comes with an assumption that the impact of budget revenue is
 
 ```{r}
 # Create a data frame to store the time lag correlation results
@@ -114,7 +137,6 @@ print(lag_correlation_results)
 
 ## determine if lagging effect is statistically significant
 
-
 ```{r}
 # Assuming the dataset is named 'monthly_sales'
 # Create a lagged version of the 'TotalBudget' variable with a two-month lag
@@ -127,6 +149,7 @@ correlation_test <- cor.test(monthly_sales_lagged$TotalRevenue, monthly_sales_la
 # Print the result
 print(correlation_test)
 ```
+
 There is no significant linear relationship between the budget and revenue with a one-month lag. The correlation coefficient of approximately -0.006 suggests an extremely weak association, and the p-value of 0.9252 indicates that this correlation is not statistically significant. Other factors may have a more substantial impact on short-term revenue variations.
 
 ```{r}

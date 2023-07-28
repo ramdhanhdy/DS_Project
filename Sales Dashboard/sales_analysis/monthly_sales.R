@@ -4,9 +4,10 @@ library(ggstatsplot)
 library(lubridate)
 library(readr)
 
-dataset <- read_csv("~/GitHub/DS_Project/Sales Dashboard/data/processed/monthly_sales.csv", 
-                    col_types = cols(Supervisor = col_factor(levels = c("Diego Araujo", "Sofia Ribeiro", "Diogo Carvalho")), 
-                                    Manager = col_factor(levels = c("Gabriel Azevedo", "Victor Castro"))))
+#dataset <- read_csv("~/GitHub/DS_Project/Sales Dashboard/data/processed/monthly_sales.csv", 
+#                    col_types = cols(Supervisor = col_factor(levels = c("Diego Araujo", "Sofia Ribeiro", "Diogo Carvalho")), 
+#                                    Manager = col_factor(levels = c("Gabriel Azevedo", "Victor Castro"))))
+
 glimpse(monthly_sales)
 
 correlation_numerical <- cor(monthly_sales[c("TotalRevenue", "TotalBudget", "TotalQuantity")])
