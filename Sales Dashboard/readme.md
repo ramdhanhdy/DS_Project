@@ -8,7 +8,7 @@ This project involves the use of Power BI to analyze and visualize sales data, p
 
 This repository includes a Power BI report file (.pbix), a YAML file containing the linguistic schema, datasets, and R notebook.
 
-![Power BI Report Screenshot](images\sales_dashboard_red.png)
+![Power BI Report Screenshot](images/sales_dashboard_red.png)
 
 ## Analysis Summary:
 
