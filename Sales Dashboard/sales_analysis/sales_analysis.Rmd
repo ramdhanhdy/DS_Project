@@ -1,0 +1,149 @@
+---
+title: "Sales Analysis"
+author: "Ramdhan Hidayat"
+date: "2023-07-20"
+output: html_document
+---
+
+```{r setup, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This analysis presents an exploration of monthly sales data from 2019 to 2021. The variables under examination include Total Revenue, Total Quantity Sold, Total Budget, Sales Person, Supervisor, Manager, Product Name, and Product Category. The principal objective is to unravel the complex relationship between budget allocation and revenue fluctuations over time.
+
+This analysis aims to answer the following questions:
+
+-   How are our various sales variables related?
+
+-   Do our budget changes impact revenue immediately or over time?
+
+-   Is there a predictive relationship between budget and revenue?
+
+Different statistical techniques are employed to answer these questions, including correlation analysis, ANOVA, and Granger causality tests.
+
+Let's begin with setting up the required libraries and loading our data.
+
+```{r warning=FALSE, message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(ggstatsplot)
+library(lubridate)
+library(readr)
+library(kableExtra)
+library(knitr)
+library(broom)
+library(lmtest)
+```
+
+## Exploratory Data Analysis & Correlation Analysis
+
+The structure of the dataset is first examined using glimpse() function which shows that the dataset comprises 241 observations across eight variables, representing the sales records from 2019 to 2021. The variables include both categorical (Year, Month, Salesperson, Supervisor, and Manager) and numerical (TotalRevenue, TotalBudget, and TotalQuantity) data, providing a broad picture of the sales activities.
+
+```{r}
+monthly_sales <- read_csv("~/GitHub/DS_Project/Sales Dashboard/data/processed/monthly_sales.csv", 
+    col_types = cols(Salesperson = col_factor(levels = c("Carla Ferreira", 
+        "Estevan Souza", "Felipe Goncalves", 
+        "Gustavo Barros", "Gustavo Gomes", 
+        "Isabella Sousa", "Julia Silva", 
+        "Julieta Gomes", "Julio Lima", "Kaua Araujo", 
+        "Leonardo Cardoso", "Mateus Costa")), 
+        Supervisor = col_factor(levels = c("Diego Araujo", 
+            "Diogo Carvalho", "Emily Rocha", 
+            "Fernando Silva", "Sofia Ribeiro")), 
+        Manager = col_factor(levels = c("Gabriel Azevedo", 
+            "Victor Castro")), TotalRevenue = col_number(), 
+        TotalBudget = col_number(), TotalQuantity = col_integer()))
+
+```
+
+```{r pressure, echo=FALSE}
+glimpse(monthly_sales)
+```
+
+Following this, the relationships between key numerical variables: "TotalRevenue", "TotalBudget", and "TotalQuantity" are analyzed.
+
+```{r}
+correlation_numerical <- cor(monthly_sales[c("TotalRevenue", "TotalBudget", "TotalQuantity")])
+correlation_numerical %>%
+  kbl() %>%
+  kable_minimal()
+```
+
+The results show a moderate positive correlation (approximately 0.56) between the sales budget ("TotalBudget") and the total revenue ("TotalRevenue"). This suggests that an increase in the sales budget might lead to an increase in revenue. However, the effect is not as substantial as the quantity of products sold.
+
+Despite this, the role of budget allocation is not to be undermined. The analysis suggests that strategic increases in the sales budget could contribute to revenue growth, complementing the effect of quantity sold.
+
+## ANOVA on Total Revenue
+
+An Analysis of Variance (ANOVA) test was conducted to investigate the impact of different categorical variables ('Month', 'Salesperson', 'Supervisor', and 'Manager') on 'TotalRevenue'.
+
+```{r}
+# TotalRevenue ANOVA
+revenue_anova <- aov(TotalRevenue ~ Month + Salesperson + Supervisor + Manager, data = monthly_sales)
+
+summary(revenue_anova)
+```
+
+From the ANOVA results, 'Month' and 'Salesperson' have been identified as significant contributors to the variation in 'TotalRevenue'. This suggests that both the time of the year and the individual salesperson can significantly influence the revenue generated.
+
+On the other hand, 'Supervisor' and 'Manager' are included in the residuals. This suggests that, within the context of this dataset and model, the effects of the supervisor and manager on total revenue are not individually significant.
+
+## Analyzing Budget Impacts on Revenue
+
+The correlation between 'TotalBudget' and 'TotalRevenue' is computed for each month to investigate the monthly impact of budget changes on revenue.
+
+```{r}
+correlation_by_month <- monthly_sales %>%
+  group_by(Month) %>%
+  summarize(correlation = cor(TotalBudget, TotalRevenue))
+
+correlation_by_month
+```
+
+```{r}
+#bar plot to visualize the correlation by month
+ggplot(correlation_by_month, aes(x = Month, y = correlation, fill = correlation)) +
+  geom_bar(stat = "identity", color = "black") +
+  geom_text(aes(label = round(correlation, 2)), vjust = -0.5) +
+  scale_fill_gradient(low = "darkred", high = "cadetblue") +
+  labs(title = "Correlation between TotalBudget and TotalRevenue by Month",
+       x = "Month",
+       y = "Correlation Value") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+The analysis reveals that the impact of budget allocation on revenue varies by month. Here are some key findings:
+
+-   A high positive correlation was observed in December, suggesting that increased budget allocation during this month could significantly boost revenue. This aligns with the expected surge in consumer spending during the holiday season.
+-   Strong positive correlations were also observed in January and May, indicating that budget increases during these months can result in substantial revenue growth.
+-   Moderate positive correlations were found in August, July, and June. This suggests that strategic budget increments during the summer months could contribute to revenue growth.
+-   Lower correlations were observed in February, November, April, and March, suggesting that the impact of budget changes on revenue during these months may be less significant.
+
+These findings can guide strategic budget allocations throughout the year to maximize revenue.
+
+## Granger Causality Test
+
+To further investigate whether changes in the sales budget can predict future changes in revenue, a Granger causality test is conducted.
+
+```{r}
+# Create a time series dataset with 'TotalBudget' and 'TotalRevenue'
+ts_data <- ts(monthly_sales[, c("TotalBudget", "TotalRevenue")], start=c(2019, 1), frequency=12)
+
+# Run Granger Causality test
+granger_result <- grangertest(TotalRevenue ~ TotalBudget, order = 1, data = ts_data)
+
+# Print the result
+print(granger_result)
+```
+
+The Granger causality test compares the fit of two models: one that includes lagged values of both TotalRevenue and TotalBudget (Model 1) and one that includes only lagged values of TotalRevenue (Model 2).
+
+The F statistic is 0.0306 and the associated p-value is 0.8613, which is greater than the commonly used significance level of 0.05. This suggests that adding lagged values of TotalBudget does not significantly improve the prediction of TotalRevenue, implying that past values of TotalBudget do not Granger-cause TotalRevenue.
+
+These results indicate that changes in the sales budget may not be a reliable predictor of future changes in revenue, despite the significant correlation between budget and revenue. This suggests that while there is a relationship between budget and revenue, this relationship might not be predictive over time or could be influenced by other factors that affect both budget and revenue simultaneously.
+
+For instance, changes in revenue could affect future budgets (revenue leading budget), or third variables could be influencing both. Therefore, while budgeting decisions might be associated with revenue changes, they may not be the direct cause, and the timing of their effect might not be predictable based on past data.
