@@ -1,0 +1,576 @@
+---
+title: "The Impact of Traffic Sources, Pricing Strategies, and Operating Systems on Customer Conversion Rates: A Comprehensive Analysis"
+author: "Ramdhan Hidayat"
+format: html
+editor: visual
+---
+
+## Executive Summary
+
+> The analysis has examined various factors that influence customer conversion rates. Here are the primary findings:
+>
+> **1. Source of traffic matters.**
+>
+> -   Customers acquired through friend referrals and Ads convert at significantly higher rates than those acquired organically or through SEO.
+>
+> **2. Price significantly impacts conversion.**
+>
+> -   Lower pricing (\$39) leads to significantly higher conversion rates than higher pricing (\$59). While this could lead to an immediate increase in the number of customers, it is essential to weigh this against the potential reduction in revenues per sale.
+>
+> **3. Device and operating system usage play a role.**
+>
+> -   Customers using Apple devices (both iOS and Mac) are more likely to convert than those using Android, particularly at the lower price point (\$39). Users of Windows at the \$39 price point also convert more than Android users, albeit not as much as Apple users.
+>
+> **4. Conversion patterns change at different price points.**
+>
+> -   While Apple users still convert more than Android users at a price point of \$59, the difference is not as pronounced as at the \$39 price point. Interestingly, Android, 'other' device, and Windows users are less likely to convert at this price point compared to Android users at \$39.
+>
+> **5. There is more to explore.**
+>
+> -   The current model (Logistic Regression), while providing valuable insights, only explain a small portion of the factors that drive conversions. There are likely other significant influences yet to be identified. Therefore, we recommend further research to expand our understanding of what drives customer conversion.
+>
+> These findings present opportunities for targeted pricing strategies and product offering optimizations based on device type, source of traffic, and pricing models. However, decisions should consider a broader strategy that includes customer lifetime value, market positioning, and overall business objectives.
+
+## Introduction
+
+The purpose of this project is to analyze a pricing experiment conducted by Company ABC. The company divided its user base into two groups: Group A, constituting 66% of the users, and Group B, the remaining 34%. Group A received a lower price offer, while Group B was presented with a higher price for the same product.
+
+The objectives of this analysis are to:
+
+-   Execute exploratory data analysis on the experimental data.
+
+-   Identify an optimal price for the product to maximize revenue.
+
+-   Analyze user behavior and derive actionable insights to enhance conversion rates.
+
+This project utilizes one data sources: \`test_results\` . The \`test_results\` table contains information regarding user interactions on the site, the device used, the source of traffic, the price shown to the user, and the user's purchasing decision. The upcoming sections encompass data cleaning and preprocessing, exploratory data analysis, hypothesis testing, user behavior analysis, and the provision of insights based on the findings.
+
+## Technical Setup
+
+### Loading Libraries
+
+```{r warning=FALSE, message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(ggstatsplot)
+library(forcats)
+library(summarytools)
+library(lubridate)
+library(kableExtra)
+library(gridExtra)
+library(ggthemr)
+library(plotly)
+ggthemr('light')
+```
+
+```{r setup, include=FALSE}
+library(reticulate)
+Sys.unsetenv("RETICULATE_PYTHON")
+use_python("C:/Users/ramdh/anaconda3/envs/priceopt_env/python.exe")
+
+#library(knitr)
+#opts_chunk$set(results = 'asis',     # Can also be set at chunk level
+#              comment = NA,
+#              prompt  = FALSE,
+#              cache   = FALSE)
+library(summarytools)
+st_options(plain.ascii = FALSE,       # Always use in Rmd documents
+           style       = "rmarkdown", # Always use in Rmd documents
+           subtitle.emphasis = FALSE) # Improves layout w/ some themes
+
+library(report)
+
+```
+
+```{python warning=FALSE, message=FALSE, echo=FALSE}
+# Data handling libraries
+import pandas as pd
+import numpy as np
+```
+
+## Loading the Data
+
+```{python echo=FALSE}
+user_table = pd.read_csv(r"C:\Users\ramdh\Documents\GitHub\DS_Project\Other\Price Optimization Amazon DS Challenge\data\user_table.csv")
+test_results = pd.read_csv(r"C:\Users\ramdh\Documents\GitHub\DS_Project\Other\Price Optimization Amazon DS Challenge\data\test_results.csv")
+```
+
+## Data Preprocessing
+
+```{python echo=FALSE}
+test_results.head()
+```
+
+### **Identifying and handling invalid timestamps**
+
+An issue was discovered when converting the 'timestamp' column to a datetime object, due to the presence of some invalid entries such as '2015-04-24 12:60:46'. These entries have the minutes value outside the acceptable range (0-59). Such anomalies can arise from data entry errors or issues in the data collection process.
+
+```{python echo=FALSE}
+temp_df = test_results.copy(deep=True)
+temp_df['timestamp'] = pd.to_datetime(temp_df['timestamp'], errors='coerce')
+
+# Create a new DataFrame where the 'timestamp' column is NaT (Not a Time)
+invalid_timestamps = temp_df[temp_df['timestamp'].isna()]
+anomaly_df = test_results.loc[invalid_timestamps.index]
+
+
+print("Number of invalid timestamps: ", invalid_timestamps.shape[0])
+anomaly_df.head(5)
+```
+
+To address this issue, a corrective preprocessing step was employed to sanitize these anomalous timestamps. The strategy adopted involved replacing the invalid '60' minute marker with a plausible '59' minute marker. This approach is a pragmatic one, it assumes that the '60' minute entry was a result of a rounding-up during data collection or processing. By converting '60' minutes to '59', it is essentially shifting these instances back to the last valid minute of the corresponding hour.
+
+In addition, as a final step of preprocessing, hour, day, and month are extracted from timestamp and then stored as new columns.
+
+```{python echo=FALSE}
+def correct_minute(value):
+    try:
+        pd.to_datetime(value)
+        return value
+    except:
+        return value.replace("60", "59")
+
+df_processed = test_results.copy(deep=True)
+
+df_processed['timestamp'] = df_processed['timestamp'].apply(correct_minute)
+df_processed['timestamp'] = pd.to_datetime(df_processed['timestamp'])
+
+df_processed['hour'] = df_processed['timestamp'].dt.hour
+df_processed['day'] = df_processed['timestamp'].dt.day
+df_processed['month'] = df_processed['timestamp'].dt.month
+```
+
+### **Investigating and Correcting Data Discrepancies**
+
+A discrepancy was observed between the experiment description and the data. Specifically, the data indicated differences in the conversion rates across groups A and B at both price points of \$39 and \$59. Here's a summary of the conversion rates:
+
+```{python echo=FALSE}
+df_processed['test'] = df_processed['test'].replace({0:'A', 1:'B'})
+df_processed = df_processed.rename(columns={'test':'group'})
+
+df_processed[['group', 'price', 'converted']].groupby(['group', 'price']).mean()
+```
+
+However, the experiment description initially suggested that the conversion rates would be the same across both groups and price points. These discrepancies could potentially be due to errors or anomalies in the data collection process.
+
+To rectify these discrepancies, a comprehensive data cleaning process was conducted. Suspected errors, anomalies, or inconsistencies were identified and removed from the dataset. The process was meticulously undertaken to ensure only genuine, reliable data was kept for analysis.
+
+Following these corrections, the final dataset consisted of 316,435 observations with 11 variables.
+
+```{python echo=FALSE}
+# Filter only valid values for price on each group
+df_processed = df_processed[((df_processed['group'] == 'A') & (df_processed['price'] == 39)) | ((df_processed['group'] == 'B') & (df_processed['price'] == 59))]
+
+df_processed.shape
+
+```
+
+## Exploratory Data Analysis
+
+### Summary of Dataset Attributes and Characteristics
+
+Here's the summary of the processed data
+
+```{r message=FALSE, echo=FALSE}
+r_df <- py$df_processed
+
+dfSummary(r_df,
+          plain.ascii  = FALSE, 
+          style        = "grid", 
+          graph.magnif = 0.75, 
+          valid.col    = FALSE,
+          tmp.img.dir="D:/tm") %>%
+  print(method='render')
+```
+
+From the above table, we can infer:
+
+-   `user_id`: This dataset contains 316,435 unique users.
+
+-   `timestamp`: The data spans from March 2, 2015, to June 1, 2015.
+
+-   `source`: Traffic to the website comes from 12 distinct sources. The most frequent sources are 'direct_traffic' (19.1% of users), 'ads-google' (18.7% of users), and 'ads_facebook' (16.9% of users).
+
+-   `device`: Almost 59% of users are using mobile devices, while the rest (41%) are using web.
+
+-   `operative_system`: Users are spread across six different operating systems. The most popular are 'iOS' (30.1% of users), 'windows' (31.9% of users), and 'android' (23.7% of users).
+
+-   `test`: The users are divided into two groups based on the A/B testing: approximately 64% of users were exposed to the control price (\$39), while the remaining 36% saw the test price (\$59).
+
+-   `price`: Corresponding to the \`test\` column, 64% of users saw the \$39 price, and 36% saw the \$59 price.
+
+-   `converted`: Around 1.8% of users converted (made a purchase), while the majority (98.2%) did not.
+
+-   `hour`: The hour when the user visited the website ranges from 0 (midnight) to 23 (11 PM). The mean visiting hour is around 11.9 (almost noon).
+
+-   `day`: The day of the month when the user visited ranges from 1 to 31, with an average day of 15.9 (mid of the month).
+
+-   `month`: The data spans three months: March, April, and May, with fairly even distribution among the three.
+
+### Multivariate Analysis
+
+#### Temporal Analysis of User Activity
+
+```{r echo=FALSE}
+r_df <- r_df %>%
+  mutate(time_of_day = case_when(
+    hour >= 0 & hour < 6 ~ "Night",
+    hour >= 6 & hour < 12 ~ "Morning",
+    hour >= 12 & hour < 18 ~ "Afternoon",
+    hour >= 18 ~ "Evening"
+  ))
+
+# Then, group by the new variable and calculate the conversion rate
+conversion_by_time_of_day <- r_df %>%
+  group_by(time_of_day) %>%
+  summarise(conversion_rate = mean(converted))
+
+conversion_by_hour <- r_df %>%
+  group_by(hour) %>%
+  summarise(conversion_rate = mean(converted))
+
+conversion_by_day <- r_df %>%
+  group_by(day) %>%
+  summarise(conversion_rate = mean(converted))
+
+conversion_by_month <- r_df %>%
+  group_by(month) %>%
+  summarise(conversion_rate = mean(converted))
+```
+
+```{r fig.width=10, fig.height=8, echo=FALSE}
+ggthemr('grape', type='outer', layout='clean')
+
+
+# conversion rate by time of day
+p1 <- ggplot(conversion_by_time_of_day, aes(x = time_of_day, y = conversion_rate)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = "Time of Day",
+    y = "Conversion Rate",
+    title = "Analysis of Conversion Rate by Time of Day and Hour",
+    subtitle = "Subtle Hourly Fluctuations in Conversion Rates, yet Consistent Across Time-of-Day Segments; 
+Temporal Factors Seem Secondary to Conversion Outcomes"
+  ) +
+   geom_text(aes(label = paste0(round(conversion_rate * 100, 3), "%")),
+            position = position_stack(vjust=0.5),
+            color = 'white')
+
+# conversion rate by hour
+p2 <- ggplot(conversion_by_hour, aes(x = hour, y = conversion_rate)) +
+  geom_line(linewidth = 1) +
+  scale_x_continuous(breaks = seq(0, 23, 1)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = "Hour of the Day",
+    y = "Conversion Rate"
+  ) 
+
+grid.arrange(p1, p2, ncol = 1)
+```
+
+While the time-of-day chart reveals a uniform conversion rate of \~1.8% across Morning, Afternoon, Evening, and Night, suggesting that users' tendency to convert is relatively consistent throughout the day, the hourly analysis paints a slightly more nuanced picture.
+
+The hourly chart shows conversion rates fluctuate within a modest range of \~1.4% to \~2.4%. A standout observation is the unexpected peak in conversions around 4 AM, which could be an artifact of reduced user activity during these early hours. Conversely, 3 and 5 AM registers the lowest conversion rate. Such sharp fluctuations are to be expected due to overall low level activities during midnight. Despite the fluctuations in hourly conversion rates, the trend remains steady, emphasizing that the time factor plays a minor role in affecting conversion outcomes. Therefore, the focus of analysis would better focused on other variables, such as pricing strategies or device-related preferences, to gain more substantial insights into driving conversions.
+
+## Conversion Rate Based on Experiment Group
+
+Given the categorical nature of the variables involved, the Chi-square test of independence was employed to assess the difference in conversion rates between Group A and Group B. This statistical test is appropriate for measuring whether there is a significant association between two categorical variables, in this case, "group" and "conversion". The assumption of independence of categories was confirmed due to the random assignment of users to either Group A or Group B.
+
+```{r}
+# Run a chi-square test of independence
+chisq_test_result <- chisq.test(r_df$converted, r_df$group)
+
+# Show the result
+chisq_test_result
+
+```
+
+Pearson's Chi-squared test with Yates' continuity correction yielded a result of X-squared = 76.212, df = 1, p-value \< 2.2e-16. In layman's terms, this result indicates a highly significant difference between Group A and Group B in terms of conversion rates, with the probability of such a large difference arising by chance alone being less than 0.0001%.
+
+Next, a logistic regression was performed. This method can help understand how the likelihood of conversion (a binary outcome) changes based on the experiment group (also a binary variable).
+
+```{r}
+# Run a logistic regression
+logistic_reg_result <- glm(converted ~ group, data = r_df, family = binomial)
+
+# Show the result
+summary(logistic_reg_result)
+```
+
+From the logistic regression, it can be seen that the "groupB" coefficient is -0.25074 with a p-value of \<2e-16, which is highly significant. This result suggests that being in Group B (exposed to the higher price) reduces the log odds of conversion when compared to Group A. To put it in simpler terms, users in Group B are less likely to convert (i.e., make a purchase) than users in Group A, and this difference is statistically significant.
+
+```{r fig.width=10, fig.height=8, echo=FALSE}
+ggthemr('grape', type='outer', layout='clean')
+
+# Group by group and calculate conversion rate
+conversion_by_group <- r_df %>%
+  group_by(group) %>%
+  summarise(conversion_rate = mean(converted))
+
+# Plotting
+ggplot(conversion_by_group, aes(x = group, y = conversion_rate, fill=group)) +
+  geom_col() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = "Group",
+    y = "Conversion Rate",
+    title = "Conversion Rates by Group",
+    subtitle = paste("Significant association between group and conversion rates (Chi-square test p-value: < 2.2e-16)")
+  ) +
+  geom_text(aes(label = paste0(round(conversion_rate * 100, 2), "%")),
+            position = position_nudge(0, 0.005)) +
+  theme(legend.position = "none")
+
+```
+
+However, the test only considers the groups in isolation, and other factors such as the source of traffic or the device used might influence the conversion rate. Thus, while the statistical test conducted provides significant evidence of a difference in conversion rates between the groups, additional analysis is required to confirm these findings and understand the nature of the observed differences.
+
+## Conversion Rate by Traffic Source
+
+Given the importance of the source of traffic in digital marketing, the conversion rates of different sources are investigated. To do this, the data is grouped by source and the mean conversion rate is calculated.
+
+```{r fig.width=9, fig.height=5, echo=FALSE}
+ggthemr('grape', type='outer', layout='clean')
+
+# Group by source and calculate conversion rate
+conversion_by_source <- r_df %>%
+  group_by(source) %>%
+  summarise(conversion_rate = mean(converted))
+
+# Calculate the median conversion rate
+median_conversion_rate <- median(conversion_by_source$conversion_rate)
+
+# Bar chart of conversion rate by source
+ggplot(conversion_by_source, aes(x = reorder(source, -conversion_rate), y = conversion_rate, fill = conversion_rate)) +
+  geom_col() +
+  scale_fill_gradient(low = "darkslategray", high = "darkorange") +
+  geom_hline(yintercept = median_conversion_rate, linetype = "dashed", color = "white") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = "Traffic Source",
+    y = "Conversion Rate",
+    fill = "Conversion Rate",
+    title = "Conversion Rates by Traffic Source"
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  geom_text(aes(label = paste0(round(conversion_rate * 100, 2), "%")),
+            position = position_nudge(0, 0.005))
+
+```
+
+Conversion rates across traffic sources present clear variations. The \`friend_referral\` source delivers the highest conversion rate at 3.87%, affirming the importance of trust-based marketing. Meanwhile, \`seo-bing\` and \`ads-google\` also exhibit above-average conversion rates, suggesting their effectiveness in reaching potential customers.
+
+Conversely, \`direct_traffic\` and \`ads-bing\` underperform with the lowest conversion rates of around 1.2%. Noticeable disparities are seen within 'ads' and 'seo' categories as well, with their conversion rates spanning from above 2.1% to just around 1.6%.
+
+## Conversion Rate by Traffice Source and Price group
+
+The model to be run below looks at the conversion rates (the likelihood of someone becoming a customer) depending on the source of the customer's interaction (like ads on Google, Yahoo, Facebook, etc.) and the price point they are presented with.
+
+```{r}
+r_df$interaction <- interaction(r_df$source, r_df$price)
+
+glm(converted ~ interaction, family = binomial, data = r_df) %>%
+  summary()
+
+```
+
+The presented results table reveals the influence of various traffic sources and pricing strategies on the customer conversion rate. All comparisons have been made against a reference group, 'ads-bing.39'. This group signifies customers exposed to ads on Bing and presented with a \$39 price point.
+
+The "Estimate" column in the table reveals the degree to which each source-price combination alters the likelihood of conversion relative to the reference category. A positive value denotes an increased probability of conversion, while a negative value suggests a decrease. The magnitude of the estimate quantifies the size of the effect, and the asterisks represent the degree of certainty in these estimates.
+
+The accompanying chart visually represents the findings shown by the table.
+
+```{r fig.width=9, fig.height=5, echo=FALSE}
+ggthemr('grape', type='outer', layout='clean')
+
+# Calculate conversion rate
+conversion_rate <- r_df %>% 
+  group_by(source, price) %>% 
+  summarise(conversion_rate = mean(converted), .groups = 'drop')
+
+# Calculate the difference in conversion rate from 'ads-bing'
+conversion_difference <- conversion_rate %>% 
+  pivot_wider(names_from = source, values_from = conversion_rate) %>% 
+  mutate(across(where(is.numeric), ~ . - `ads-bing`)) %>% 
+  pivot_longer(cols = -price, names_to = "source", values_to = "conversion_diff")
+
+# Filter out the 'ads-bing' row, as it will just be 0
+conversion_difference <- conversion_difference %>% 
+  filter(source != "ads-bing")
+
+# Generate bar plot
+p4 <- ggplot(conversion_difference, aes(x = reorder(source, conversion_diff), y = conversion_diff, fill = factor(price))) +
+        geom_bar(stat = "identity", position = position_dodge()) +
+        labs(title = "Difference in Conversion Rates from ads-bing by Source and Price",
+             x = "Source",
+             y = "Difference in Conversion Rate") +
+        scale_fill_discrete(labels = c("Group A: $39", "Group B: $59"), 
+                            name = "Price Group") +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+p4
+```
+
+Significant findings are as follows:
+
+1.  **Friend referrals, irrespective of price, have a strong positive influence on the likelihood of conversion**, with 'friend_referral.39' and 'friend_referral.59' increasing conversion rates by 1.17 and 0.94 units respectively compared to the reference category.
+
+2.  **The combination of ads and price also matters significantly.** For instance, the group that viewed ads on Google and saw a price of 39 or 59 ('ads-google.39' and 'ads-google.59') had a higher conversion rate than the reference category, with an increase of 0.53 and 0.39 units, respectively. Similarly, ads on Facebook at both price points positively impact conversion rates, but more strongly at the lower price point.
+
+3.  **SEO campaigns' effectiveness varies** depending on the search engine and the price point. 'seo-bing.39' and 'seo-google.39' show a positive impact on conversion rates, while 'seo-bing.59' does not seem to have a significant impact.
+
+4.  **Direct traffic at a higher price point ('direct_traffic.59') negatively impacts the likelihood of conversion**, reducing the conversion rate by 0.28 units compared to the reference category.
+
+Although the Tjur's R2 of the model is very low (Tjur's R2 = 2.70e-03), suggesting that the model explains only a small portion of the variability in conversions, the statistically significant coefficients still provide valuable information on the relationships between specific predictors and the outcome. These insights are still likely to be reliable, as far as they go, as indicated by the precision of these estimates as given by their p-values and confidence intervals.
+
+Next, further analysus was conducted on the interplay of price, source, and the user's device. The results are visually presented in the heatmap below, which illustrates conversion rates for each combination of these factors.
+
+```{r fig.width=9, fig.height=5, echo=FALSE}
+ggthemr('grape', type='outer', layout='clean')
+
+# Group by source and calculate conversion rate
+summary_table <- r_df %>%
+  group_by(device,price, source) %>%
+  summarise(conversion_rate = mean(converted), .groups='drop')
+
+
+# Convert categorical variables to factor
+summary_table$price <- factor(summary_table$price)
+summary_table$source_device <- interaction(summary_table$source, summary_table$device)
+
+# Calculate the average conversion rate for each source-device combination
+average_conversion_rate <- summary_table %>%
+  group_by(source_device) %>%
+  summarise(average_conversion_rate = mean(conversion_rate))
+
+# Join the average conversion rate to the original data
+summary_table <- summary_table %>%
+  left_join(average_conversion_rate, by = "source_device")
+
+# Reorder the levels of the factor based on the average conversion rate
+summary_table$source_device <- summary_table$source_device %>%
+  fct_reorder(summary_table$average_conversion_rate)
+
+# Create heatmap
+ggplot(summary_table, aes(x=source_device, y=price, fill=conversion_rate)) +
+  geom_tile() +
+  scale_fill_gradient(low = "white", high = "brown") +
+  labs(x="Source - Device", y="Price", fill="Conversion Rate") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+The key insights generated from this deeper exploration include:
+
+1.  **The Price Factor**: Consistent with our previous findings, the conversion rate is generally higher for the \$39 price point across various sources and both mobile and web devices. This re-emphasizes the crucial role of pricing strategy in driving conversions.
+
+2.  **Sources and Referrals**: Our initial findings on the superior efficacy of friend referrals are reinforced here. Friend referrals have the highest conversion rates, irrespective of price or device type. This validates the importance of personal recommendations in influencing user decisions.
+
+3.  **Device Specific Observations**: Across most sources, the distinction between mobile and web devices doesn't significantly affect conversion rates. However, mobile users coming from 'friend_referral' at both price points exhibit a slightly higher conversion rate than their web counterparts.
+
+4.  **Interactions Among Factors**: The interplay of these factors also yields interesting insights. For example, 'seo-bing' users on web devices show higher conversion rates at the \$39 price point, comparatively more than other sources.
+
+These findings further refine our understanding of conversion drivers. We've confirmed the impact of price and source, with lower prices and friend referrals being powerful drivers. The role of device type is less clear, though some nuances emerge for friend referrals and certain sources. It is crucial to consider the interactions among these factors in forming a comprehensive strategy. For example, **encouraging friend referrals**, especially **among mobile users**, could be beneficial, as could investing in specific sources such as 'seo-bing' for web users at the lower price point.
+
+## Conversion Rates by Operative System
+
+This part of analysis looks at how different operating systems impact the customer conversion rate. 'android.39' was picked as the reference point for comparison because it represents a large group of our users who are least likely to convert.
+
+```{r echo=TRUE}
+r_df$interaction <- interaction(r_df$operative_system, r_df$price)
+
+# Fit the model
+interaction_model <- glm(converted ~ interaction, family = binomial, data = r_df)
+summary(interaction_model)
+```
+
+The logistic regression model output provides us with a series of coefficients. Each coefficient represents the change in the log odds of conversion -- in other words, making a purchase -- for each category, compared to our reference category (Android users seeing a price of \$39).
+
+Here's how to interpret these numbers:
+
+1.  **Intercept (-4.09794):** This represents the log odds of conversion for the reference group -- Android users seeing a price of \$39. It's negative because the conversion rate for this group is less than 50%.
+
+2.  **iOS.39 (0.37509):** This suggests that, all else being equal, iOS users seeing a price of \$39 have higher log odds of conversion compared to Android users at the same price point. In plain language, they're more likely to make a purchase.
+
+3.  **linux.39 (-0.05818):** Linux users at the \$39 price point don't show a significant difference in the odds of conversion compared to Android users at the same price. The negative number isn't statistically significant, so we can't confidently say there's a difference.
+
+4.  **mac.39 (0.45273):** Mac users seeing a price of \$39 are more likely to convert than Android users at the same price point.
+
+5.  **other.39 (-0.15482):** Users of 'other' devices at the \$39 price point are slightly less likely to convert than Android users, but this difference is not statistically significant.
+
+6.  **windows.39 (0.13778):** Windows users at the \$39 price point are more likely to convert than Android users.
+
+When the price goes up to \$59, the pattern changes:
+
+7.  **android.59 (-0.28269), iOS.59 (0.20581), mac.59 (0.26754), other.59 (-0.39532), windows.59 (-0.15601):** All these categories, compared to Android users at \$39, are less likely to convert. This suggests that raising the price to \$59 reduces the likelihood of conversion for all users, regardless of their operating system.
+
+The bar charts below shows that the mix of device and price can really change whether a customer converts. For instance, Apple users seem more willing to convert at both price points, but especially at \$39. Windows users also seem more likely to convert at \$39, but less so at \$59. Android and 'other' device users seem less likely to convert at \$59.
+
+```{r fig.width=9, fig.height=5, echo=FALSE}
+ggthemr('grape', type='outer', layout='clean')
+
+conversion_by_os <- r_df %>%
+  group_by(operative_system) %>%
+  summarise(conversion_rate = mean(converted))
+
+# Calculate the median conversion rate
+median_conversion_rate <- median(conversion_by_os$conversion_rate)
+
+# Bar chart of conversion rate by source
+ggplot(conversion_by_os, aes(x = reorder(operative_system, -conversion_rate), y = conversion_rate, fill = conversion_rate)) +
+  geom_col() +
+  scale_fill_gradient(low = "darkslategray", high = "darkorange") +
+  geom_hline(yintercept = median_conversion_rate, linetype = "dashed", color = "black") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = "Operative System",
+    y = "Conversion Rate",
+    fill = "Conversion Rate",
+    title = "Conversion Rates by Operative System"
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  geom_text(aes(label = paste0(round(conversion_rate * 100, 2), "%")),
+            position = position_nudge(0, 0.005))
+
+```
+
+```{r fig.width=9, fig.height=5, echo=FALSE}
+ggthemr('grape', type='outer', layout='clean')
+
+# Calculate conversion rate
+conversion_rate <- r_df %>% 
+  filter(!(operative_system %in% c('linux', 'other')))%>%
+  group_by(operative_system, price) %>% 
+  summarise(conversion_rate = mean(converted), .groups = 'drop')
+
+# Calculate the difference in conversion rate from 'android'
+conversion_difference <- conversion_rate %>% 
+  pivot_wider(names_from = operative_system, values_from = conversion_rate) %>% 
+  mutate(across(where(is.numeric), ~ . - `android`)) %>% 
+  pivot_longer(cols = -price, names_to = "operative_system", values_to = "conversion_diff")
+
+# Filter out the 'android' row, as it will just be 0
+conversion_difference <- conversion_difference %>% 
+  filter(operative_system != "android")
+
+# Generate bar plot
+ggplot(conversion_rate, aes(x = reorder(operative_system, conversion_rate), y = conversion_rate, fill = factor(price))) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(title = "Difference in Conversion Rates from Android by Operative System and Price",
+       x = "Operative System",
+       y = "Difference in Conversion Rate") +
+  scale_fill_discrete(labels = c("Group A: $39", "Group B: $59"), 
+                      name = "Price Group") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+ Summary of the insights:
+
+1.  **The kind of operating system used makes a big difference.** Customers using Apple devices (iOS and Mac) who are shown a price of \$39 are more likely to convert than those using Android with the same price. Users of Windows also convert more at the \$39 price than Android users, but not as much as Apple users.
+
+2.  **Things change when the price goes up to \$59.** Apple users (iOS and Mac) are still more likely to convert than Android users, but the gap is not as big as it was at the \$39 price. Interestingly, Android, 'other' device, and Windows users are less likely to convert at this price point than they were when Android users were shown the \$39 price.
+
+3.  **Some systems don't show a clear pattern.** For example, Linux users don't clearly convert more or less at either price point.
