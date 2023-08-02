@@ -26,6 +26,12 @@ This repo contains personal projects completed by me for academic, self learning
     </a>      
 </p>
 
+## Price Optimization Analysis
+<p align= "center">
+  <a href="price_optimization"> 
+  <img src="price_optimization\reports\figures\temporal_analysis.png" width="90%" /> 
+    </a>
+
 ## PwC: Call Centre Analysis
 <p align= "center">
 <a href="PwC_CallCenter"> 
