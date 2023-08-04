@@ -216,7 +216,7 @@ def discretize(v, v_intervals, use_quartiles=False, use_continuous_bins=False):
 
 def plot_prob_progression(x, y, x_intervals=7, use_quartiles=False,\
                           xlabel=None, ylabel=None, title=None, text=None, model=None, X_df=None, x_col=None,\
-                         mean_line=False, figsize=(12,6), x_margin=0.01):
+                         mean_line=False, figsize=(12,6), x_margin=0.01, color='Reds'):
     x = x.astype(int)
     y = y.astype(int)
     if isinstance(x, list): x = np.array(x)
@@ -269,7 +269,7 @@ def plot_prob_progression(x, y, x_intervals=7, use_quartiles=False,\
     ax0.minorticks_on()
     # Disable grid for ax0
     ax0.grid(False)
-    cmap = cm.Reds
+    cmap = mpl.colormaps[color]
     num_segments = len(probs_df['y']) - 1
 
     for i in range(num_segments):
@@ -282,7 +282,7 @@ def plot_prob_progression(x, y, x_intervals=7, use_quartiles=False,\
     ax0.set_xlabel('')
 
     if mean_line:
-        ax0.axhline(y=xy_df.y.mean(), c='#DF7070', alpha=0.6, linestyle='dotted', label="mean")
+        ax0.axhline(y=xy_df.y.mean(), c='#E9EAE5', alpha=0.6, linestyle='dotted', label="mean")
         ax0.legend()
 
     
