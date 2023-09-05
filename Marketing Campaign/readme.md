@@ -1,16 +1,26 @@
 # Marketing Campaign Analysis
 
-This is a project to explore the data from a marketing campaign. The data is stored in the `data` folder. The `marketing_eda.ipynb` notebook contains the code for exploring the data.
 
-## Files and folders
+## Executive Summary
 
-* `data`: The folder contains the data for the marketing campaign.
-* `marketing_eda.ipynb`: The notebook contains the code for exploring the data.
+**Business Objective:**
 
-## Purpose of each file
+The aim was to optimize marketing campaigns for better effectiveness by grouping customers based on their behavior and demographics.
 
-* `data`: The data contains information about the customers who participated in the marketing campaign. The data includes the customer's name, email address, gender, age, and purchase history.
-* `marketing_eda.ipynb`: The notebook contains the code for exploring the data. The notebook includes visualizations of the data, such as bar charts, line charts, and scatter plots. The notebook also includes statistical analysis of the data, such as mean, median, and standard deviation.
+**Context:**
 
-Project status:
-This project is still in development.
+During the initial analysis, it was observed that traditional RFM segments didn't adequately capture differences in customer ages. This prompted exploration of advanced segmentation methods.
+
+**Data Preprocessing:**
+
+This first notebook focused on preparing the data for analysis. Tasks included handling missing data, calculating customer ages, and data preparation for further investigation.
+
+**Project Scope:**
+
+- **Notebook 1:** Data Preprocessing (Current)
+- **Notebook 2:** Exploratory Data Analysis (EDA) with an Emphasis on RFM Analysis
+- **Notebook 3:** Advanced Customer Segmentation Using UMAP and HDBSCAN
+
+**Insights Post-Segmentation:**
+
+Advanced techniques revealed seven distinct customer groups, each with unique behaviors and demographics. Group quality was assessed using the DBCV score.
