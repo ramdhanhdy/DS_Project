@@ -2,7 +2,13 @@
 This repo contains personal projects completed by me for academic, self learning, and hobby purposes. Presented in the form of iPython Notebooks, Clojupyter Notebooks, and R markdown files.
 
 -----
-# Gallery
+# Project Gallery
+## Optimizing Customer Segmentation Using RFM and Unsupervised Methods
+
+<p align= "center">
+  <a href="Marketing Campaign\readme.md"> 
+  <img src="Marketing Campaign\figures\clustering_result.png" width="100%" /> 
+    </a>
 
 ## Sales Dashboard
 <p align= "center">
