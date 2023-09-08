@@ -37,8 +37,8 @@ This study begins with the acquisition and merging of relevant datasets. Followi
 2. For data processing and transformation scripts, refer to the Jupyter notebooks within this repository.
 
 ## Key Deliverables
-* [Notebook on Exploratory Data Analysis](link)
-* [Notebook on Feature Selection and Classification Model](link)
+* [Notebook on Exploratory Data Analysis](HomeCredit\notebooks\HomeCredit_EDA.ipynb)
+* [Notebook on Feature Selection and Classification Model](HomeCredit\notebooks\HomeCredit_Modeling.ipynb)
 
 ---
 
