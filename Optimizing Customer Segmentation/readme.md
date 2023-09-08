@@ -17,7 +17,7 @@ This first notebook focused on preparing the data for analysis. Tasks included h
 
 **Project Scope:**
 
-- **Notebook 1:** Data Preprocessing (Current)
+- **Notebook 1:** Data Preprocessing 
 - **Notebook 2:** Exploratory Data Analysis (EDA) with an Emphasis on RFM Analysis
 - **Notebook 3:** Advanced Customer Segmentation Using UMAP and HDBSCAN
 
