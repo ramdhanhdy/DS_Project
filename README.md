@@ -10,6 +10,9 @@ This repo contains personal projects completed by me for academic, self learning
   <a href="Optimizing Customer Segmentation"> 
   <img src="Optimizing Customer Segmentation\figures\clustering_result.png" width="100%" /> 
     </a>
+  <a href="HomeCredit\readme.md"> 
+  <img src="Optimizing Customer Segmentation\figures\plot3.png" width="100%"/> 
+    </a>
 
 ## Sales Dashboard
 <p align= "center">

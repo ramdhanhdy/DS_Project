@@ -24,3 +24,5 @@ This first notebook focused on preparing the data for analysis. Tasks included h
 **Insights Post-Segmentation:**
 
 Advanced techniques revealed seven distinct customer groups, each with unique behaviors and demographics. Group quality was assessed using the DBCV score.
+
+
