@@ -1,15 +1,15 @@
-# Marketing Campaign Analysis
+# Optimizing Customer Segmentation Using RFM and Unsupervised Methods
 
 
 ## Executive Summary
 
 **Business Objective:**
 
-The aim was to optimize marketing campaigns for better effectiveness by grouping customers based on their behavior and demographics.
+To optimize marketing campaigns by integrating the valuable insights derived from RFM variables, alongside customer demographics and behavioral data, and further enhancing segmentation effectiveness through advanced techniques like UMAP (Uniform Manifold Approximation and Projection) and HDBSCAN
 
-**Context:**
+**Key Findings:**
 
-During the initial analysis, it was observed that traditional RFM segments didn't adequately capture differences in customer ages. This prompted exploration of advanced segmentation methods.
+- In the preliminary analysis, an observation was made regarding the traditional RFM (Recency, Frequency, Monetary) segments. It was noted that these segments did not sufficiently distinguish between customers of different age groups, particularly those aged 60 years and older. Notably, this older demographic consisted of a substantial number of high-value spenders. This discovery prompted an exploration of more advanced segmentation methods.
 
 **Data Preprocessing:**
 
