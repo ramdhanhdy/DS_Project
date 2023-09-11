@@ -7,8 +7,8 @@ This repo contains personal projects completed by me for academic, self learning
 ## Optimizing Customer Segmentation Using RFM and Unsupervised Methods
 
 <p align= "center">
-  <a href="Marketing Campaign\readme.md"> 
-  <img src="Marketing Campaign\figures\clustering_result.png" width="100%" /> 
+  <a href="Optimizing Customer Segmentation"> 
+  <img src="Optimizing Customer Segmentation\figures\clustering_result.png" width="100%" /> 
     </a>
 
 ## Sales Dashboard
@@ -17,7 +17,7 @@ This repo contains personal projects completed by me for academic, self learning
   <img src="Sales Dashboard\images\sales_dashboard_red.png" width="100%" /> 
     </a>
 
-## Home Credit: Loan Default Analysis
+## Home Credit: Loan Default Prediction
 <p align= "center">
   <a href="HomeCredit\readme.md"> 
   <img src="HomeCredit\images\age_loan_dist.png" width="90%" /> 
