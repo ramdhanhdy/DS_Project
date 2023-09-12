@@ -7,10 +7,10 @@ This repo contains personal projects completed by me for academic, self learning
 ## Optimizing Customer Segmentation Using RFM and Unsupervised Methods
 
 <p align= "center">
-  <a href="Optimizing Customer Segmentation"> 
+  <a href="Optimizing%Customer%Segmentation"> 
   <img src="Optimizing Customer Segmentation\figures\clustering_result.png" width="100%" /> 
     </a>
-  <a href="HomeCredit\readme.md"> 
+  <a href="Optimizing%Customer%Segmentation\readme.md"> 
   <img src="Optimizing Customer Segmentation\figures\plot3.png" width="100%"/> 
     </a>
 
