@@ -27,11 +27,6 @@ The dataset used is the "Productivity Prediction of Garment Employees" from UCI.
 
 ```
 Productivity Prediction/
-│Research Questions:
-- In general, what factors contribute to productivity?
-- Are the factors contributing to productivity differ accross different team?
-- Are the factors consistent across quarters?
-- What are the suggestions to improve the productivity of the team?
 ├── README.md
 └── productivity_eda.ipynb
 ```
