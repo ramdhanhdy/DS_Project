@@ -31,18 +31,9 @@ The main objective of this project is to:
 
 (Add instructions for setting up the project, including dependencies and environment setup)
 
-## Usage
-
-(Provide instructions on how to use the segmentation and scoring models, including any API endpoints or interfaces)
-
-## Contributing
-
-(Include guidelines for contributing to the project, if applicable)
 
 ## License
 
-(Specify the license under which this project is released)
 
 ## Contact
 
-(Add contact information for the project maintainers or team)
