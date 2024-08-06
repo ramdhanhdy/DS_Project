@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Trip Duration Prediction</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --background-color: #ecf0f1;
+            --text-color: #2c3e50;
+            --error-color: #e74c3c;
+            --success-color: #2ecc71;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        
+        input, select {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .error {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bus Trip Duration Prediction</h1>
+        <form id="predictionForm" action="/predict" method="post">
+            <div class="form-group">
+                <label for="route_id">Route ID:</label>
+                <input type="text" id="route_id" name="route_id" required>
+                <div class="error" id="route_idError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="start_location">Start Location:</label>
+                <select id="start_location" name="start_location" required>
+                    <option value="">Select start location</option>
+                    {% for location in locations %}
+                    <option value="{{ location }}">{{ location }}</option>
+                    {% endfor %}
+                </select>
+                <div class="error" id="start_locationError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="destination_location">Destination Location:</label>
+                <select id="destination_location" name="destination_location" required>
+                    <option value="">Select destination location</option>
+                    {% for location in locations %}
+                    <option value="{{ location }}">{{ location }}</option>
+                    {% endfor %}
+                </select>
+                <div class="error" id="destination_locationError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="start_time">Start Time:</label>
+                <input type="datetime-local" id="start_time" name="start_time" required>
+                <div class="error" id="start_timeError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" id="temperature" name="temperature" required step="0.1">
+                <div class="error" id="temperatureError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="precip_mm">Precipitation (mm):</label>
+                <input type="number" id="precip_mm" name="precip_mm" required min="0" step="0.1">
+                <div class="error" id="precip_mmError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="cloud_cover">Cloud Cover (%):</label>
+                <input type="number" id="cloud_cover" name="cloud_cover" required min="0" max="100" step="1">
+                <div class="error" id="cloud_coverError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="pressure">Pressure (hPa):</label>
+                <input type="number" id="pressure" name="pressure" required step="0.1">
+                <div class="error" id="pressureError"></div>
+            </div>
+            
+            <button type="submit">Predict Trip Duration</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(event) {
+            let isValid = true;
+            const inputs = this.querySelectorAll('input, select');
+            
+            inputs.forEach(input => {
+                const error = document.getElementById(input.id + 'Error');
+                if (input.value.trim() === '') {
+                    isValid = false;
+                    error.textContent = 'This field is required.';
+                } else if (input.type === 'number' && isNaN(input.value)) {
+                    isValid = false;
+                    error.textContent = 'Please enter a valid number.';
+                } else {
+                    error.textContent = '';
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                const error = document.getElementById(this.id + 'Error');
+                error.textContent = '';
+            });
+        });
+    </script>
+</body>
+</html>
