@@ -1,4 +1,4 @@
-# Advancing Public Transportation in Malang Using Data Drivent Techniques
+# Advancing Public Transportation in Malang Using Data Driven Techniques
 
 Status: Developing Meta Model for Multi-Predictions
 
