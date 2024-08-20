@@ -1,6 +1,6 @@
 # Data Science Project with Flask Deployment
 
-This project [brief description of your project].
+Advancing Public Transportation in Malang Using Data Drivent Techniques
 
 ## Project Structure
 
@@ -39,10 +39,4 @@ This project [brief description of your project].
    ```
 5. Open a web browser and go to `http://localhost:5000`
 
-## Contributing
 
-[Add guidelines for contributing to the project]
-
-## License
-
-[Specify the license for your project]
