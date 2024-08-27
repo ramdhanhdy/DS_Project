@@ -230,13 +230,12 @@ def plot_prob_contour_map(x, y, z, x_intervals=7, y_intervals=7, use_quartiles=F
                                              ha="center", va="center", color="dimgray")
             ax_bottom[0].grid(False)
 
-    ax_bottom[0].xaxis.set_major_locator(plticker.MultipleLocator(base=1.0))
+    ax_bottom[0].xaxis.set_major_locator(MultipleLocator(base=1.0))  # Corrected line
     # ax_bottom[0].set_xticks(range(len(x_bins)+1))
     ax_bottom[0].set_xticklabels([''] + list(x_bins))
-    ax_bottom[0].yaxis.set_major_locator(plticker.MultipleLocator(base=1.0))
+    ax_bottom[0].yaxis.set_major_locator(MultipleLocator(base=1.0))  # Corrected line
     # ax_bottom[0].set_yticks(range(len(y_bins)+1))
     ax_bottom[0].set_yticklabels([''] + list(y_bins))
-    # ax_bottom[0].margins(x=0.04, y=0.04)
 
     if xlabel is not None:
         ax_bottom[0].set_xlabel(xlabel, fontsize=15)
