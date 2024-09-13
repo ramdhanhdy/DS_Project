@@ -34,21 +34,17 @@ def create_summary_table(df):
             stats = series.describe()
             iqr = stats['75%'] - stats['25%']
             cv = (stats['std'] / stats['mean']).round(1) if stats['mean'] != 0 else np.nan
-            stats = pd.DataFrame({
-                'Stat': ['Mean (sd)', 'min < med < max', 'IQR (CV)'],
-                'Value': [
-                    f"{stats['mean']:.1f} ({stats['std']:.1f})",
-                    f"{stats['min']:.1f} < {stats['50%']:.1f} < {stats['max']:.1f}",
-                    f"{iqr:.1f} ({cv})"
-                ]
-            })
+            stats = [
+                ('Mean (sd)', f"{stats['mean']:.1f} ({stats['std']:.1f})"),
+                ('min < med < max', f"{stats['min']:.1f} < {stats['50%']:.1f} < {stats['max']:.1f}"),
+                ('IQR (CV)', f"{iqr:.1f} ({cv})")
+            ]
         else:
             freq_counts = series.value_counts()
-            stats = pd.DataFrame({
-                'Values': freq_counts.index[:5],
-                'Freq': freq_counts.values[:5],
-                '% of Valid': (freq_counts.values[:5] / series.count() * 100).round(1)
-            })
+            stats = [
+                (str(val), f"{count} ({count/series.count()*100:.1f}%)")
+                for val, count in freq_counts.head().items()
+            ]
         
         graph = plot_to_base64(series, var_type)
         return var_type, stats, missing, distinct, graph
@@ -71,17 +67,12 @@ def create_summary_table(df):
     for idx, summary in enumerate(summaries, 1):
         html_parts.append(f'<tr><td>{idx}</td><td>{summary["Variable"]}<br>[{summary["Type"]}]</td>')
         
-        if summary['Type'] in ['object', 'category']:
-            stats_html = '<br>'.join([f"{row['Values']}: {row['Freq']} ({row['% of Valid']}%)" for _, row in summary['Stats'].iterrows()])
-            freqs_html = '<br>'.join([f"{row['Freq']} ({row['% of Valid']}%)" for _, row in summary['Stats'].iterrows()])
-        else:
-            stats_html = '<br>'.join([f"{row['Stat']}: {row['Value']}" for _, row in summary['Stats'].iterrows()])
-            freqs_html = f"{summary['Distinct']} distinct values"
+        stats_html = '<br>'.join([f"{stat}: {value}" for stat, value in summary['Stats']])
+        freqs_html = f"{summary['Distinct']} distinct values"
         
         html_parts.append(f'<td>{stats_html}</td>')
         html_parts.append(f'<td>{freqs_html}</td>')
         html_parts.append(f'<td><img src="data:image/png;base64,{summary["Graph"]}" style="width:200px;height:150px;"></td>')
         html_parts.append(f'<td>{summary["Missing"]} ({summary["Missing"]/len(df)*100:.1f}%)</td></tr>')
-
     html_parts.append('</table>')
     return HTML(''.join(html_parts))
