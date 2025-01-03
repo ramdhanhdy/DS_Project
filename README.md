@@ -6,13 +6,15 @@ This repo contains personal projects completed by me for academic, self learning
 # Project Gallery
 ## Optimizing Customer Segmentation Using RFM and Unsupervised Methods
 
-<p align= "center">
-  <a href="Optimizing Customer Segmentation"> 
-  <img src="Optimizing Customer Segmentation\figures\clustering_result.png" width="100%" /> 
-    </a>
-  <a href="Optimizing Customer Segmentation\figures\plot3.png"> 
-  <img src="Optimizing Customer Segmentation\figures\plot3.png" width="100%"/> 
-    </a>
+<p align="center">
+  <!-- Link to the submodule repository -->
+  <a href="https://github.com/ramdhanhdy/Optimizing_Customer_Segmentation" target="_blank">
+    <img src="https://raw.githubusercontent.com/ramdhanhdy/Optimizing_Customer_Segmentation/main/figures/clustering_result.png" width="100%" alt="Clustering Result" />
+  </a>
+  <a href="https://github.com/ramdhanhdy/Optimizing_Customer_Segmentation/blob/main/figures/plot3.png" target="_blank">
+    <img src="https://raw.githubusercontent.com/ramdhanhdy/Optimizing_Customer_Segmentation/main/figures/plot3.png" width="100%" alt="Plot 3" />
+  </a>
+</p>
 
 ## Sales Dashboard
 <p align= "center">
