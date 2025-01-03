@@ -4,3 +4,6 @@
 [submodule "price_optimization"]
 	path = price_optimization
 	url = https://github.com/ramdhanhdy/price_optimization.git
+[submodule "bus-schedule-app"]
+	path = bus-schedule-app
+	url = https://github.com/ramdhanhdy/bus-schedule-app.git
