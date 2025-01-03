@@ -1,3 +1,6 @@
 [submodule "Optimizing Customer Segmentation"]
 	path = Optimizing Customer Segmentation
 	url = https://github.com/ramdhanhdy/Optimizing_Customer_Segmentation.git
+[submodule "price_optimization"]
+	path = price_optimization
+	url = https://github.com/ramdhanhdy/price_optimization.git
